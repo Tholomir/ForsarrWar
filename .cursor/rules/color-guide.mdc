@@ -1,0 +1,117 @@
+---
+description: designed color system implemented through Tailwind CSS
+globs: 
+alwaysApply: false
+---
+# Forsarr War Campaign - Color Usage Guide
+
+This guide demonstrates how to use the custom Tailwind color scheme defined in `js/tailwind.config.js`.
+
+## Color Groups
+
+### Warhammer 40k Theme Colors
+- `imperial-red`: Primary accent color (#990000)
+- `aquila-gold`: Secondary accent color (#d4af37)
+- `mechanicus-gray`: Industrial gray for UI elements (#333333)
+- `chaos-black`: Deep background black (#0a0a0a)
+- `parchment`: Light paper-like background (#f5ecd5)
+- `text-color`: Default text color (#f0f0f0)
+- `header-bg`: Semi-transparent header background
+- `section-bg`: Semi-transparent section background
+
+### New Standard Color Palette
+
+#### Base Colors
+- `base-bg`: Main dark background (equivalent to zinc-900)
+- `base-text`: Primary text color over dark backgrounds (equivalent to stone-200)
+
+#### Accents and Highlights
+- `accent-bg`: Background color for headers, footers, important elements (equivalent to green-800)
+- `accent-text`: Bright text for callouts and highlights (equivalent to lime-400)
+- `accent-border`: Border color for emphasis (equivalent to lime-400)
+
+#### Secondary and Neutral Colors
+- `secondary-text`: Muted text for subtitles and captions (equivalent to stone-400)
+- `card-bg`: Light background for cards and panels (equivalent to stone-200)
+- `card-text`: Dark text for use on light backgrounds (equivalent to zinc-900)
+- `highlight`: Decorative highlights for headings and key elements (equivalent to amber-600)
+- `neutral-text`: Body text on light backgrounds (equivalent to stone-600)
+- `secondary-bg`: Alternative dark background for contrast sections (equivalent to zinc-800)
+- `footer-text`: Muted text for footer content (equivalent to stone-300)
+
+## Component Usage Examples
+
+### Main Layout
+```html
+<body class="bg-base-bg text-base-text">
+  <main class="container mx-auto px-4 py-8">
+    <!-- Content goes here -->
+  </main>
+</body>
+```
+
+### Header
+```html
+<header class="bg-accent-bg text-accent-text py-4">
+  <nav class="container mx-auto px-4">
+    <!-- Navigation items -->
+  </nav>
+</header>
+```
+
+### Card Component
+```html
+<div class="bg-card-bg text-card-text rounded-lg shadow-md p-6">
+  <h3 class="text-highlight text-xl font-bold mb-2">Card Title</h3>
+  <p class="text-neutral-text">Card content goes here...</p>
+</div>
+```
+
+### Callout/Alert Box
+```html
+<div class="bg-secondary-bg border-l-4 border-accent-border p-4 mb-4">
+  <p class="text-accent-text font-medium">Important information!</p>
+  <p class="text-base-text mt-2">Details about the alert...</p>
+</div>
+```
+
+### Button Styles
+```html
+<!-- Primary button -->
+<button class="bg-imperial-red hover:bg-red-700 text-base-text px-4 py-2 rounded">
+  Primary Action
+</button>
+
+<!-- Secondary button -->
+<button class="bg-transparent border border-accent-text text-accent-text hover:bg-accent-text hover:text-card-text px-4 py-2 rounded">
+  Secondary Action
+</button>
+```
+
+### Footer
+```html
+<footer class="bg-accent-bg py-6">
+  <div class="container mx-auto px-4">
+    <p class="text-footer-text">&copy; 2023 Forsarr War Campaign</p>
+  </div>
+</footer>
+```
+
+## Legacy to New Color Mapping
+
+If you're updating existing code, use this mapping to convert from legacy colors to the new color scheme:
+
+| Legacy Color | New Color |
+|--------------|-----------|
+| bg-zinc-900 | bg-base-bg |
+| text-stone-200 | text-base-text |
+| bg-green-800 | bg-accent-bg |
+| text-lime-400 | text-accent-text |
+| text-stone-400 | text-secondary-text |
+| bg-stone-200 | bg-card-bg |
+| text-zinc-900 | text-card-text |
+| text-amber-600 | text-highlight |
+| text-stone-600 | text-neutral-text |
+| border-lime-400 | border-accent-border |
+| bg-zinc-800 | bg-secondary-bg |
+| text-stone-300 | text-footer-text | 
