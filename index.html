@@ -67,36 +67,7 @@
   </div>
 
   <main class="relative px-4 z-10">
-    <!-- About Section with Split Design -->
-    <section id="campaign" class="max-w-7xl mx-auto py-12 md:py-16">
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div class="order-2 md:order-1">
-          <div class="relative">
-            <div class="absolute -inset-1 bg-amber-600/20 rounded-lg blur-sm"></div>
-            <div class="relative bg-zinc-800 p-6 rounded-lg border-l-4 border-amber-600">
-              <h2 class="text-2xl md:text-3xl text-amber-600 font-bold mb-6">About the Campaign</h2>
-              <p class="mb-4 text-stone-200">The Forsarr System, once a prosperous Imperial holding, now stands at the precipice of total war. Multiple factions vie for control of this strategic sector as ancient evils awaken and new threats emerge.</p>
-              <p class="text-stone-200">Follow the progress of our Warhammer 40k campaign, track faction movements, and witness the fate of the Forsarr System unfold through battle reports and narrative developments.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="order-1 md:order-2">
-          <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl relative">
-            <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
-            <img src="assets/images/Forsarr_Subsector_Map.png" alt="Campaign Image" class="object-cover w-full h-full">
-            <div class="absolute bottom-4 left-4 z-20">
-              <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
-                <span class="w-2 h-2 bg-lime-400 rounded-full"></span>
-                <span class="text-stone-200 text-sm">Campaign Active</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Updates Section with Modern Tabs and Cards -->
+    <!-- Updates Section with Modern Tabs and Cards (Moved Up) -->
     <section id="updates" class="max-w-7xl mx-auto py-12 md:py-16">
       <div class="flex items-center justify-center space-x-3 mb-8">
         <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center">
@@ -108,9 +79,9 @@
       </div>
       
       <sl-tab-group class="custom-tabs">
-        <sl-tab slot="nav" panel="narrative">Narrative Developments</sl-tab>
-        <sl-tab slot="nav" panel="faction-updates">Faction Updates</sl-tab>
         <sl-tab slot="nav" panel="battle-reports">Battle Reports</sl-tab>
+        <sl-tab slot="nav" panel="faction-updates">Faction Updates</sl-tab>
+        <sl-tab slot="nav" panel="narrative">Narrative Developments</sl-tab>
         
         <sl-tab-panel name="battle-reports">
           <div class="grid md:grid-cols-2 gap-6">
@@ -160,6 +131,35 @@
           </sl-card>
         </sl-tab-panel>
       </sl-tab-group>
+    </section>
+    
+    <!-- About Section with Split Design (Moved Down) -->
+    <section id="campaign" class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <div class="relative">
+            <div class="absolute -inset-1 bg-amber-600/20 rounded-lg blur-sm"></div>
+            <div class="relative bg-zinc-800 p-6 rounded-lg border-l-4 border-amber-600">
+              <h2 class="text-2xl md:text-3xl text-amber-600 font-bold mb-6">About the Campaign</h2>
+              <p class="mb-4 text-stone-200">The Forsarr System, once a prosperous Imperial holding, now stands at the precipice of total war. Multiple factions vie for control of this strategic sector as ancient evils awaken and new threats emerge.</p>
+              <p class="text-stone-200">Follow the progress of our Warhammer 40k campaign, track faction movements, and witness the fate of the Forsarr System unfold through battle reports and narrative developments.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 md:order-2">
+          <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
+            <img src="assets/images/Forsarr_Subsector_Map.png" alt="Campaign Image" class="object-cover w-full h-full">
+            <div class="absolute bottom-4 left-4 z-20">
+              <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
+                <span class="w-2 h-2 bg-lime-400 rounded-full"></span>
+                <span class="text-stone-200 text-sm">Campaign Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     
     <!-- Rules Section with Card Design -->
