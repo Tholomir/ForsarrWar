@@ -7,43 +7,42 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" href="../assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../js/tailwind.config.js"></script>
   
   <!-- Shoelace Component Library -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
 </head>
-<body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
-  <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
+<body class="font-sans text-stone-200 bg-zinc-900 bg-cover bg-fixed bg-center text-base">
+  <header class="bg-green-800 p-4 border-b-2 border-lime-400 md:p-4 md:pb-0">
     <div class="text-center mb-4">
-      <h1 class="text-2xl text-aquila-gold font-bold md:text-4xl">Forsarr War Campaign</h1>
+      <h1 class="text-2xl text-lime-400 font-bold md:text-4xl">Forsarr War Campaign</h1>
     </div>
-    <button class="nav-toggle block w-full text-center text-aquila-gold text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
+    <button class="nav-toggle block w-full text-center text-lime-400 text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
     <nav id="mainNav">
       <ul class="flex flex-col list-none mt-4 md:flex-row md:justify-center md:mt-0">
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="../index.html" class="text-aquila-gold hover:underline">Home</a>
+          <a href="../index.html" class="text-lime-400 hover:underline">Home</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="factions.html" class="text-aquila-gold hover:underline">Factions</a>
+          <a href="factions.html" class="text-lime-400 hover:underline">Factions</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="timeline.html" class="text-aquila-gold hover:underline">Campaign Timeline</a>
+          <a href="timeline.html" class="text-lime-400 hover:underline">Campaign Timeline</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="gallery.html" class="text-aquila-gold hover:underline">Gallery</a>
+          <a href="gallery.html" class="text-lime-400 hover:underline">Gallery</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <main class="p-4 md:max-w-7xl md:mx-auto md:p-8">
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
-      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">Forsarr War Campaign Timeline</h2>
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-amber-600 font-bold mb-4 md:text-3xl">Forsarr War Campaign Timeline</h2>
       <p>Track the chronological events of the campaign as they unfold across the Forsarr System</p>
       
       <sl-range label="Timeline Navigation" min="0" max="5" step="1" value="0" class="mt-4 mb-2" tooltip="top" id="timeline-slider"></sl-range>
-      <div class="flex justify-between text-xs text-aquila-gold mb-4">
+      <div class="flex justify-between text-xs text-amber-600 mb-4">
         <span>997.M41</span>
         <span>998.M41</span>
         <span>999.M41</span>
@@ -53,7 +52,7 @@
       </div>
     </section>
 
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
       <div class="timeline-controls flex justify-between md:justify-center md:gap-4 mb-4">
         <sl-button id="scroll-left" size="small">
           <sl-icon slot="prefix" name="arrow-left"></sl-icon>
@@ -69,76 +68,76 @@
         <div class="timeline">
           <!-- Example events - these will be populated with actual campaign events -->
           <div class="timeline-event" data-year="997.M41">
-            <div class="timeline-date">997.M41</div>
-            <h3 class="text-lg text-aquila-gold font-bold mb-2">First Contact</h3>
-            <p class="text-sm">Imperial scouts detect anomalous activity in the Forsarr System.</p>
+            <div class="timeline-date text-amber-600 font-bold">997.M41</div>
+            <h3 class="text-lg text-lime-400 font-bold mb-2">First Contact</h3>
+            <p class="text-stone-200 text-sm">Imperial scouts detect anomalous activity in the Forsarr System.</p>
             <sl-details class="mt-2" summary="Event Details">
               <sl-badge variant="neutral" class="mb-2">Planetary Scan</sl-badge>
-              <p class="text-sm">Long-range auspex scans from the Imperial cruiser <em>Righteous Fury</em> detected energy signatures consistent with Xenos technology on the fourth planet of the Forsarr System.</p>
+              <p class="text-stone-200 text-sm">Long-range auspex scans from the Imperial cruiser <em>Righteous Fury</em> detected energy signatures consistent with Xenos technology on the fourth planet of the Forsarr System.</p>
             </sl-details>
           </div>
 
           <div class="timeline-event" data-year="998.M41">
-            <div class="timeline-date">998.M41</div>
-            <h3 class="text-lg text-aquila-gold font-bold mb-2">Planetfall</h3>
-            <p class="text-sm">The first Imperial regiments land on Forsarr IV to establish a beachhead.</p>
+            <div class="timeline-date text-amber-600 font-bold">998.M41</div>
+            <h3 class="text-lg text-lime-400 font-bold mb-2">Planetfall</h3>
+            <p class="text-stone-200 text-sm">The first Imperial regiments land on Forsarr IV to establish a beachhead.</p>
             <sl-details class="mt-2" summary="Event Details">
               <sl-badge variant="primary" class="mb-2">Imperial Guard</sl-badge>
-              <p class="text-sm">The 47th Cadian Regiment established a foothold in the northern hemisphere of Forsarr IV after a contested landing.</p>
+              <p class="text-stone-200 text-sm">The 47th Cadian Regiment established a foothold in the northern hemisphere of Forsarr IV after a contested landing.</p>
             </sl-details>
           </div>
 
           <div class="timeline-event" data-year="999.M41">
-            <div class="timeline-date">999.M41</div>
-            <h3 class="text-lg text-aquila-gold font-bold mb-2">The Ancient Awakens</h3>
-            <p class="text-sm">Deep beneath the surface of Forsarr II, something ancient stirs from millenia of slumber.</p>
+            <div class="timeline-date text-amber-600 font-bold">999.M41</div>
+            <h3 class="text-lg text-lime-400 font-bold mb-2">The Ancient Awakens</h3>
+            <p class="text-stone-200 text-sm">Deep beneath the surface of Forsarr II, something ancient stirs from millenia of slumber.</p>
             <sl-details class="mt-2" summary="Event Details">
               <sl-badge variant="warning" class="mb-2">Necron Activity</sl-badge>
-              <p class="text-sm">Imperial archeological team Delta-7 discovered an ancient tomb complex showing signs of reactivation.</p>
+              <p class="text-stone-200 text-sm">Imperial archeological team Delta-7 discovered an ancient tomb complex showing signs of reactivation.</p>
             </sl-details>
           </div>
 
           <div class="timeline-event" data-year="999.M41">
-            <div class="timeline-date">999.M41</div>
-            <h3 class="text-lg text-aquila-gold font-bold mb-2">Reinforcements Arrive</h3>
-            <p class="text-sm">Adeptus Astartes forces arrive in the system, responding to distress signals.</p>
+            <div class="timeline-date text-amber-600 font-bold">999.M41</div>
+            <h3 class="text-lg text-lime-400 font-bold mb-2">Reinforcements Arrive</h3>
+            <p class="text-stone-200 text-sm">Adeptus Astartes forces arrive in the system, responding to distress signals.</p>
             <sl-details class="mt-2" summary="Event Details">
               <sl-badge variant="success" class="mb-2">Space Marines</sl-badge>
-              <p class="text-sm">The Ultramarines 2nd Company arrived in orbit around Forsarr IV and deployed strike teams to critical sectors.</p>
+              <p class="text-stone-200 text-sm">The Ultramarines 2nd Company arrived in orbit around Forsarr IV and deployed strike teams to critical sectors.</p>
             </sl-details>
           </div>
 
           <div class="timeline-event" data-year="001.M42">
-            <div class="timeline-date">001.M42</div>
-            <h3 class="text-lg text-aquila-gold font-bold mb-2">The Forsarr Blockade</h3>
-            <p class="text-sm">Chaos warfleet emerges from the warp, cutting off Imperial supply lines.</p>
+            <div class="timeline-date text-amber-600 font-bold">001.M42</div>
+            <h3 class="text-lg text-lime-400 font-bold mb-2">The Forsarr Blockade</h3>
+            <p class="text-stone-200 text-sm">Chaos warfleet emerges from the warp, cutting off Imperial supply lines.</p>
             <sl-details class="mt-2" summary="Event Details">
               <sl-badge variant="danger" class="mb-2">Chaos</sl-badge>
-              <p class="text-sm">A fleet bearing the marks of the Black Legion established a blockade at the system's Mandeville point, preventing reinforcements.</p>
+              <p class="text-stone-200 text-sm">A fleet bearing the marks of the Black Legion established a blockade at the system's Mandeville point, preventing reinforcements.</p>
             </sl-details>
           </div>
 
           <div class="timeline-event" data-year="002.M42">
-            <div class="timeline-date">002.M42</div>
-            <h3 class="text-lg text-aquila-gold font-bold mb-2">The Forsarr Conclave</h3>
-            <p class="text-sm">Imperial commanders gather to formulate a new strategy for system defense.</p>
+            <div class="timeline-date text-amber-600 font-bold">002.M42</div>
+            <h3 class="text-lg text-lime-400 font-bold mb-2">The Forsarr Conclave</h3>
+            <p class="text-stone-200 text-sm">Imperial commanders gather to formulate a new strategy for system defense.</p>
             <sl-details class="mt-2" summary="Event Details">
               <sl-badge variant="primary" class="mb-2">Strategic Planning</sl-badge>
-              <p class="text-sm">Captain Augustus of the Ultramarines hosted a war council with Guard Colonel Tarik and Naval Commander Ellisine to coordinate actions against the growing threats.</p>
+              <p class="text-stone-200 text-sm">Captain Augustus of the Ultramarines hosted a war council with Guard Colonel Tarik and Naval Commander Ellisine to coordinate actions against the growing threats.</p>
             </sl-details>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
-      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">About the Timeline</h2>
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-amber-600 font-bold mb-4 md:text-3xl">About the Timeline</h2>
       <p class="mb-4">This timeline chronicles the major events of the Forsarr War Campaign. Each event represents a significant moment in the narrative, often resulting from actual tabletop battles and their outcomes.</p>
       <p>The timeline will be updated as the campaign progresses, with new events added to reflect the evolving conflict in the Forsarr System.</p>
       
       <sl-divider class="my-4"></sl-divider>
       
-      <h3 class="text-lg text-aquila-gold font-bold mb-3">Timeline Legend</h3>
+      <h3 class="text-lg text-amber-600 font-bold mb-3">Timeline Legend</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <sl-badge variant="neutral">Planetary Scan</sl-badge>
@@ -168,39 +167,59 @@
   <style>
     /* Custom Shoelace styling to match your theme */
     sl-button::part(base) {
-      background-color: var(--imperial-red);
-      border-color: var(--aquila-gold);
+      background-color: var(--sl-color-lime-400);
+      border-color: var(--sl-color-amber-600);
+      color: var(--sl-color-neutral-900);
+    }
+    
+    sl-button::part(base):hover {
+      background-color: var(--sl-color-lime-500);
     }
     
     sl-details::part(header) {
-      color: var(--aquila-gold);
+      color: var(--sl-color-amber-600);
     }
     
     sl-details::part(content) {
-      background-color: rgba(10, 10, 10, 0.5);
-      border-top: 1px solid var(--imperial-red);
+      background-color: var(--sl-color-neutral-950);
+      border-top: 1px solid var(--sl-color-lime-400);
       padding: 0.5rem;
     }
     
     sl-badge::part(base) {
-      border: 1px solid var(--imperial-red);
+      border: 1px solid var(--sl-color-lime-400);
     }
     
     sl-divider::part(base) {
-      --color: var(--imperial-red);
+      --color: var(--sl-color-lime-400);
       opacity: 0.7;
     }
     
     sl-range::part(base) {
-      --track-color: var(--mechanicus-gray);
-      --track-color-active: var(--imperial-red);
-      --thumb-color: var(--aquila-gold);
+      --track-color: var(--sl-color-neutral-700);
+      --track-color-active: var(--sl-color-lime-400);
+      --thumb-color: var(--sl-color-amber-600);
+    }
+    
+    /* Timeline specific styling */
+    .timeline::before {
+      background-color: var(--sl-color-lime-400);
+    }
+    
+    .timeline-event {
+      background-color: var(--sl-color-neutral-900);
+      border-color: var(--sl-color-lime-400);
+    }
+    
+    .timeline-event::before {
+      background-color: var(--sl-color-amber-600);
+      border-color: var(--sl-color-lime-400);
     }
   </style>
 
-  <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
-    <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
-    <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+  <footer class="text-center p-6 bg-green-800 mt-8 border-t-2 border-lime-400 text-sm md:mt-12">
+    <p class="mb-2 text-stone-300">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+    <p class="text-stone-300"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
   </footer>
 
   <script src="../js/main.js"></script>

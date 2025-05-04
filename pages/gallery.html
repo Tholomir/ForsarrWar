@@ -7,44 +7,43 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" href="../assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../js/tailwind.config.js"></script>
   
   <!-- Shoelace Component Library -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
 </head>
-<body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
-  <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
+<body class="font-sans text-stone-200 bg-zinc-900 bg-cover bg-fixed bg-center text-base">
+  <header class="bg-green-800 p-4 border-b-2 border-lime-400 md:p-4 md:pb-0">
     <div class="text-center mb-4">
-      <h1 class="text-2xl text-aquila-gold font-bold md:text-4xl">Forsarr War Campaign</h1>
+      <h1 class="text-2xl text-lime-400 font-bold md:text-4xl">Forsarr War Campaign</h1>
     </div>
-    <button class="nav-toggle block w-full text-center text-aquila-gold text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
+    <button class="nav-toggle block w-full text-center text-lime-400 text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
     <nav id="mainNav">
       <ul class="flex flex-col list-none mt-4 md:flex-row md:justify-center md:mt-0">
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="../index.html" class="text-aquila-gold hover:underline">Home</a>
+          <a href="../index.html" class="text-lime-400 hover:underline">Home</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="factions.html" class="text-aquila-gold hover:underline">Factions</a>
+          <a href="factions.html" class="text-lime-400 hover:underline">Factions</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="timeline.html" class="text-aquila-gold hover:underline">Campaign Timeline</a>
+          <a href="timeline.html" class="text-lime-400 hover:underline">Campaign Timeline</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="gallery.html" class="text-aquila-gold hover:underline">Gallery</a>
+          <a href="gallery.html" class="text-lime-400 hover:underline">Gallery</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <main class="p-4 md:max-w-7xl md:mx-auto md:p-8">
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
-      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">Campaign Gallery</h2>
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-amber-600 font-bold mb-4 md:text-3xl">Campaign Gallery</h2>
       <p>Images from battles, events, and narrative moments across the Forsarr System</p>
     </section>
 
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
-      <h3 class="text-lg text-aquila-gold font-bold mb-3 md:text-2xl">Filter Images</h3>
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h3 class="text-lg text-amber-600 font-bold mb-3 md:text-2xl">Filter Images</h3>
       <div class="flex flex-wrap gap-2 mt-2">
         <sl-button-group label="Filters">
           <sl-button class="filter-button active" data-filter="all">All</sl-button>
@@ -56,66 +55,66 @@
       </div>
     </section>
 
-    <div class="flex flex-col gap-6 mb-8 md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
       <!-- Image grid will be populated as the campaign progresses -->
       <!-- Placeholder images for now -->
-      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="battles">
+      <div class="gallery-item bg-zinc-800 rounded overflow-hidden border border-lime-400" data-category="battles">
         <figure class="m-0">
           <img src="../assets/images/placeholder-battle.jpg" alt="Battle for Hive Forsarr" class="w-full h-auto block max-h-60 object-cover object-center cursor-pointer" @click="openGalleryDialog('Battle for Hive Forsarr', '../assets/images/placeholder-battle.jpg')">
           <figcaption class="p-4">
-            <h4 class="text-lg text-aquila-gold font-bold mb-2">Battle for Hive Forsarr</h4>
-            <p class="text-sm leading-relaxed">Imperial forces engage heretic astartes at the gates of Hive Forsarr</p>
+            <h4 class="text-lg text-amber-600 font-bold mb-2">Battle for Hive Forsarr</h4>
+            <p class="text-stone-400 text-sm leading-relaxed">Imperial forces engage heretic astartes at the gates of Hive Forsarr</p>
             <sl-button size="small" class="mt-2" @click="openGalleryDialog('Battle for Hive Forsarr', '../assets/images/placeholder-battle.jpg')">View Larger</sl-button>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="factions">
+      <div class="gallery-item bg-zinc-800 rounded overflow-hidden border border-lime-400" data-category="factions">
         <figure class="m-0">
           <img src="../assets/images/placeholder-faction.jpg" alt="Ultramarines Deployment" class="w-full h-auto block max-h-60 object-cover object-center">
           <figcaption class="p-4">
-            <h4 class="text-lg text-aquila-gold font-bold mb-2">Ultramarines Deployment</h4>
-            <p class="text-sm leading-relaxed">Ultramarines prepare for combat operation on Forsarr IV</p>
+            <h4 class="text-lg text-amber-600 font-bold mb-2">Ultramarines Deployment</h4>
+            <p class="text-stone-400 text-sm leading-relaxed">Ultramarines prepare for combat operation on Forsarr IV</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="terrain">
+      <div class="gallery-item bg-zinc-800 rounded overflow-hidden border border-lime-400" data-category="terrain">
         <figure class="m-0">
           <img src="../assets/images/placeholder-terrain.jpg" alt="Ruins of Forsarr II" class="w-full h-auto block max-h-60 object-cover object-center">
           <figcaption class="p-4">
-            <h4 class="text-lg text-aquila-gold font-bold mb-2">Ruins of Forsarr II</h4>
-            <p class="text-sm leading-relaxed">Ancient ruins discovered beneath the surface of Forsarr II</p>
+            <h4 class="text-lg text-amber-600 font-bold mb-2">Ruins of Forsarr II</h4>
+            <p class="text-stone-400 text-sm leading-relaxed">Ancient ruins discovered beneath the surface of Forsarr II</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="narrative">
+      <div class="gallery-item bg-zinc-800 rounded overflow-hidden border border-lime-400" data-category="narrative">
         <figure class="m-0">
           <img src="../assets/images/placeholder-narrative.jpg" alt="War Council" class="w-full h-auto block max-h-60 object-cover object-center">
           <figcaption class="p-4">
-            <h4 class="text-lg text-aquila-gold font-bold mb-2">War Council</h4>
-            <p class="text-sm leading-relaxed">Imperial commanders strategize during the Forsarr Conclave</p>
+            <h4 class="text-lg text-amber-600 font-bold mb-2">War Council</h4>
+            <p class="text-stone-400 text-sm leading-relaxed">Imperial commanders strategize during the Forsarr Conclave</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="battles">
+      <div class="gallery-item bg-zinc-800 rounded overflow-hidden border border-lime-400" data-category="battles">
         <figure class="m-0">
           <img src="../assets/images/placeholder-battle2.jpg" alt="Ambush at Dusk" class="w-full h-auto block max-h-60 object-cover object-center">
           <figcaption class="p-4">
-            <h4 class="text-lg text-aquila-gold font-bold mb-2">Ambush at Dusk</h4>
-            <p class="text-sm leading-relaxed">Xenos forces ambush an Imperial convoy in the Forsarr wastes</p>
+            <h4 class="text-lg text-amber-600 font-bold mb-2">Ambush at Dusk</h4>
+            <p class="text-stone-400 text-sm leading-relaxed">Xenos forces ambush an Imperial convoy in the Forsarr wastes</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="factions">
+      <div class="gallery-item bg-zinc-800 rounded overflow-hidden border border-lime-400" data-category="factions">
         <figure class="m-0">
           <img src="../assets/images/placeholder-faction2.jpg" alt="Death Guard Advance" class="w-full h-auto block max-h-60 object-cover object-center">
           <figcaption class="p-4">
-            <h4 class="text-lg text-aquila-gold font-bold mb-2">Death Guard Advance</h4>
-            <p class="text-sm leading-relaxed">Plague marines march through the toxic fumes of Forsarr III</p>
+            <h4 class="text-lg text-amber-600 font-bold mb-2">Death Guard Advance</h4>
+            <p class="text-stone-400 text-sm leading-relaxed">Plague marines march through the toxic fumes of Forsarr III</p>
           </figcaption>
         </figure>
       </div>
@@ -124,11 +123,11 @@
     <!-- Image Dialog for full-size viewing -->
     <sl-dialog id="gallery-dialog" label="Gallery Image" class="dialog-overview">
       <img id="dialog-image" src="" alt="" class="w-full max-h-[70vh] object-contain">
-      <p id="dialog-caption" class="mt-4 text-center text-aquila-gold"></p>
+      <p id="dialog-caption" class="mt-4 text-center text-amber-600"></p>
     </sl-dialog>
 
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
-      <h3 class="text-lg text-aquila-gold font-bold mb-3 md:text-2xl">Submit Your Images</h3>
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h3 class="text-lg text-amber-600 font-bold mb-3 md:text-2xl">Submit Your Images</h3>
       <p class="mb-4">Have images from our campaign that you'd like to share? Contact the campaign master to have them added to the gallery.</p>
       
       <sl-form class="submit-form mt-4">
@@ -165,47 +164,52 @@
   <style>
     /* Custom Shoelace styling to match your theme */
     sl-button::part(base) {
-      background-color: var(--imperial-red);
-      border-color: var(--aquila-gold);
+      background-color: var(--sl-color-lime-400);
+      border-color: var(--sl-color-amber-600);
+      color: var(--sl-color-neutral-900);
+    }
+    
+    sl-button::part(base):hover {
+      background-color: var(--sl-color-lime-500);
     }
     
     sl-button.active::part(base) {
-      background-color: var(--imperial-red);
-      border-color: var(--aquila-gold);
-      color: var(--text-color);
+      background-color: var(--sl-color-lime-500);
+      border-color: var(--sl-color-amber-600);
+      color: var(--sl-color-neutral-900);
     }
     
     sl-button-group::part(base) {
-      border-color: var(--imperial-red);
+      border-color: var(--sl-color-lime-400);
     }
     
     sl-dialog::part(panel) {
-      background-color: rgba(20, 20, 20, 0.95);
-      border: 2px solid var(--imperial-red);
+      background-color: var(--sl-color-neutral-900);
+      border: 2px solid var(--sl-color-lime-400);
     }
     
     sl-dialog::part(header) {
-      color: var(--aquila-gold);
+      color: var(--sl-color-amber-600);
     }
     
     sl-input::part(base),
     sl-textarea::part(base),
     sl-select::part(control) {
-      background-color: rgba(20, 20, 20, 0.6);
-      border-color: var(--imperial-red);
-      color: var(--text-color);
+      background-color: var(--sl-color-neutral-800);
+      border-color: var(--sl-color-lime-400);
+      color: var(--sl-color-neutral-200);
     }
     
     sl-input::part(label),
     sl-textarea::part(label),
     sl-select::part(label) {
-      color: var(--aquila-gold);
+      color: var(--sl-color-amber-600);
     }
   </style>
 
-  <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
-    <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
-    <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+  <footer class="text-center p-6 bg-green-800 mt-8 border-t-2 border-lime-400 text-sm md:mt-12">
+    <p class="mb-2 text-stone-300">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+    <p class="text-stone-300"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
   </footer>
 
   <script src="../js/main.js"></script>

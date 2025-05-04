@@ -7,42 +7,195 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" href="../assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../js/tailwind.config.js"></script>
+  
+  <!-- Shoelace Component Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
 </head>
-<body>
-  <header>
-    <div class="logo">
-      <h1>Forsarr War Campaign</h1>
+<body class="font-sans text-stone-200 bg-zinc-900 bg-cover bg-fixed bg-center text-base">
+  <header class="bg-green-800 p-4 border-b-2 border-lime-400 md:p-4 md:pb-0">
+    <div class="text-center mb-4">
+      <h1 class="text-2xl text-lime-400 font-bold md:text-4xl">Forsarr War Campaign</h1>
     </div>
-    <button class="nav-toggle" id="navToggle">☰ Menu</button>
+    <button class="nav-toggle block w-full text-center text-lime-400 text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
     <nav id="mainNav">
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="factions.html">Factions</a></li>
-        <li><a href="timeline.html">Campaign Timeline</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+      <ul class="flex flex-col list-none mt-4 md:flex-row md:justify-center md:mt-0">
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="../index.html" class="text-lime-400 hover:underline">Home</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="factions.html" class="text-lime-400 hover:underline">Factions</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="timeline.html" class="text-lime-400 hover:underline">Campaign Timeline</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="gallery.html" class="text-lime-400 hover:underline">Gallery</a>
+        </li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="page-header">
-      <h2>Factions of the Forsarr War</h2>
-      <p>Learn about the various forces vying for control of the Forsarr System</p>
+  <main class="p-4 md:max-w-7xl md:mx-auto md:p-8">
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-amber-600 font-bold mb-4 md:text-3xl">Factions of the Forsarr War</h2>
+      <p class="text-stone-200">Learn about the various forces vying for control of the Forsarr System</p>
     </section>
 
-    <section class="factions-container">
-      <!-- Faction entries will be added here as the campaign progresses -->
-      <div class="faction">
-        <h3>Placeholder Faction</h3>
-        <p>Faction details will be added as the campaign unfolds.</p>
-      </div>
-    </section>
+    <!-- Faction Selection Tabs -->
+    <sl-tab-group>
+      <sl-tab slot="nav" panel="imperium">Imperium</sl-tab>
+      <sl-tab slot="nav" panel="chaos">Chaos</sl-tab>
+      <sl-tab slot="nav" panel="xenos">Xenos</sl-tab>
+      
+      <!-- Imperium Factions -->
+      <sl-tab-panel name="imperium">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Space Marines -->
+          <sl-card class="card-faction">
+            <div slot="header" class="font-bold text-amber-600">Space Marines</div>
+            <div class="p-2">
+              <p class="text-stone-200 mb-4">The Emperor's finest warriors, genetically enhanced super-soldiers who serve as the Imperium's elite fighting force.</p>
+              <sl-details summary="Active Chapters">
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Ultramarines (2nd Company)</li>
+                  <li>Imperial Fists (Dorn's Vengeance Strike Force)</li>
+                </ul>
+              </sl-details>
+            </div>
+            <div slot="footer">
+              <sl-badge variant="primary">Imperium</sl-badge>
+              <sl-rating readonly value="5"></sl-rating>
+            </div>
+          </sl-card>
+          
+          <!-- Imperial Guard -->
+          <sl-card class="card-faction">
+            <div slot="header" class="font-bold text-amber-600">Astra Militarum</div>
+            <div class="p-2">
+              <p class="text-stone-200 mb-4">The backbone of Imperial military might, countless billions of soldiers equipped with lasguns and tanks.</p>
+              <sl-details summary="Active Regiments">
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Cadian 47th Infantry</li>
+                  <li>Forsarr PDF</li>
+                </ul>
+              </sl-details>
+            </div>
+            <div slot="footer">
+              <sl-badge variant="primary">Imperium</sl-badge>
+              <sl-rating readonly value="4"></sl-rating>
+            </div>
+          </sl-card>
+        </div>
+      </sl-tab-panel>
+      
+      <!-- Chaos Factions -->
+      <sl-tab-panel name="chaos">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Black Legion -->
+          <sl-card class="card-faction">
+            <div slot="header" class="font-bold text-amber-600">Black Legion</div>
+            <div class="p-2">
+              <p class="text-stone-200 mb-4">Formerly the Luna Wolves, now the greatest legion of Chaos Space Marines led by Abaddon the Despoiler.</p>
+              <sl-details summary="Active Warbands">
+                <ul class="list-disc pl-6 mt-2">
+                  <li>The Forsarr Reavers</li>
+                  <li>Bringers of Despair</li>
+                </ul>
+              </sl-details>
+            </div>
+            <div slot="footer">
+              <sl-badge variant="danger">Chaos</sl-badge>
+              <sl-rating readonly value="5"></sl-rating>
+            </div>
+          </sl-card>
+          
+          <!-- Death Guard -->
+          <sl-card class="card-faction">
+            <div slot="header" class="font-bold text-amber-600">Death Guard</div>
+            <div class="p-2">
+              <p class="text-stone-200 mb-4">Plague Marines dedicated to Nurgle, spreading disease and decay wherever they go.</p>
+              <sl-details summary="Active Forces">
+                <ul class="list-disc pl-6 mt-2">
+                  <li>7th Plague Company</li>
+                  <li>The Tainted</li>
+                </ul>
+              </sl-details>
+            </div>
+            <div slot="footer">
+              <sl-badge variant="danger">Chaos</sl-badge>
+              <sl-rating readonly value="4"></sl-rating>
+            </div>
+          </sl-card>
+        </div>
+      </sl-tab-panel>
+      
+      <!-- Xenos Factions -->
+      <sl-tab-panel name="xenos">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Necrons -->
+          <sl-card class="card-faction">
+            <div slot="header" class="font-bold text-amber-600">Necrons</div>
+            <div class="p-2">
+              <p class="text-stone-200 mb-4">Ancient machine beings awakening from tombs beneath the surface of Forsarr II after millennia of slumber.</p>
+              <sl-details summary="Active Dynasties">
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Forsarr Tomb Complex</li>
+                  <li>Sautekh Dynasty</li>
+                </ul>
+              </sl-details>
+            </div>
+            <div slot="footer">
+              <sl-badge variant="warning">Xenos</sl-badge>
+              <sl-rating readonly value="5"></sl-rating>
+            </div>
+          </sl-card>
+        </div>
+      </sl-tab-panel>
+    </sl-tab-group>
   </main>
 
-  <footer>
-    <p>&copy; <span id="current-year"></span> Forsarr War Campaign</p>
-    <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+  <!-- Add this custom styling for Shoelace components -->
+  <style>
+    /* Custom Shoelace styling to match your theme */
+    sl-card::part(base) {
+      background-color: var(--sl-color-neutral-900);
+      border-color: var(--sl-color-lime-400);
+    }
+    
+    sl-card::part(header) {
+      border-bottom-color: var(--sl-color-lime-400);
+    }
+    
+    sl-tab-group::part(tabs) {
+      border-color: var(--sl-color-lime-400);
+    }
+    
+    sl-tab::part(base) {
+      color: var(--sl-color-lime-400);
+    }
+    
+    sl-tab::part(base):hover {
+      color: var(--sl-color-neutral-0);
+    }
+    
+    sl-tab[active]::part(base) {
+      color: var(--sl-color-amber-600);
+      border-color: var(--sl-color-lime-400);
+    }
+    
+    sl-details::part(header) {
+      color: var(--sl-color-amber-600);
+    }
+    
+    sl-badge::part(base) {
+      border: 1px solid var(--sl-color-lime-400);
+    }
+  </style>
+
+  <footer class="text-center p-6 bg-green-800 mt-8 border-t-2 border-lime-400 text-sm md:mt-12">
+    <p class="mb-2 text-stone-300">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+    <p class="text-stone-300"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
   </footer>
 
   <script src="../js/main.js"></script>

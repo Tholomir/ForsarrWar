@@ -7,50 +7,49 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/tailwind.config.js"></script>
   
   <!-- Shoelace Component Library -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
 </head>
-<body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
-  <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
+<body class="font-sans text-stone-200 bg-zinc-900 bg-cover bg-fixed bg-center text-base">
+  <header class="bg-green-800 p-4 border-b-2 border-lime-400 md:p-4 md:pb-0">
     <div class="text-center mb-4">
-      <h1 class="text-2xl text-aquila-gold font-bold md:text-4xl">Forsarr War Campaign</h1>
+      <h1 class="text-2xl text-lime-400 font-bold md:text-4xl">Forsarr War Campaign</h1>
     </div>
-    <button class="nav-toggle block w-full text-center text-aquila-gold text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
+    <button class="nav-toggle block w-full text-center text-lime-400 text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
     <nav id="mainNav">
       <ul class="flex flex-col list-none mt-4 md:flex-row md:justify-center md:mt-0">
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="index.html" class="text-aquila-gold hover:underline">Home</a>
+          <a href="index.html" class="text-lime-400 hover:underline">Home</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="pages/factions.html" class="text-aquila-gold hover:underline">Factions</a>
+          <a href="pages/factions.html" class="text-lime-400 hover:underline">Factions</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="pages/timeline.html" class="text-aquila-gold hover:underline">Campaign Timeline</a>
+          <a href="pages/timeline.html" class="text-lime-400 hover:underline">Campaign Timeline</a>
         </li>
         <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="pages/gallery.html" class="text-aquila-gold hover:underline">Gallery</a>
+          <a href="pages/gallery.html" class="text-lime-400 hover:underline">Gallery</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <main class="p-4 md:max-w-7xl md:mx-auto md:p-8">
-    <section class="hero text-center p-8 bg-chaos-black bg-cover bg-center rounded mb-8 md:p-20">
+    <section class="hero text-center p-8 bg-zinc-900 bg-cover bg-center rounded mb-8 md:p-20">
       <div class="hero-content">
-        <h2 class="text-2xl text-aquila-gold font-bold mb-4 md:text-4xl">The Forsarr System Burns</h2>
+        <h2 class="text-2xl text-amber-600 font-bold mb-4 md:text-4xl">The Forsarr System Burns</h2>
         <p class="text-base md:text-xl md:max-w-2xl md:mx-auto">A brutal campaign of conquest and survival in the grim darkness of the far future</p>
-        <sl-button variant="primary" class="mt-6" style="--sl-color-primary-600: #990000;">
+        <sl-button variant="primary" class="mt-6">
           <sl-icon slot="prefix" name="stars"></sl-icon>
           Join the Campaign
         </sl-button>
       </div>
     </section>
 
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
-      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">About the Campaign</h2>
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-amber-600 font-bold mb-4 md:text-3xl">About the Campaign</h2>
       <p class="mb-4">The Forsarr System, once a prosperous Imperial holding, now stands at the precipice of total war. 
          Multiple factions vie for control of this strategic sector as ancient evils awaken and new threats emerge.</p>
       <p>Follow the progress of our Warhammer 40k campaign, track faction movements, and witness the fate of 
@@ -58,7 +57,7 @@
       
       <sl-details class="mt-6" summary="Campaign Rules">
         <div class="p-4">
-          <h3 class="text-lg text-aquila-gold font-bold mb-2">Game Format</h3>
+          <h3 class="text-lg text-amber-600 font-bold mb-2">Game Format</h3>
           <p class="mb-4">All battles will be fought using the current edition Warhammer 40,000 ruleset with the following modifications:</p>
           <ul class="list-disc pl-6 mb-4">
             <li>2000 point armies</li>
@@ -70,8 +69,8 @@
       </sl-details>
     </section>
 
-    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
-      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">Latest Campaign Updates</h2>
+    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-amber-600 font-bold mb-4 md:text-3xl">Latest Campaign Updates</h2>
       
       <sl-tab-group>
         <sl-tab slot="nav" panel="battle-reports">Battle Reports</sl-tab>
@@ -80,7 +79,7 @@
         
         <sl-tab-panel name="battle-reports">
           <sl-card class="card-basic">
-            <div slot="header" class="font-bold text-aquila-gold">Battle for Hive Forsarr</div>
+            <div slot="header" class="font-bold text-amber-600">Battle for Hive Forsarr</div>
             <p>Imperial forces engaged heretic astartes at the gates of Hive Forsarr. The battle resulted in heavy casualties for both sides, but the Imperial forces managed to hold the hive.</p>
             <div slot="footer">
               <sl-badge variant="success">Imperial Victory</sl-badge>
@@ -91,7 +90,7 @@
         
         <sl-tab-panel name="faction-updates">
           <sl-card class="card-basic">
-            <div slot="header" class="font-bold text-aquila-gold">Space Marines Reinforcements</div>
+            <div slot="header" class="font-bold text-amber-600">Space Marines Reinforcements</div>
             <p>The Ultramarines 2nd Company has arrived in the Forsarr System to reinforce Imperial positions across the sector.</p>
             <div slot="footer">
               <sl-badge variant="primary">Imperial Faction</sl-badge>
@@ -101,7 +100,7 @@
         
         <sl-tab-panel name="narrative">
           <sl-card class="card-basic">
-            <div slot="header" class="font-bold text-aquila-gold">The Ancient Stirrs</div>
+            <div slot="header" class="font-bold text-amber-600">The Ancient Stirrs</div>
             <p>Deep beneath the surface of Forsarr II, ancient machinery has begun to activate. Imperial scholars believe this may be evidence of a Necron tomb complex.</p>
             <div slot="footer">
               <sl-badge variant="warning">Ongoing Development</sl-badge>
@@ -121,45 +120,55 @@
   <style>
     /* Custom Shoelace styling to match your theme */
     sl-button::part(base) {
-      background-color: var(--imperial-red);
-      border-color: var(--aquila-gold);
+      background-color: var(--sl-color-lime-400);
+      border-color: var(--sl-color-amber-600);
+      color: var(--sl-color-neutral-900);
+    }
+    
+    sl-button::part(base):hover {
+      background-color: var(--sl-color-lime-500);
     }
     
     sl-details::part(header) {
-      color: var(--aquila-gold);
+      color: var(--sl-color-amber-600);
     }
     
     sl-tab-group::part(tabs) {
-      border-color: var(--imperial-red);
+      border-color: var(--sl-color-lime-400);
     }
     
     sl-tab::part(base) {
-      color: var(--aquila-gold);
+      color: var(--sl-color-lime-400);
     }
     
     sl-tab::part(base):hover {
-      color: var(--text-color);
+      color: var(--sl-color-neutral-0);
     }
     
     sl-tab[active]::part(base) {
-      color: var(--imperial-red);
-      border-color: var(--imperial-red);
+      color: var(--sl-color-amber-600);
+      border-color: var(--sl-color-lime-400);
     }
     
     sl-card::part(base) {
-      background-color: rgba(20, 20, 20, 0.8);
-      border-color: var(--imperial-red);
+      background-color: var(--sl-color-neutral-900);
+      border-color: var(--sl-color-lime-400);
     }
     
     sl-alert::part(base) {
-      border-color: var(--imperial-red);
-      background-color: rgba(20, 20, 20, 0.8);
+      border-color: var(--sl-color-lime-400);
+      background-color: var(--sl-color-neutral-900);
+    }
+
+    /* Retain the existing hero styling but update colors */
+    .hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/hero-bg.jpg');
     }
   </style>
 
-  <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
-    <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
-    <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+  <footer class="text-center p-6 bg-green-800 mt-8 border-t-2 border-lime-400 text-sm md:mt-12">
+    <p class="mb-2 text-stone-300">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+    <p class="text-stone-300"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
   </footer>
 
   <script src="js/main.js"></script>
