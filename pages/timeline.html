@@ -8,6 +8,10 @@
   <link rel="icon" href="../assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../js/tailwind.config.js"></script>
+  
+  <!-- Shoelace Component Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
 </head>
 <body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
   <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
@@ -37,51 +41,91 @@
     <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
       <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">Forsarr War Campaign Timeline</h2>
       <p>Track the chronological events of the campaign as they unfold across the Forsarr System</p>
+      
+      <sl-range label="Timeline Navigation" min="0" max="5" step="1" value="0" class="mt-4 mb-2" tooltip="top" id="timeline-slider"></sl-range>
+      <div class="flex justify-between text-xs text-aquila-gold mb-4">
+        <span>997.M41</span>
+        <span>998.M41</span>
+        <span>999.M41</span>
+        <span>000.M42</span>
+        <span>001.M42</span>
+        <span>002.M42</span>
+      </div>
     </section>
 
     <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
       <div class="timeline-controls flex justify-between md:justify-center md:gap-4 mb-4">
-        <button id="scroll-left" class="bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm w-[48%] md:w-auto md:px-4 md:py-2">← Previous</button>
-        <button id="scroll-right" class="bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm w-[48%] md:w-auto md:px-4 md:py-2">Next →</button>
+        <sl-button id="scroll-left" size="small">
+          <sl-icon slot="prefix" name="arrow-left"></sl-icon>
+          Previous
+        </sl-button>
+        <sl-button id="scroll-right" size="small">
+          Next
+          <sl-icon slot="suffix" name="arrow-right"></sl-icon>
+        </sl-button>
       </div>
 
       <div class="timeline-container">
         <div class="timeline">
           <!-- Example events - these will be populated with actual campaign events -->
-          <div class="timeline-event">
+          <div class="timeline-event" data-year="997.M41">
             <div class="timeline-date">997.M41</div>
             <h3 class="text-lg text-aquila-gold font-bold mb-2">First Contact</h3>
             <p class="text-sm">Imperial scouts detect anomalous activity in the Forsarr System.</p>
+            <sl-details class="mt-2" summary="Event Details">
+              <sl-badge variant="neutral" class="mb-2">Planetary Scan</sl-badge>
+              <p class="text-sm">Long-range auspex scans from the Imperial cruiser <em>Righteous Fury</em> detected energy signatures consistent with Xenos technology on the fourth planet of the Forsarr System.</p>
+            </sl-details>
           </div>
 
-          <div class="timeline-event">
+          <div class="timeline-event" data-year="998.M41">
             <div class="timeline-date">998.M41</div>
             <h3 class="text-lg text-aquila-gold font-bold mb-2">Planetfall</h3>
             <p class="text-sm">The first Imperial regiments land on Forsarr IV to establish a beachhead.</p>
+            <sl-details class="mt-2" summary="Event Details">
+              <sl-badge variant="primary" class="mb-2">Imperial Guard</sl-badge>
+              <p class="text-sm">The 47th Cadian Regiment established a foothold in the northern hemisphere of Forsarr IV after a contested landing.</p>
+            </sl-details>
           </div>
 
-          <div class="timeline-event">
+          <div class="timeline-event" data-year="999.M41">
             <div class="timeline-date">999.M41</div>
             <h3 class="text-lg text-aquila-gold font-bold mb-2">The Ancient Awakens</h3>
             <p class="text-sm">Deep beneath the surface of Forsarr II, something ancient stirs from millenia of slumber.</p>
+            <sl-details class="mt-2" summary="Event Details">
+              <sl-badge variant="warning" class="mb-2">Necron Activity</sl-badge>
+              <p class="text-sm">Imperial archeological team Delta-7 discovered an ancient tomb complex showing signs of reactivation.</p>
+            </sl-details>
           </div>
 
-          <div class="timeline-event">
+          <div class="timeline-event" data-year="999.M41">
             <div class="timeline-date">999.M41</div>
             <h3 class="text-lg text-aquila-gold font-bold mb-2">Reinforcements Arrive</h3>
             <p class="text-sm">Adeptus Astartes forces arrive in the system, responding to distress signals.</p>
+            <sl-details class="mt-2" summary="Event Details">
+              <sl-badge variant="success" class="mb-2">Space Marines</sl-badge>
+              <p class="text-sm">The Ultramarines 2nd Company arrived in orbit around Forsarr IV and deployed strike teams to critical sectors.</p>
+            </sl-details>
           </div>
 
-          <div class="timeline-event">
+          <div class="timeline-event" data-year="001.M42">
             <div class="timeline-date">001.M42</div>
             <h3 class="text-lg text-aquila-gold font-bold mb-2">The Forsarr Blockade</h3>
             <p class="text-sm">Chaos warfleet emerges from the warp, cutting off Imperial supply lines.</p>
+            <sl-details class="mt-2" summary="Event Details">
+              <sl-badge variant="danger" class="mb-2">Chaos</sl-badge>
+              <p class="text-sm">A fleet bearing the marks of the Black Legion established a blockade at the system's Mandeville point, preventing reinforcements.</p>
+            </sl-details>
           </div>
 
-          <div class="timeline-event">
+          <div class="timeline-event" data-year="002.M42">
             <div class="timeline-date">002.M42</div>
             <h3 class="text-lg text-aquila-gold font-bold mb-2">The Forsarr Conclave</h3>
             <p class="text-sm">Imperial commanders gather to formulate a new strategy for system defense.</p>
+            <sl-details class="mt-2" summary="Event Details">
+              <sl-badge variant="primary" class="mb-2">Strategic Planning</sl-badge>
+              <p class="text-sm">Captain Augustus of the Ultramarines hosted a war council with Guard Colonel Tarik and Naval Commander Ellisine to coordinate actions against the growing threats.</p>
+            </sl-details>
           </div>
         </div>
       </div>
@@ -91,8 +135,68 @@
       <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">About the Timeline</h2>
       <p class="mb-4">This timeline chronicles the major events of the Forsarr War Campaign. Each event represents a significant moment in the narrative, often resulting from actual tabletop battles and their outcomes.</p>
       <p>The timeline will be updated as the campaign progresses, with new events added to reflect the evolving conflict in the Forsarr System.</p>
+      
+      <sl-divider class="my-4"></sl-divider>
+      
+      <h3 class="text-lg text-aquila-gold font-bold mb-3">Timeline Legend</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <sl-badge variant="neutral">Planetary Scan</sl-badge>
+          <span class="ml-2">Exploration and Discovery</span>
+        </div>
+        <div>
+          <sl-badge variant="primary">Imperial</sl-badge>
+          <span class="ml-2">Imperial Military Actions</span>
+        </div>
+        <div>
+          <sl-badge variant="success">Space Marines</sl-badge>
+          <span class="ml-2">Adeptus Astartes Operations</span>
+        </div>
+        <div>
+          <sl-badge variant="warning">Xenos</sl-badge>
+          <span class="ml-2">Alien Activity</span>
+        </div>
+        <div>
+          <sl-badge variant="danger">Chaos</sl-badge>
+          <span class="ml-2">Heretical Forces</span>
+        </div>
+      </div>
     </section>
   </main>
+
+  <!-- Add this custom styling for Shoelace components -->
+  <style>
+    /* Custom Shoelace styling to match your theme */
+    sl-button::part(base) {
+      background-color: var(--imperial-red);
+      border-color: var(--aquila-gold);
+    }
+    
+    sl-details::part(header) {
+      color: var(--aquila-gold);
+    }
+    
+    sl-details::part(content) {
+      background-color: rgba(10, 10, 10, 0.5);
+      border-top: 1px solid var(--imperial-red);
+      padding: 0.5rem;
+    }
+    
+    sl-badge::part(base) {
+      border: 1px solid var(--imperial-red);
+    }
+    
+    sl-divider::part(base) {
+      --color: var(--imperial-red);
+      opacity: 0.7;
+    }
+    
+    sl-range::part(base) {
+      --track-color: var(--mechanicus-gray);
+      --track-color-active: var(--imperial-red);
+      --thumb-color: var(--aquila-gold);
+    }
+  </style>
 
   <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
     <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
@@ -101,49 +205,69 @@
 
   <script src="../js/main.js"></script>
   <script>
-    // Timeline scrolling functionality
+    // Timeline functionality
     document.addEventListener('DOMContentLoaded', function() {
       const timelineContainer = document.querySelector('.timeline-container');
       const scrollLeftBtn = document.getElementById('scroll-left');
       const scrollRightBtn = document.getElementById('scroll-right');
+      const timelineSlider = document.getElementById('timeline-slider');
+      const timelineEvents = document.querySelectorAll('.timeline-event');
+      let currentEventIndex = 0;
       
-      // For mobile: Vertical scrolling isn't necessary, but we'll keep the buttons
-      // for paging through events on small screens
-      if (scrollLeftBtn && scrollRightBtn && timelineContainer) {
-        const timelineEvents = document.querySelectorAll('.timeline-event');
-        let currentEventIndex = 0;
-        
-        // Function to show only the current event on mobile
-        function updateMobileTimeline() {
-          if (window.innerWidth < 768) {
-            timelineEvents.forEach((event, index) => {
-              if (index === currentEventIndex) {
-                event.style.display = 'block';
-              } else {
-                event.style.display = 'none';
-              }
-            });
-          } else {
-            // On desktop show all events and allow horizontal scrolling
-            timelineEvents.forEach(event => {
+      // Function to show only the current event on mobile
+      function updateMobileTimeline() {
+        if (window.innerWidth < 768) {
+          timelineEvents.forEach((event, index) => {
+            if (index === currentEventIndex) {
               event.style.display = 'block';
+            } else {
+              event.style.display = 'none';
+            }
+          });
+        } else {
+          // On desktop show all events and allow horizontal scrolling
+          timelineEvents.forEach(event => {
+            event.style.display = 'block';
+          });
+        }
+      }
+      
+      // Initialize timeline view
+      updateMobileTimeline();
+      
+      // Handle window resize
+      window.addEventListener('resize', updateMobileTimeline);
+      
+      // Timeline navigation with slider
+      timelineSlider.addEventListener('sl-change', (event) => {
+        currentEventIndex = parseInt(event.target.value);
+        
+        if (window.innerWidth < 768) {
+          updateMobileTimeline();
+        } else {
+          // For desktop, scroll to the event
+          const targetEvent = timelineEvents[currentEventIndex];
+          if (targetEvent) {
+            const containerRect = timelineContainer.getBoundingClientRect();
+            const targetRect = targetEvent.getBoundingClientRect();
+            const scrollLeft = targetRect.left - containerRect.left - (containerRect.width / 2) + (targetRect.width / 2);
+            
+            timelineContainer.scrollTo({
+              left: scrollLeft,
+              behavior: 'smooth'
             });
           }
         }
-        
-        // Initialize timeline view
-        updateMobileTimeline();
-        
-        // Handle window resize
-        window.addEventListener('resize', updateMobileTimeline);
-        
-        // Mobile navigation through events
-        scrollLeftBtn.addEventListener('click', function() {
+      });
+      
+      // Mobile navigation through events with buttons
+      scrollLeftBtn.addEventListener('click', function() {
+        if (currentEventIndex > 0) {
+          currentEventIndex--;
+          timelineSlider.value = currentEventIndex;
+          
           if (window.innerWidth < 768) {
-            if (currentEventIndex > 0) {
-              currentEventIndex--;
-              updateMobileTimeline();
-            }
+            updateMobileTimeline();
           } else {
             // Desktop horizontal scrolling
             timelineContainer.scrollBy({
@@ -151,14 +275,16 @@
               behavior: 'smooth'
             });
           }
-        });
-        
-        scrollRightBtn.addEventListener('click', function() {
+        }
+      });
+      
+      scrollRightBtn.addEventListener('click', function() {
+        if (currentEventIndex < timelineEvents.length - 1) {
+          currentEventIndex++;
+          timelineSlider.value = currentEventIndex;
+          
           if (window.innerWidth < 768) {
-            if (currentEventIndex < timelineEvents.length - 1) {
-              currentEventIndex++;
-              updateMobileTimeline();
-            }
+            updateMobileTimeline();
           } else {
             // Desktop horizontal scrolling
             timelineContainer.scrollBy({
@@ -166,8 +292,8 @@
               behavior: 'smooth'
             });
           }
-        });
-      }
+        }
+      });
     });
   </script>
 </body>

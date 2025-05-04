@@ -8,6 +8,10 @@
   <link rel="icon" href="../assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../js/tailwind.config.js"></script>
+  
+  <!-- Shoelace Component Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
 </head>
 <body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
   <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
@@ -42,11 +46,13 @@
     <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
       <h3 class="text-lg text-aquila-gold font-bold mb-3 md:text-2xl">Filter Images</h3>
       <div class="flex flex-wrap gap-2 mt-2">
-        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm active md:p-2 md:px-4 md:text-base" data-filter="all">All</button>
-        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="battles">Battles</button>
-        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="factions">Factions</button>
-        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="terrain">Terrain</button>
-        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="narrative">Narrative</button>
+        <sl-button-group label="Filters">
+          <sl-button class="filter-button active" data-filter="all">All</sl-button>
+          <sl-button class="filter-button" data-filter="battles">Battles</sl-button>
+          <sl-button class="filter-button" data-filter="factions">Factions</sl-button>
+          <sl-button class="filter-button" data-filter="terrain">Terrain</sl-button>
+          <sl-button class="filter-button" data-filter="narrative">Narrative</sl-button>
+        </sl-button-group>
       </div>
     </section>
 
@@ -55,10 +61,11 @@
       <!-- Placeholder images for now -->
       <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="battles">
         <figure class="m-0">
-          <img src="../assets/images/placeholder-battle.jpg" alt="Battle for Hive Forsarr" class="w-full h-auto block max-h-60 object-cover object-center">
+          <img src="../assets/images/placeholder-battle.jpg" alt="Battle for Hive Forsarr" class="w-full h-auto block max-h-60 object-cover object-center cursor-pointer" @click="openGalleryDialog('Battle for Hive Forsarr', '../assets/images/placeholder-battle.jpg')">
           <figcaption class="p-4">
             <h4 class="text-lg text-aquila-gold font-bold mb-2">Battle for Hive Forsarr</h4>
             <p class="text-sm leading-relaxed">Imperial forces engage heretic astartes at the gates of Hive Forsarr</p>
+            <sl-button size="small" class="mt-2" @click="openGalleryDialog('Battle for Hive Forsarr', '../assets/images/placeholder-battle.jpg')">View Larger</sl-button>
           </figcaption>
         </figure>
       </div>
@@ -114,11 +121,87 @@
       </div>
     </div>
 
+    <!-- Image Dialog for full-size viewing -->
+    <sl-dialog id="gallery-dialog" label="Gallery Image" class="dialog-overview">
+      <img id="dialog-image" src="" alt="" class="w-full max-h-[70vh] object-contain">
+      <p id="dialog-caption" class="mt-4 text-center text-aquila-gold"></p>
+    </sl-dialog>
+
     <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
       <h3 class="text-lg text-aquila-gold font-bold mb-3 md:text-2xl">Submit Your Images</h3>
-      <p>Have images from our campaign that you'd like to share? Contact the campaign master to have them added to the gallery.</p>
+      <p class="mb-4">Have images from our campaign that you'd like to share? Contact the campaign master to have them added to the gallery.</p>
+      
+      <sl-form class="submit-form mt-4">
+        <div class="mb-4">
+          <sl-input label="Your Name" required></sl-input>
+        </div>
+        <div class="mb-4">
+          <sl-textarea label="Image Description" required></sl-textarea>
+        </div>
+        <div class="mb-4">
+          <sl-select label="Faction" required>
+            <sl-option value="imperium">Imperium</sl-option>
+            <sl-option value="chaos">Chaos</sl-option>
+            <sl-option value="necrons">Necrons</sl-option>
+            <sl-option value="tyranids">Tyranids</sl-option>
+            <sl-option value="orks">Orks</sl-option>
+            <sl-option value="aeldari">Aeldari</sl-option>
+          </sl-select>
+        </div>
+        <div class="mb-4">
+          <sl-select label="Category" required>
+            <sl-option value="battles">Battle</sl-option>
+            <sl-option value="factions">Faction</sl-option>
+            <sl-option value="terrain">Terrain</sl-option>
+            <sl-option value="narrative">Narrative</sl-option>
+          </sl-select>
+        </div>
+        <sl-button type="submit" variant="primary">Submit</sl-button>
+      </sl-form>
     </section>
   </main>
+
+  <!-- Add this custom styling for Shoelace components -->
+  <style>
+    /* Custom Shoelace styling to match your theme */
+    sl-button::part(base) {
+      background-color: var(--imperial-red);
+      border-color: var(--aquila-gold);
+    }
+    
+    sl-button.active::part(base) {
+      background-color: var(--imperial-red);
+      border-color: var(--aquila-gold);
+      color: var(--text-color);
+    }
+    
+    sl-button-group::part(base) {
+      border-color: var(--imperial-red);
+    }
+    
+    sl-dialog::part(panel) {
+      background-color: rgba(20, 20, 20, 0.95);
+      border: 2px solid var(--imperial-red);
+    }
+    
+    sl-dialog::part(header) {
+      color: var(--aquila-gold);
+    }
+    
+    sl-input::part(base),
+    sl-textarea::part(base),
+    sl-select::part(control) {
+      background-color: rgba(20, 20, 20, 0.6);
+      border-color: var(--imperial-red);
+      color: var(--text-color);
+    }
+    
+    sl-input::part(label),
+    sl-textarea::part(label),
+    sl-select::part(label) {
+      color: var(--aquila-gold);
+    }
+  </style>
 
   <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
     <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
@@ -150,6 +233,19 @@
           });
         });
       });
+      
+      // Dialog functionality
+      window.openGalleryDialog = function(caption, imageSrc) {
+        const dialog = document.getElementById('gallery-dialog');
+        const dialogImage = document.getElementById('dialog-image');
+        const dialogCaption = document.getElementById('dialog-caption');
+        
+        dialogImage.src = imageSrc;
+        dialogImage.alt = caption;
+        dialogCaption.textContent = caption;
+        
+        dialog.show();
+      };
     });
   </script>
 </body>

@@ -8,6 +8,10 @@
   <link rel="icon" href="assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="js/tailwind.config.js"></script>
+  
+  <!-- Shoelace Component Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
 </head>
 <body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
   <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
@@ -38,6 +42,10 @@
       <div class="hero-content">
         <h2 class="text-2xl text-aquila-gold font-bold mb-4 md:text-4xl">The Forsarr System Burns</h2>
         <p class="text-base md:text-xl md:max-w-2xl md:mx-auto">A brutal campaign of conquest and survival in the grim darkness of the far future</p>
+        <sl-button variant="primary" class="mt-6" style="--sl-color-primary-600: #990000;">
+          <sl-icon slot="prefix" name="stars"></sl-icon>
+          Join the Campaign
+        </sl-button>
       </div>
     </section>
 
@@ -47,16 +55,107 @@
          Multiple factions vie for control of this strategic sector as ancient evils awaken and new threats emerge.</p>
       <p>Follow the progress of our Warhammer 40k campaign, track faction movements, and witness the fate of 
          the Forsarr System unfold through battle reports and narrative developments.</p>
+      
+      <sl-details class="mt-6" summary="Campaign Rules">
+        <div class="p-4">
+          <h3 class="text-lg text-aquila-gold font-bold mb-2">Game Format</h3>
+          <p class="mb-4">All battles will be fought using the current edition Warhammer 40,000 ruleset with the following modifications:</p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>2000 point armies</li>
+            <li>Standard missions from Chapter Approved</li>
+            <li>Narrative-driven deployment and objectives</li>
+          </ul>
+          <p>Victory points will contribute to overall faction control of the Forsarr System.</p>
+        </div>
+      </sl-details>
     </section>
 
     <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
       <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">Latest Campaign Updates</h2>
-      <div class="updates-container">
-        <!-- Updates will be populated here -->
-        <p>Campaign launching soon. Stay tuned for battle reports and faction movements!</p>
-      </div>
+      
+      <sl-tab-group>
+        <sl-tab slot="nav" panel="battle-reports">Battle Reports</sl-tab>
+        <sl-tab slot="nav" panel="faction-updates">Faction Updates</sl-tab>
+        <sl-tab slot="nav" panel="narrative">Narrative Developments</sl-tab>
+        
+        <sl-tab-panel name="battle-reports">
+          <sl-card class="card-basic">
+            <div slot="header" class="font-bold text-aquila-gold">Battle for Hive Forsarr</div>
+            <p>Imperial forces engaged heretic astartes at the gates of Hive Forsarr. The battle resulted in heavy casualties for both sides, but the Imperial forces managed to hold the hive.</p>
+            <div slot="footer">
+              <sl-badge variant="success">Imperial Victory</sl-badge>
+              <sl-rating readonly value="4"></sl-rating>
+            </div>
+          </sl-card>
+        </sl-tab-panel>
+        
+        <sl-tab-panel name="faction-updates">
+          <sl-card class="card-basic">
+            <div slot="header" class="font-bold text-aquila-gold">Space Marines Reinforcements</div>
+            <p>The Ultramarines 2nd Company has arrived in the Forsarr System to reinforce Imperial positions across the sector.</p>
+            <div slot="footer">
+              <sl-badge variant="primary">Imperial Faction</sl-badge>
+            </div>
+          </sl-card>
+        </sl-tab-panel>
+        
+        <sl-tab-panel name="narrative">
+          <sl-card class="card-basic">
+            <div slot="header" class="font-bold text-aquila-gold">The Ancient Stirrs</div>
+            <p>Deep beneath the surface of Forsarr II, ancient machinery has begun to activate. Imperial scholars believe this may be evidence of a Necron tomb complex.</p>
+            <div slot="footer">
+              <sl-badge variant="warning">Ongoing Development</sl-badge>
+            </div>
+          </sl-card>
+        </sl-tab-panel>
+      </sl-tab-group>
+      
+      <sl-alert open class="mt-6">
+        <sl-icon slot="icon" name="info-circle"></sl-icon>
+        Campaign launching soon. Stay tuned for more battle reports and faction movements!
+      </sl-alert>
     </section>
   </main>
+
+  <!-- Add this custom styling for Shoelace components -->
+  <style>
+    /* Custom Shoelace styling to match your theme */
+    sl-button::part(base) {
+      background-color: var(--imperial-red);
+      border-color: var(--aquila-gold);
+    }
+    
+    sl-details::part(header) {
+      color: var(--aquila-gold);
+    }
+    
+    sl-tab-group::part(tabs) {
+      border-color: var(--imperial-red);
+    }
+    
+    sl-tab::part(base) {
+      color: var(--aquila-gold);
+    }
+    
+    sl-tab::part(base):hover {
+      color: var(--text-color);
+    }
+    
+    sl-tab[active]::part(base) {
+      color: var(--imperial-red);
+      border-color: var(--imperial-red);
+    }
+    
+    sl-card::part(base) {
+      background-color: rgba(20, 20, 20, 0.8);
+      border-color: var(--imperial-red);
+    }
+    
+    sl-alert::part(base) {
+      border-color: var(--imperial-red);
+      background-color: rgba(20, 20, 20, 0.8);
+    }
+  </style>
 
   <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
     <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
