@@ -1,0 +1,70 @@
+{
+  "formatting": {
+    "enabled": true,
+    "formatOnSave": true,
+    "formatOnPaste": true,
+    "html": {
+      "indentSize": 2,
+      "wrapLineLength": 100,
+      "preserveNewLines": true
+    },
+    "css": {
+      "indentSize": 2,
+      "newlineBetweenSelectors": true
+    },
+    "javascript": {
+      "indentSize": 2,
+      "singleQuote": true,
+      "trailingComma": "es5",
+      "semi": true,
+      "printWidth": 100
+    }
+  },
+  "linting": {
+    "enabled": true,
+    "html": {
+      "doctype": true,
+      "accessibility": true
+    },
+    "css": {
+      "vendorPrefix": true,
+      "zeroUnits": "no",
+      "importStatement": true
+    },
+    "javascript": {
+      "eqeqeq": true,
+      "unused": "all",
+      "undef": true,
+      "noImplicitReturns": true
+    }
+  },
+  "fileManagement": {
+    "maxFileSize": "500KB",
+    "maxLineLength": 120,
+    "maxLineCount": 400
+  },
+  "folders": {
+    "assets": {
+      "description": "Static assets like images, fonts, etc."
+    },
+    "css": {
+      "description": "CSS stylesheets"
+    },
+    "js": {
+      "description": "JavaScript files"
+    },
+    "pages": {
+      "description": "HTML pages for the campaign"
+    }
+  },
+  "customRules": {
+    "warhammer40k": {
+      "factionColors": {
+        "description": "Use consistent faction color codes across the site"
+      },
+      "campaignTimeline": {
+        "description": "Maintain a consistent timeline format for campaign events"
+      }
+    }
+  }
+} 
