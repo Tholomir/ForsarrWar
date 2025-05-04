@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Timeline - Forsarr War Campaign</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../assets/favicon.ico">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Forsarr War Campaign</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="factions.html">Factions</a></li>
+        <li><a href="timeline.html">Campaign Timeline</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h2>Forsarr War Campaign Timeline</h2>
+      <p>Track the chronological events of the campaign as they unfold across the Forsarr System</p>
+    </section>
+
+    <section>
+      <div class="timeline-controls">
+        <button id="scroll-left">← Scroll Left</button>
+        <button id="scroll-right">Scroll Right →</button>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline">
+          <!-- Example events - these will be populated with actual campaign events -->
+          <div class="timeline-event">
+            <div class="timeline-date">997.M41</div>
+            <h3 class="timeline-title">First Contact</h3>
+            <p class="timeline-description">Imperial scouts detect anomalous activity in the Forsarr System.</p>
+          </div>
+
+          <div class="timeline-event">
+            <div class="timeline-date">998.M41</div>
+            <h3 class="timeline-title">Planetfall</h3>
+            <p class="timeline-description">The first Imperial regiments land on Forsarr IV to establish a beachhead.</p>
+          </div>
+
+          <div class="timeline-event">
+            <div class="timeline-date">999.M41</div>
+            <h3 class="timeline-title">The Ancient Awakens</h3>
+            <p class="timeline-description">Deep beneath the surface of Forsarr II, something ancient stirs from millenia of slumber.</p>
+          </div>
+
+          <div class="timeline-event">
+            <div class="timeline-date">999.M41</div>
+            <h3 class="timeline-title">Reinforcements Arrive</h3>
+            <p class="timeline-description">Adeptus Astartes forces arrive in the system, responding to distress signals.</p>
+          </div>
+
+          <div class="timeline-event">
+            <div class="timeline-date">001.M42</div>
+            <h3 class="timeline-title">The Forsarr Blockade</h3>
+            <p class="timeline-description">Chaos warfleet emerges from the warp, cutting off Imperial supply lines.</p>
+          </div>
+
+          <div class="timeline-event">
+            <div class="timeline-date">002.M42</div>
+            <h3 class="timeline-title">The Forsarr Conclave</h3>
+            <p class="timeline-description">Imperial commanders gather to formulate a new strategy for system defense.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>About the Timeline</h2>
+      <p>This timeline chronicles the major events of the Forsarr War Campaign. Each event represents a significant moment in the narrative, often resulting from actual tabletop battles and their outcomes.</p>
+      <p>The timeline will be updated as the campaign progresses, with new events added to reflect the evolving conflict in the Forsarr System.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+    <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Timeline scrolling functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const timelineContainer = document.querySelector('.timeline-container');
+      const scrollLeftBtn = document.getElementById('scroll-left');
+      const scrollRightBtn = document.getElementById('scroll-right');
+      
+      if (scrollLeftBtn && scrollRightBtn && timelineContainer) {
+        // Scroll amount per click
+        const scrollAmount = 300;
+        
+        scrollLeftBtn.addEventListener('click', function() {
+          timelineContainer.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+          });
+        });
+        
+        scrollRightBtn.addEventListener('click', function() {
+          timelineContainer.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

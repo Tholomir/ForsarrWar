@@ -131,4 +131,108 @@ footer {
 /* Placeholder for missing images */
 .hero, body {
   background-color: var(--chaos-black);
+}
+
+/* Timeline Styles */
+.timeline-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.timeline {
+  display: flex;
+  min-width: 100%;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--imperial-red);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline-event {
+  min-width: 250px;
+  margin: 0 3rem;
+  position: relative;
+  z-index: 2;
+  background-color: var(--section-bg);
+  border: 1px solid var(--imperial-red);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.timeline-event:nth-child(odd) {
+  margin-bottom: 5rem;
+}
+
+.timeline-event:nth-child(even) {
+  margin-top: 5rem;
+}
+
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--aquila-gold);
+  border: 3px solid var(--imperial-red);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.timeline-event:nth-child(odd)::before {
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-event:nth-child(even)::before {
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: var(--aquila-gold);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+}
+
+.timeline-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-controls button {
+  background-color: var(--mechanicus-gray);
+  color: var(--text-color);
+  border: 1px solid var(--imperial-red);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.timeline-controls button:hover {
+  background-color: var(--imperial-red);
 } 
