@@ -1,6 +1,5 @@
 // Forsarr War Campaign - Main JavaScript File
 
-// Set copyright year in footer and initialize mobile navigation
 document.addEventListener('DOMContentLoaded', function() {
   // Set copyright year
   const currentYearElement = document.getElementById('current-year');
@@ -10,62 +9,30 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Mobile navigation toggle
   const navToggle = document.getElementById('navToggle');
-  const mainNav = document.getElementById('mainNav');
+  const mobileMenu = document.getElementById('mobileMenu');
   
-  if (navToggle && mainNav) {
-    // Initially hide the navigation on mobile
-    if (window.innerWidth < 768) {
-      mainNav.style.display = 'none';
-    }
-    
+  if (navToggle && mobileMenu) {
     navToggle.addEventListener('click', function() {
-      if (mainNav.style.display === 'none' || mainNav.style.display === '') {
-        mainNav.style.display = 'block';
-      } else {
-        mainNav.style.display = 'none';
-      }
-    });
-    
-    // Ensure nav displays properly when resizing
-    window.addEventListener('resize', function() {
-      if (window.innerWidth >= 768) {
-        mainNav.style.display = 'block';
-      } else {
-        mainNav.style.display = 'none';
-      }
+      mobileMenu.classList.toggle('hidden');
     });
   }
   
-  // Initialize any dynamic content
-  initializePageContent();
-});
-
-// Function to initialize dynamic content based on the current page
-function initializePageContent() {
-  // Determine current page
-  const currentPath = window.location.pathname;
-  const pageName = currentPath.split('/').pop();
+  // Tab functionality
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanels = document.querySelectorAll('.tab-panel');
   
-  // Add active class to current navigation item
-  highlightCurrentNavItem(pageName);
-  
-  // Page-specific initialization could be added here in the future
-}
-
-// Add active class to current navigation item
-function highlightCurrentNavItem(pageName) {
-  const navItems = document.querySelectorAll('nav a');
-  navItems.forEach(item => {
-    if (item.getAttribute('href').includes(pageName)) {
-      item.classList.add('active');
-    }
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons and panels
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.add('hidden'));
+      
+      // Add active class to clicked button
+      button.classList.add('active');
+      
+      // Show corresponding panel
+      const panelId = button.getAttribute('data-panel') + '-panel';
+      document.getElementById(panelId).classList.remove('hidden');
+    });
   });
-  
-  // If we're on the homepage and no nav item is active
-  if (pageName === '' || pageName === 'index.html') {
-    const homeLink = document.querySelector('nav a[href="index.html"]');
-    if (homeLink) {
-      homeLink.classList.add('active');
-    }
-  }
-} 
+}); 
