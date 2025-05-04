@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Forsarr War Campaign</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../assets/favicon.ico">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Forsarr War Campaign</h1>
+    </div>
+    <button class="nav-toggle" id="navToggle">☰ Menu</button>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="factions.html">Factions</a></li>
+        <li><a href="timeline.html">Campaign Timeline</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h2>Campaign Gallery</h2>
+      <p>Images from battles, events, and narrative moments across the Forsarr System</p>
+    </section>
+
+    <section class="gallery-filters">
+      <h3>Filter Images</h3>
+      <div class="filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="battles">Battles</button>
+        <button class="filter-button" data-filter="factions">Factions</button>
+        <button class="filter-button" data-filter="terrain">Terrain</button>
+        <button class="filter-button" data-filter="narrative">Narrative</button>
+      </div>
+    </section>
+
+    <section class="gallery-container">
+      <!-- Image grid will be populated as the campaign progresses -->
+      <!-- Placeholder images for now -->
+      <div class="gallery-item" data-category="battles">
+        <figure>
+          <img src="../assets/images/placeholder-battle.jpg" alt="Battle for Hive Forsarr" class="gallery-image">
+          <figcaption>
+            <h4>Battle for Hive Forsarr</h4>
+            <p>Imperial forces engage heretic astartes at the gates of Hive Forsarr</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery-item" data-category="factions">
+        <figure>
+          <img src="../assets/images/placeholder-faction.jpg" alt="Ultramarines Deployment" class="gallery-image">
+          <figcaption>
+            <h4>Ultramarines Deployment</h4>
+            <p>Ultramarines prepare for combat operation on Forsarr IV</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery-item" data-category="terrain">
+        <figure>
+          <img src="../assets/images/placeholder-terrain.jpg" alt="Ruins of Forsarr II" class="gallery-image">
+          <figcaption>
+            <h4>Ruins of Forsarr II</h4>
+            <p>Ancient ruins discovered beneath the surface of Forsarr II</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery-item" data-category="narrative">
+        <figure>
+          <img src="../assets/images/placeholder-narrative.jpg" alt="War Council" class="gallery-image">
+          <figcaption>
+            <h4>War Council</h4>
+            <p>Imperial commanders strategize during the Forsarr Conclave</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery-item" data-category="battles">
+        <figure>
+          <img src="../assets/images/placeholder-battle2.jpg" alt="Ambush at Dusk" class="gallery-image">
+          <figcaption>
+            <h4>Ambush at Dusk</h4>
+            <p>Xenos forces ambush an Imperial convoy in the Forsarr wastes</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery-item" data-category="factions">
+        <figure>
+          <img src="../assets/images/placeholder-faction2.jpg" alt="Death Guard Advance" class="gallery-image">
+          <figcaption>
+            <h4>Death Guard Advance</h4>
+            <p>Plague marines march through the toxic fumes of Forsarr III</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h3>Submit Your Images</h3>
+      <p>Have images from our campaign that you'd like to share? Contact the campaign master to have them added to the gallery.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+    <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Gallery filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-button');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          const filter = this.getAttribute('data-filter');
+          
+          // Show/hide gallery items based on filter
+          galleryItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html> 
