@@ -3,9 +3,169 @@ description:
 globs: 
 alwaysApply: true
 ---
-You are an expert AI programming assistant that primarily focuses on producing clear, readable HTML, Tailwind CSS and vanilla JavaScript code. We are writing a static webpage. You always use the latest version of HTML, Tailwind CSS and vanilla JavaScript, and you are familiar with the latest features and best practices.
+# Forsarr War Website Styling Guide
 
-- We access Tailwind via Tailwind CSS CDN link.
+## General Structure and Best Practices
 
-- We use Shoelace web components.
-- make use of SVG icons
+- Use the latest version of HTML, Tailwind CSS and vanilla JavaScript
+- Access Tailwind via CDN link: `<script src="https://cdn.tailwindcss.com"></script>`
+- Use Shoelace web components for interactive elements (version 2.8.0 or newer)
+- Implement SVG icons via symbol definitions at the document head for reuse
+- Mobile-first design with responsive breakpoints (primarily md:)
+- Dark theme based on zinc/slate backgrounds with amber/lime accents
+
+
+## Component Styles
+
+### Headers and Text
+- Main headings: `text-2xl md:text-3xl text-amber-600 font-bold`
+- Subheadings: `text-lg text-amber-600 font-semibold`
+- Body text: `text-stone-200 text-base`
+- Secondary text: `text-stone-300 text-sm`
+
+### Containers and Sections
+```html
+<section class="max-w-7xl mx-auto py-12 md:py-16">
+  <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden">
+    <!-- Section header -->
+    <div class="bg-zinc-900 border-b border-amber-600/50 p-5">
+      <div class="flex items-center justify-center space-x-4">
+        <div class="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center shadow-lg">
+          <svg class="h-7 w-7 text-zinc-900"><use href="#icon-id"></use></svg>
+        </div>
+        <h2 class="text-2xl md:text-3xl text-amber-600 font-bold">Section Title</h2>
+      </div>
+    </div>
+    
+    <!-- Section content -->
+    <div class="p-6">
+      <!-- Content goes here -->
+    </div>
+  </div>
+</section>
+```
+
+### SVG Icon System
+- Define all icons in the document head
+- Use symbol IDs that are descriptive (e.g., icon-menu, icon-updates)
+- Reference with `<use href="#icon-id"></use>`
+
+```html
+<!-- SVG Icon Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="icon-example" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="..." />
+  </symbol>
+</svg>
+
+<!-- Usage -->
+<svg class="h-6 w-6"><use href="#icon-example"></use></svg>
+```
+
+### Buttons and Navigation
+- Primary buttons:
+```html
+<a href="#" class="bg-zinc-800 border border-amber-600 text-amber-600 px-5 py-2 rounded hover:bg-zinc-700 transition-colors duration-300">Button Text</a>
+```
+
+- Secondary buttons: 
+```html
+<a href="#" class="bg-transparent border border-stone-600 text-stone-300 px-5 py-2 rounded hover:border-lime-400 hover:text-lime-400 transition-colors duration-300">Button Text</a>
+```
+
+- Tab buttons:
+```html
+<button class="tab-button" data-panel="panel-id">Tab Text</button>
+```
+
+### Cards and Content Blocks
+- Card styling with left border that changes on hover:
+```html
+<div class="card-content-wrapper">
+  <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+    <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
+    Card Title
+  </div>
+  <p class="text-stone-200 mb-4">Card content...</p>
+  <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+    <sl-badge variant="success" pill>Badge Text</sl-badge>
+    <span class="text-xs text-stone-400">Additional info</span>
+  </div>
+</div>
+```
+
+### Custom CSS Patterns
+```css
+/* Glow effects */
+.shadow-glow-lime {
+  box-shadow: 0 0 8px 2px rgba(163, 230, 53, 0.5);
+}
+
+/* Card content wrapper with hover effect */
+.card-content-wrapper {
+  background-color: #18181b; /* bg-zinc-900 */
+  border-radius: 0.25rem;
+  padding: 1rem;
+  border-left: 4px solid #d97706; /* border-l-4 border-amber-600 */
+  transition: border-color 0.3s ease;
+}
+
+.card-content-wrapper:hover {
+  border-color: #a3e635; /* hover:border-lime-400 */
+}
+
+/* Tab button styling */
+.tab-button {
+  background-color: transparent;
+  color: var(--sl-color-stone-300);
+  border: 1px solid #57534e; /* stone-600 */
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #a3e635; /* lime-400 */
+  border-color: #a3e635; /* lime-400 */
+}
+
+.tab-button.active {
+  background-color: #18181b; /* zinc-800 */
+  border-color: #d97706; /* amber-600 */
+  color: #d97706; /* amber-600 */
+}
+```
+
+## Shoelace Component Customization
+- Use custom CSS to style Shoelace components via part selectors
+- Base styling for badges, ratings, and cards
+
+```css
+sl-card.card-hover::part(base) {
+  background-color: var(--sl-color-neutral-900);
+}
+
+sl-badge[pill] {
+  border-radius: 9999px;
+}
+```
+
+## JavaScript Patterns
+- Use event delegation for interactive elements
+- Initialize all needed functionality within DOMContentLoaded
+- Use simple, clean syntax for event handlers
+- Keep JS functionality modular and focused
+
+## Accessibility Considerations
+- Use semantic HTML elements (`section`, `header`, `nav`, etc.)
+- Ensure proper contrast ratios between text and backgrounds
+- Include appropriate ARIA attributes where needed
+- Use scroll-margin-top for anchor targets to account for fixed headers:
+```css
+#section-id {
+  scroll-margin-top: 8rem;
+}
+
+
+```
