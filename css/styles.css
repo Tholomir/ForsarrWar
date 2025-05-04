@@ -59,57 +59,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* Desktop Timeline Styles */
-@media (min-width: 768px) {
-  .timeline {
-    flex-direction: row;
-    min-width: 100%;
-    padding: 2rem 0;
-  }
-  
-  .timeline::before {
-    top: 50%;
-    bottom: auto;
-    left: 0;
-    right: 0;
-    width: auto;
-    height: 4px;
-    transform: translateY(-50%);
-  }
-  
-  .timeline-event {
-    min-width: 250px;
-    margin: 0 3rem;
-    width: auto;
-  }
-  
-  .timeline-event:nth-child(odd) {
-    margin-bottom: 5rem;
-  }
-  
-  .timeline-event:nth-child(even) {
-    margin-top: 5rem;
-  }
-  
-  .timeline-event::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .timeline-event:nth-child(odd)::before {
-    top: -1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .timeline-event:nth-child(even)::before {
-    bottom: -1.5rem;
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
 /* Gallery Styles - Mobile First */
 .gallery-filters {
   margin-bottom: 1.5rem;
