@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forsarr Sector Map - Forsarr War Campaign</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../assets/images/ForsarrWar_logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Shoelace Component Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
+  <!-- SVG Icon Definitions -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="2"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l6-6 4 4 5-5" />
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </symbol>
+    <symbol id="icon-twitter" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+    </symbol>
+    <symbol id="icon-discord" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/>
+    </symbol>
+  </svg>
+</head>
+<body class="font-sans text-stone-200 bg-zinc-900 bg-fixed text-base overflow-x-hidden">
+  <!-- Sticky Header -->
+  <header class="fixed top-0 left-0 w-full bg-slate-800/90 backdrop-blur-sm z-50 border-b border-amber-600/50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center space-x-3">
+          <img src="../assets/images/ForsarrWar_logo.png" alt="Forsarr War Logo" class="h-20 w-20 filter drop-shadow-glow">
+          <h1 class="text-amber-600 font-bold text-xl hidden md:block">The Forsarr War: Cold Reign</h1>
+        </div>
+        <button class="md:hidden text-amber-600 focus:outline-none" id="navToggle">
+          <svg class="h-6 w-6">
+            <use href="#icon-menu"></use>
+          </svg>
+        </button>
+        <nav class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li><a href="index.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Home</a></li>
+            <li><a href="factions.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Factions</a></li>
+            <li><a href="sector-map.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Sector Map</a></li>
+            <li><a href="timeline.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Timeline</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-zinc-800 border-b border-amber-600/50" id="mobileMenu">
+      <div class="px-4 py-3 space-y-2">
+        <a href="index.html" class="block text-stone-300 hover:text-lime-400 py-2">Home</a>
+        <a href="factions.html" class="block text-stone-300 hover:text-lime-400 py-2">Factions</a>
+        <a href="sector-map.html" class="block text-stone-300 hover:text-lime-400 py-2">Sector Map</a>
+        <a href="timeline.html" class="block text-stone-300 hover:text-lime-400 py-2">Campaign Timeline</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="relative pt-24 md:pt-32 bg-zinc-900 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-zinc-900/70 to-zinc-900/90 z-10"></div>
+    <div class="absolute inset-0 bg-fixed bg-cover bg-center opacity-30"></div>
+    <div class="relative z-20 max-w-7xl mx-auto px-4 py-10 md:py-16">
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-600 mb-2 flex items-center justify-center gap-3">
+          <svg class="h-8 w-8 text-amber-600 inline-block"><use href="#icon-map"></use></svg>
+          Forsarr Sector Map
+        </h2>
+        <p class="text-lg md:text-xl text-stone-200 mb-6 max-w-2xl mx-auto">Explore the key locations of the Forsarr Sector. Click on points of interest for more info.</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="relative px-4 z-10">
+    <section class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden p-4 md:p-8">
+        <div class="relative w-full h-[60vw] max-h-[700px] min-h-[350px] flex items-center justify-center">
+          <img src="../assets/images/Forsarr_Subsector_Map.png" alt="Forsarr Sector Map" class="w-full h-full object-contain rounded-lg border border-amber-600/30" />
+          <!-- Points of Interest -->
+          <button class="absolute z-20 bg-lime-400 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-lime focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 30%; left: 25%;" aria-label="Hive Forsarr" onclick="showPoiInfo('hive-forsarr')"></button>
+          <button class="absolute z-20 bg-blue-500 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 60%; left: 60%;" aria-label="Forsarr II" onclick="showPoiInfo('forsarr-ii')"></button>
+          <button class="absolute z-20 bg-red-500 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-red focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 40%; left: 70%;" aria-label="Chaos Warfleet" onclick="showPoiInfo('chaos-warfleet')"></button>
+          <button class="absolute z-20 bg-amber-400 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-amber focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 75%; left: 35%;" aria-label="Necron Tomb" onclick="showPoiInfo('necron-tomb')"></button>
+        </div>
+      </div>
+    </section>
+    <!-- Info Modal -->
+    <sl-dialog id="poi-dialog" label="Location Info" class="dialog-overview">
+      <div id="poi-info-content"></div>
+    </sl-dialog>
+  </main>
+
+  <footer class="bg-slate-800 border-t-2 border-amber-600 pt-12 pb-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <img src="../assets/images/ForsarrWar_logo.png" alt="Forsarr War Logo" class="h-10 w-10 mr-3">
+            <h3 class="text-amber-600 font-bold text-xl">The Forsarr War</h3>
+          </div>
+          <p class="text-stone-300">A brutal campaign of conquest and survival in the grim darkness of the far future.</p>
+        </div>
+        <div>
+          <h3 class="text-amber-600 font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-stone-300">
+            <li><a href="index.html" class="hover:text-lime-400 transition-colors duration-300">Home</a></li>
+            <li><a href="factions.html" class="hover:text-lime-400 transition-colors duration-300">Factions</a></li>
+            <li><a href="timeline.html" class="hover:text-lime-400 transition-colors duration-300">Campaign Timeline</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-amber-600 font-bold mb-4">Connect</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-stone-300 hover:text-lime-400 transition-colors duration-300">
+              <svg class="h-6 w-6">
+                <use href="#icon-twitter"></use>
+              </svg>
+            </a>
+            <a href="#" class="text-stone-300 hover:text-lime-400 transition-colors duration-300">
+              <svg class="h-6 w-6">
+                <use href="#icon-discord"></use>
+              </svg>
+            </a>
+            <a href="#" class="text-stone-300 hover:text-lime-400 transition-colors duration-300">
+              <svg class="h-6 w-6">
+                <use href="#icon-check"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-zinc-700 pt-4 text-center">
+        <p class="text-stone-300 text-sm">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+        <p class="text-stone-400 text-xs mt-2"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script>
+    // POI info content
+    const poiData = {
+      'hive-forsarr': {
+        title: 'Hive Forsarr',
+        color: 'lime-400',
+        planetImg: '../assets/images/planets/planet_1.png',
+        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Hive Forsarr</h2>
+          <p class="text-stone-200 mb-2">The largest hive city in the sector, center of Imperial governance and site of major battles.</p>
+          <sl-badge variant="primary" pill>Imperium</sl-badge>`
+      },
+      'forsarr-ii': {
+        title: 'Forsarr II',
+        color: 'blue-500',
+        planetImg: '../assets/images/planets/planet_2.png',
+        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Forsarr II</h2>
+          <p class="text-stone-200 mb-2">A cold, resource-rich planet, recently the site of Necron activity deep beneath its surface.</p>
+          <sl-badge variant="warning" pill>Necron Activity</sl-badge>`
+      },
+      'chaos-warfleet': {
+        title: 'Chaos Warfleet',
+        color: 'red-500',
+        planetImg: '../assets/images/planets/planet_3.png',
+        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Chaos Warfleet</h2>
+          <p class="text-stone-200 mb-2">A fleet of the Black Legion, currently blockading Imperial supply lines at the system's edge.</p>
+          <sl-badge variant="danger" pill>Chaos</sl-badge>`
+      },
+      'necron-tomb': {
+        title: 'Necron Tomb Complex',
+        color: 'amber-400',
+        planetImg: '../assets/images/planets/planet_4.png',
+        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Necron Tomb Complex</h2>
+          <p class="text-stone-200 mb-2">Ancient xenos structures discovered beneath the ice, now stirring with unknown power.</p>
+          <sl-badge variant="warning" pill>Xenos</sl-badge>`
+      }
+    };
+    function showPoiInfo(key) {
+      const dialog = document.getElementById('poi-dialog');
+      const content = document.getElementById('poi-info-content');
+      if (poiData[key]) {
+        dialog.label = '';
+        content.innerHTML = `<img src="${poiData[key].planetImg}" alt="${poiData[key].title} planet image" class="w-full max-w-xs mx-auto mb-4 rounded-lg border border-amber-600/40 object-cover h-40" />` + poiData[key].content;
+        dialog.show();
+      }
+    }
+  </script>
+</body>
+</html> 
