@@ -23,16 +23,31 @@ document.addEventListener('DOMContentLoaded', function() {
   
   tabButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove active class from all buttons and panels
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabPanels.forEach(panel => panel.classList.add('hidden'));
+      // Get all tab buttons in the same container
+      const tabContainer = button.closest('div');
+      const relatedButtons = tabContainer ? tabContainer.querySelectorAll('.tab-button') : tabButtons;
+      
+      // Remove active class from related buttons
+      relatedButtons.forEach(btn => btn.classList.remove('active'));
       
       // Add active class to clicked button
       button.classList.add('active');
       
       // Show corresponding panel
-      const panelId = button.getAttribute('data-panel') + '-panel';
-      document.getElementById(panelId).classList.remove('hidden');
+      const panelId = button.getAttribute('data-panel');
+      const panel = document.getElementById(panelId);
+      
+      if (panel) {
+        // Find all panels that are siblings of this panel
+        const parentContainer = panel.parentElement;
+        const siblingPanels = parentContainer ? parentContainer.querySelectorAll('.tab-panel') : tabPanels;
+        
+        // Hide all sibling panels
+        siblingPanels.forEach(p => p.classList.add('hidden'));
+        
+        // Show the selected panel
+        panel.classList.remove('hidden');
+      }
     });
   });
 }); 

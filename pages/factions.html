@@ -1,201 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Factions - Forsarr War Campaign</title>
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="icon" href="../assets/favicon.ico">
+  <title>The Forsarr War: Cold Reign - Warhammer 40k</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Shoelace Component Library -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
+  
+  <!-- SVG Icon Definitions -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <!-- Menu Icon -->
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </symbol>
+    
+    <!-- Campaign Updates Icon -->
+    <symbol id="icon-updates" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+    </symbol>
+    
+    <!-- Campaign Rules Icon -->
+    <symbol id="icon-rules" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+    </symbol>
+    
+    <!-- Social Media Icons -->
+    <symbol id="icon-twitter" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 4.9C21.2 5.2 20.4 5.5 19.6 5.6 20.5 5 21.1 4.1 21.4 3 20.6 3.5 19.7 3.9 18.7 4.1 17.9 3.2 16.7 2.7 15.5 2.7 13.2 2.7 11.3 4.6 11.3 6.9 11.3 7.2 11.3 7.5 11.4 7.8 7.9 7.6 4.8 5.8 2.8 3.2 2.5 3.8 2.3 4.5 2.3 5.2 2.3 6.5 2.9 7.7 3.8 8.4 3.1 8.4 2.4 8.2 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 9.9 3.2 11.5 5.1 11.9 4.8 12 4.4 12 4.1 12 3.8 12 3.6 12 3.3 11.9 3.8 13.5 5.3 14.6 7.1 14.6 5.7 15.6 3.9 16.2 2 16.2 1.7 16.2 1.4 16.2 1 16.1 2.8 17.2 4.9 17.8 7.2 17.8 15.5 17.8 20 11 20 5.1 20 4.9 20 4.8 20 4.6 20.8 4.1 21.5 3.5 22 2.7Z" />
+    </symbol>
+    
+    <symbol id="icon-discord" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V5C22 3.9 21.1 3 20 3ZM8.5 6.5C9.6 6.5 10.5 7.4 10.5 8.5C10.5 9.6 9.6 10.5 8.5 10.5C7.4 10.5 6.5 9.6 6.5 8.5C6.5 7.4 7.4 6.5 8.5 6.5ZM12 18H5V16.2C5 14.4 8.5 13.5 8.5 13.5C8.5 13.5 12 14.4 12 16.2V18ZM19 15H15V13H19V15ZM19 11H13V9H19V11Z" />
+    </symbol>
+    
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM10.5 16.8L7.8 14.1C7.4 13.7 7.4 13.1 7.8 12.7C8.2 12.3 8.8 12.3 9.2 12.7L11 14.5L15.8 9.7C16.2 9.3 16.8 9.3 17.2 9.7C17.6 10.1 17.6 10.7 17.2 11.1L11.5 16.8C11.1 17.2 10.5 17.2 10.5 16.8Z" />
+    </symbol>
+    
+    <!-- About Campaign Icon -->
+    <symbol id="icon-about" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+    </symbol>
+  </svg>
 </head>
-<body class="font-sans text-stone-200 bg-zinc-900 bg-cover bg-fixed bg-center text-base">
-  <header class="bg-green-800 p-4 border-b-2 border-lime-400 md:p-4 md:pb-0">
-    <div class="text-center mb-4">
-      <h1 class="text-2xl text-lime-400 font-bold md:text-4xl">Forsarr War Campaign</h1>
+<body class="font-sans text-stone-200 bg-zinc-900 bg-fixed text-base overflow-x-hidden">
+  <!-- Sticky Header -->
+  <header class="fixed top-0 left-0 w-full bg-slate-800/90 backdrop-blur-sm z-50 border-b border-amber-600/50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center space-x-3">
+          <img src="../assets/images/ForsarrWar_logo.png" alt="Forsarr War Logo" class="h-20 w-20 filter drop-shadow-glow">
+          <h1 class="text-amber-600 font-bold text-xl hidden md:block">The Forsarr War: Cold Reign</h1>
+        </div>
+        <button class="md:hidden text-amber-600 focus:outline-none" id="navToggle">
+          <svg class="h-6 w-6">
+            <use href="#icon-menu"></use>
+          </svg>
+        </button>
+        
+        <nav class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li><a href="../index.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Home</a></li>
+            <li><a href="factions.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-lime-400 pb-1">Factions</a></li>
+            <li><a href="timeline.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Timeline</a></li>
+            <li><a href="gallery.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <button class="nav-toggle block w-full text-center text-lime-400 text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
-    <nav id="mainNav">
-      <ul class="flex flex-col list-none mt-4 md:flex-row md:justify-center md:mt-0">
-        <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="../index.html" class="text-lime-400 hover:underline">Home</a>
-        </li>
-        <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="factions.html" class="text-lime-400 hover:underline">Factions</a>
-        </li>
-        <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="timeline.html" class="text-lime-400 hover:underline">Campaign Timeline</a>
-        </li>
-        <li class="my-2 text-center md:mx-4 md:my-0">
-          <a href="gallery.html" class="text-lime-400 hover:underline">Gallery</a>
-        </li>
-      </ul>
-    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-zinc-800 border-b border-amber-600/50" id="mobileMenu">
+      <div class="px-4 py-3 space-y-2">
+        <a href="../index.html" class="block text-stone-300 hover:text-lime-400 py-2">Home</a>
+        <a href="factions.html" class="block text-stone-300 hover:text-lime-400 py-2">Factions</a>
+        <a href="timeline.html" class="block text-stone-300 hover:text-lime-400 py-2">Campaign Timeline</a>
+        <a href="gallery.html" class="block text-stone-300 hover:text-lime-400 py-2">Gallery</a>
+      </div>
+    </div>
   </header>
 
-  <main class="p-4 md:max-w-7xl md:mx-auto md:p-8">
-    <section class="bg-zinc-800 p-4 rounded border-l-4 border-lime-400 mb-8 md:p-8 md:mb-12">
-      <h2 class="text-xl text-amber-600 font-bold mb-4 md:text-3xl">Factions of the Forsarr War</h2>
-      <p class="text-stone-200">Learn about the various forces vying for control of the Forsarr System</p>
-    </section>
+  <!-- Compact Page Banner -->
+  <div class="relative pt-24 md:pt-32 bg-zinc-900 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-zinc-900/70 to-zinc-900/90 z-10"></div>
+    <div class="absolute inset-0 bg-fixed bg-cover bg-center opacity-30" style="background-image: url('../assets/images/subsector_3.png');"></div>
+    
+    <div class="relative z-20 max-w-7xl mx-auto px-4 py-10 md:py-16">
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-600 mb-2">Factions of the Forsarr War</h2>
+        <p class="text-lg md:text-xl text-stone-200 mb-6 max-w-2xl mx-auto">Learn about the various forces vying for control of the Forsarr System</p>
+      </div>
+    </div>
+  </div>
 
-    <!-- Faction Selection Tabs -->
-    <sl-tab-group>
-      <sl-tab slot="nav" panel="imperium">Imperium</sl-tab>
-      <sl-tab slot="nav" panel="chaos">Chaos</sl-tab>
-      <sl-tab slot="nav" panel="xenos">Xenos</sl-tab>
-      
-      <!-- Imperium Factions -->
-      <sl-tab-panel name="imperium">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Space Marines -->
-          <sl-card class="card-faction">
-            <div slot="header" class="font-bold text-amber-600">Space Marines</div>
-            <div class="p-2">
-              <p class="text-stone-200 mb-4">The Emperor's finest warriors, genetically enhanced super-soldiers who serve as the Imperium's elite fighting force.</p>
-              <sl-details summary="Active Chapters">
-                <ul class="list-disc pl-6 mt-2">
-                  <li>Ultramarines (2nd Company)</li>
-                  <li>Imperial Fists (Dorn's Vengeance Strike Force)</li>
-                </ul>
-              </sl-details>
+  <main class="relative px-4 z-10 pt-8">
+    <!-- Factions Section -->
+    <section class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden">
+        <!-- Header with enhanced styling -->
+        <div class="bg-zinc-900 border-b border-amber-600/50 p-5">
+          <div class="flex items-center justify-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center shadow-lg">
+              <svg class="h-7 w-7 text-zinc-900">
+                <use href="#icon-factions"></use>
+              </svg>
             </div>
-            <div slot="footer">
-              <sl-badge variant="primary">Imperium</sl-badge>
-              <sl-rating readonly value="5"></sl-rating>
-            </div>
-          </sl-card>
+            <h2 class="text-2xl md:text-3xl text-amber-600 font-bold">Faction Overview</h2>
+          </div>
+        </div>
+        
+        <div class="p-6">
+          <!-- Faction Selection Tabs -->
+          <div class="flex justify-center space-x-4 mb-8">
+            <button class="tab-button active" data-panel="imperium-panel">
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5"><use href="#icon-imperium"></use></svg>
+                <span>Imperium</span>
+              </div>
+            </button>
+            <button class="tab-button" data-panel="chaos-panel">
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5"><use href="#icon-chaos"></use></svg>
+                <span>Chaos</span>
+              </div>
+            </button>
+            <button class="tab-button" data-panel="xenos-panel">
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5"><use href="#icon-xenos"></use></svg>
+                <span>Xenos</span>
+              </div>
+            </button>
+          </div>
           
-          <!-- Imperial Guard -->
-          <sl-card class="card-faction">
-            <div slot="header" class="font-bold text-amber-600">Astra Militarum</div>
-            <div class="p-2">
-              <p class="text-stone-200 mb-4">The backbone of Imperial military might, countless billions of soldiers equipped with lasguns and tanks.</p>
-              <sl-details summary="Active Regiments">
-                <ul class="list-disc pl-6 mt-2">
-                  <li>Cadian 47th Infantry</li>
-                  <li>Forsarr PDF</li>
-                </ul>
-              </sl-details>
+          <!-- Imperium Factions -->
+          <div id="imperium-panel" class="tab-panel active">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <!-- Space Marines -->
+              <div class="card-content-wrapper">
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
+                  Space Marines
+                </div>
+                <p class="text-stone-200 mb-4">The Emperor's finest warriors, genetically enhanced super-soldiers who serve as the Imperium's elite fighting force.</p>
+                <sl-details summary="Active Chapters" class="mb-4">
+                  <ul class="list-disc pl-6 mt-2">
+                    <li>Ultramarines (2nd Company)</li>
+                    <li>Imperial Fists (Dorn's Vengeance Strike Force)</li>
+                  </ul>
+                </sl-details>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="primary" pill>Imperium</sl-badge>
+                  <sl-rating readonly value="5"></sl-rating>
+                </div>
+              </div>
+              
+              <!-- Imperial Guard -->
+              <div class="card-content-wrapper">
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
+                  Astra Militarum
+                </div>
+                <p class="text-stone-200 mb-4">The backbone of Imperial military might, countless billions of soldiers equipped with lasguns and tanks.</p>
+                <sl-details summary="Active Regiments" class="mb-4">
+                  <ul class="list-disc pl-6 mt-2">
+                    <li>Cadian 47th Infantry</li>
+                    <li>Forsarr PDF</li>
+                  </ul>
+                </sl-details>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="primary" pill>Imperium</sl-badge>
+                  <sl-rating readonly value="4"></sl-rating>
+                </div>
+              </div>
             </div>
-            <div slot="footer">
-              <sl-badge variant="primary">Imperium</sl-badge>
-              <sl-rating readonly value="4"></sl-rating>
-            </div>
-          </sl-card>
-        </div>
-      </sl-tab-panel>
-      
-      <!-- Chaos Factions -->
-      <sl-tab-panel name="chaos">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Black Legion -->
-          <sl-card class="card-faction">
-            <div slot="header" class="font-bold text-amber-600">Black Legion</div>
-            <div class="p-2">
-              <p class="text-stone-200 mb-4">Formerly the Luna Wolves, now the greatest legion of Chaos Space Marines led by Abaddon the Despoiler.</p>
-              <sl-details summary="Active Warbands">
-                <ul class="list-disc pl-6 mt-2">
-                  <li>The Forsarr Reavers</li>
-                  <li>Bringers of Despair</li>
-                </ul>
-              </sl-details>
-            </div>
-            <div slot="footer">
-              <sl-badge variant="danger">Chaos</sl-badge>
-              <sl-rating readonly value="5"></sl-rating>
-            </div>
-          </sl-card>
+          </div>
           
-          <!-- Death Guard -->
-          <sl-card class="card-faction">
-            <div slot="header" class="font-bold text-amber-600">Death Guard</div>
-            <div class="p-2">
-              <p class="text-stone-200 mb-4">Plague Marines dedicated to Nurgle, spreading disease and decay wherever they go.</p>
-              <sl-details summary="Active Forces">
-                <ul class="list-disc pl-6 mt-2">
-                  <li>7th Plague Company</li>
-                  <li>The Tainted</li>
-                </ul>
-              </sl-details>
+          <!-- Chaos Factions -->
+          <div id="chaos-panel" class="tab-panel hidden">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <!-- Black Legion -->
+              <div class="card-content-wrapper">
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red"></span>
+                  Black Legion
+                </div>
+                <p class="text-stone-200 mb-4">Formerly the Luna Wolves, now the greatest legion of Chaos Space Marines led by Abaddon the Despoiler.</p>
+                <sl-details summary="Active Warbands" class="mb-4">
+                  <ul class="list-disc pl-6 mt-2">
+                    <li>The Forsarr Reavers</li>
+                    <li>Bringers of Despair</li>
+                  </ul>
+                </sl-details>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="danger" pill>Chaos</sl-badge>
+                  <sl-rating readonly value="5"></sl-rating>
+                </div>
+              </div>
+              
+              <!-- Death Guard -->
+              <div class="card-content-wrapper">
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red"></span>
+                  Death Guard
+                </div>
+                <p class="text-stone-200 mb-4">Plague Marines dedicated to Nurgle, spreading disease and decay wherever they go.</p>
+                <sl-details summary="Active Forces" class="mb-4">
+                  <ul class="list-disc pl-6 mt-2">
+                    <li>7th Plague Company</li>
+                    <li>The Tainted</li>
+                  </ul>
+                </sl-details>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="danger" pill>Chaos</sl-badge>
+                  <sl-rating readonly value="4"></sl-rating>
+                </div>
+              </div>
             </div>
-            <div slot="footer">
-              <sl-badge variant="danger">Chaos</sl-badge>
-              <sl-rating readonly value="4"></sl-rating>
+          </div>
+          
+          <!-- Xenos Factions -->
+          <div id="xenos-panel" class="tab-panel hidden">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <!-- Necrons -->
+              <div class="card-content-wrapper">
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-amber-400 rounded-full mr-3 shadow-glow-amber"></span>
+                  Necrons
+                </div>
+                <p class="text-stone-200 mb-4">Ancient machine beings awakening from tombs beneath the surface of Forsarr II after millennia of slumber.</p>
+                <sl-details summary="Active Dynasties" class="mb-4">
+                  <ul class="list-disc pl-6 mt-2">
+                    <li>Forsarr Tomb Complex</li>
+                    <li>Sautekh Dynasty</li>
+                  </ul>
+                </sl-details>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="warning" pill>Xenos</sl-badge>
+                  <sl-rating readonly value="5"></sl-rating>
+                </div>
+              </div>
             </div>
-          </sl-card>
+          </div>
         </div>
-      </sl-tab-panel>
-      
-      <!-- Xenos Factions -->
-      <sl-tab-panel name="xenos">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Necrons -->
-          <sl-card class="card-faction">
-            <div slot="header" class="font-bold text-amber-600">Necrons</div>
-            <div class="p-2">
-              <p class="text-stone-200 mb-4">Ancient machine beings awakening from tombs beneath the surface of Forsarr II after millennia of slumber.</p>
-              <sl-details summary="Active Dynasties">
-                <ul class="list-disc pl-6 mt-2">
-                  <li>Forsarr Tomb Complex</li>
-                  <li>Sautekh Dynasty</li>
-                </ul>
-              </sl-details>
-            </div>
-            <div slot="footer">
-              <sl-badge variant="warning">Xenos</sl-badge>
-              <sl-rating readonly value="5"></sl-rating>
-            </div>
-          </sl-card>
-        </div>
-      </sl-tab-panel>
-    </sl-tab-group>
+      </div>
+    </section>
   </main>
 
-  <!-- Add this custom styling for Shoelace components -->
-  <style>
-    /* Custom Shoelace styling to match your theme */
-    sl-card::part(base) {
-      background-color: var(--sl-color-neutral-900);
-      border-color: var(--sl-color-lime-400);
-    }
-    
-    sl-card::part(header) {
-      border-bottom-color: var(--sl-color-lime-400);
-    }
-    
-    sl-tab-group::part(tabs) {
-      border-color: var(--sl-color-lime-400);
-    }
-    
-    sl-tab::part(base) {
-      color: var(--sl-color-lime-400);
-    }
-    
-    sl-tab::part(base):hover {
-      color: var(--sl-color-neutral-0);
-    }
-    
-    sl-tab[active]::part(base) {
-      color: var(--sl-color-amber-600);
-      border-color: var(--sl-color-lime-400);
-    }
-    
-    sl-details::part(header) {
-      color: var(--sl-color-amber-600);
-    }
-    
-    sl-badge::part(base) {
-      border: 1px solid var(--sl-color-lime-400);
-    }
-  </style>
-
-  <footer class="text-center p-6 bg-green-800 mt-8 border-t-2 border-lime-400 text-sm md:mt-12">
-    <p class="mb-2 text-stone-300">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
-    <p class="text-stone-300"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+  <footer class="bg-slate-800 border-t-2 border-amber-600 pt-12 pb-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <img src="../assets/images/ForsarrWar_logo.png" alt="Forsarr War Logo" class="h-10 w-10 mr-3">
+            <h3 class="text-amber-600 font-bold text-xl">The Forsarr War</h3>
+          </div>
+          <p class="text-stone-300">A brutal campaign of conquest and survival in the grim darkness of the far future.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-amber-600 font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-stone-300">
+            <li><a href="../index.html" class="hover:text-lime-400 transition-colors duration-300">Home</a></li>
+            <li><a href="factions.html" class="hover:text-lime-400 transition-colors duration-300">Factions</a></li>
+            <li><a href="timeline.html" class="hover:text-lime-400 transition-colors duration-300">Campaign Timeline</a></li>
+            <li><a href="gallery.html" class="hover:text-lime-400 transition-colors duration-300">Gallery</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-amber-600 font-bold mb-4">Connect</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-stone-300 hover:text-lime-400 transition-colors duration-300">
+              <svg class="h-6 w-6">
+                <use href="#icon-twitter"></use>
+              </svg>
+            </a>
+            <a href="#" class="text-stone-300 hover:text-lime-400 transition-colors duration-300">
+              <svg class="h-6 w-6">
+                <use href="#icon-discord"></use>
+              </svg>
+            </a>
+            <a href="#" class="text-stone-300 hover:text-lime-400 transition-colors duration-300">
+              <svg class="h-6 w-6">
+                <use href="#icon-check"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-zinc-700 pt-4 text-center">
+        <p class="text-stone-300 text-sm">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+        <p class="text-stone-400 text-xs mt-2"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+      </div>
+    </div>
   </footer>
 
   <script src="../js/main.js"></script>
