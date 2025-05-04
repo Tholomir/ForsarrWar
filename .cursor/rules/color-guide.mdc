@@ -13,7 +13,7 @@ Here’s a concise breakdown of all the Tailwind CSS color classes used in the *
 | ------------------ | -------------------------------- | -------------------------------------------------------- |
 | `bg-zinc-900`      | Dark background base             | Use for `body`, main layout wrapper, sections            |
 | `text-stone-200`   | Light text on dark backgrounds   | Use for default text color over `bg-zinc-900`            |
-| `bg-green-800`     | Muted accent background          | Use for headers, footers, sidebars                       |
+| `bg-slate-800`     | Muted accent background          | Use for headers, footers, sidebars                       |
 | `text-lime-400`    | Bright glow/accent text          | Use for callouts, buttons, highlights, active states     |
 | `text-stone-400`   | Muted secondary text             | Use for subtitles, captions, or secondary body text      |
 | `bg-stone-200`     | Light panel/card background      | Use for cards, modals, or content containers             |
@@ -38,5 +38,6 @@ Here’s a concise breakdown of all the Tailwind CSS color classes used in the *
   `bg-zinc-800 border-lime-400 text-lime-400`
 * **Footer**:
   `bg-green-800 text-stone-300`
+
 
 
