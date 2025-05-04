@@ -1,10 +1,39 @@
 // Forsarr War Campaign - Main JavaScript File
 
-// Set copyright year in footer
+// Set copyright year in footer and initialize mobile navigation
 document.addEventListener('DOMContentLoaded', function() {
+  // Set copyright year
   const currentYearElement = document.getElementById('current-year');
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
+  }
+  
+  // Mobile navigation toggle
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  
+  if (navToggle && mainNav) {
+    // Initially hide the navigation on mobile
+    if (window.innerWidth < 768) {
+      mainNav.style.display = 'none';
+    }
+    
+    navToggle.addEventListener('click', function() {
+      if (mainNav.style.display === 'none' || mainNav.style.display === '') {
+        mainNav.style.display = 'block';
+      } else {
+        mainNav.style.display = 'none';
+      }
+    });
+    
+    // Ensure nav displays properly when resizing
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 768) {
+        mainNav.style.display = 'block';
+      } else {
+        mainNav.style.display = 'none';
+      }
+    });
   }
   
   // Initialize any dynamic content

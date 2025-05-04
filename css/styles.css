@@ -28,6 +28,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  font-size: 16px;
 }
 
 a {
@@ -46,10 +47,22 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--aquila-gold);
 }
 
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
 /* Layout Components */
 header {
   background-color: var(--header-bg);
-  padding: 1rem 0;
+  padding: 1rem;
   border-bottom: 3px solid var(--imperial-red);
 }
 
@@ -58,125 +71,108 @@ header {
   margin-bottom: 1rem;
 }
 
+/* Mobile Navigation Styles */
+.nav-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: var(--aquila-gold);
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+
 nav ul {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   list-style: none;
+  margin-top: 1rem;
 }
 
 nav li {
-  margin: 0 1rem;
+  margin: 0.5rem 0;
+  text-align: center;
 }
 
 main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem;
 }
 
 section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   background-color: var(--section-bg);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 5px;
   border-left: 5px solid var(--imperial-red);
 }
 
 .hero {
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 2rem 1rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 5px;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   border-left: none;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto;
+  font-size: 1rem;
 }
 
 footer {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   background-color: var(--header-bg);
-  margin-top: 3rem;
+  margin-top: 2rem;
   border-top: 3px solid var(--imperial-red);
+  font-size: 0.9rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  nav li {
-    margin: 0.5rem 0;
-  }
-  
-  .hero h2 {
-    font-size: 2rem;
-  }
-}
-
-/* Placeholder for missing images */
-.hero, body {
-  background-color: var(--chaos-black);
-}
-
-/* Timeline Styles */
+/* Timeline Styles - Mobile First */
 .timeline-container {
   width: 100%;
   overflow-x: auto;
-  padding: 2rem 0;
-  margin-bottom: 2rem;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .timeline {
   display: flex;
-  min-width: 100%;
+  flex-direction: column;
   position: relative;
-  padding: 2rem 0;
+  padding: 0;
+  width: 100%;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 4px;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 4px;
   background-color: var(--imperial-red);
-  transform: translateY(-50%);
   z-index: 1;
 }
 
 .timeline-event {
-  min-width: 250px;
-  margin: 0 3rem;
   position: relative;
   z-index: 2;
   background-color: var(--section-bg);
   border: 1px solid var(--imperial-red);
   border-radius: 5px;
   padding: 1rem;
-}
-
-.timeline-event:nth-child(odd) {
-  margin-bottom: 5rem;
-}
-
-.timeline-event:nth-child(even) {
-  margin-top: 5rem;
+  margin: 1rem 0 1rem 2.5rem;
+  width: calc(100% - 3rem);
 }
 
 .timeline-event::before {
@@ -188,18 +184,9 @@ footer {
   border: 3px solid var(--imperial-red);
   border-radius: 50%;
   z-index: 3;
-}
-
-.timeline-event:nth-child(odd)::before {
-  top: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.timeline-event:nth-child(even)::before {
-  bottom: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: -34px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .timeline-date {
@@ -209,7 +196,7 @@ footer {
 }
 
 .timeline-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -219,8 +206,7 @@ footer {
 
 .timeline-controls {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: space-between;
   margin-bottom: 1rem;
 }
 
@@ -228,11 +214,143 @@ footer {
   background-color: var(--mechanicus-gray);
   color: var(--text-color);
   border: 1px solid var(--imperial-red);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   cursor: pointer;
   border-radius: 3px;
+  font-size: 0.9rem;
+  width: 48%;
 }
 
 .timeline-controls button:hover {
   background-color: var(--imperial-red);
+}
+
+/* Placeholder for missing images */
+.hero, body {
+  background-color: var(--chaos-black);
+}
+
+/* Desktop Styles (Media Queries) */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  header {
+    padding: 1rem 0;
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+  
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+  }
+  
+  nav li {
+    margin: 0 1rem;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  section {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .hero {
+    padding: 5rem 2rem;
+  }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Timeline Desktop Styles */
+  .timeline-container {
+    padding: 2rem 0;
+  }
+  
+  .timeline {
+    flex-direction: row;
+    min-width: 100%;
+    padding: 2rem 0;
+  }
+  
+  .timeline::before {
+    top: 50%;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 4px;
+    transform: translateY(-50%);
+  }
+  
+  .timeline-event {
+    min-width: 250px;
+    margin: 0 3rem;
+    width: auto;
+  }
+  
+  .timeline-event:nth-child(odd) {
+    margin-bottom: 5rem;
+  }
+  
+  .timeline-event:nth-child(even) {
+    margin-top: 5rem;
+  }
+  
+  .timeline-event::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-event:nth-child(odd)::before {
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-event:nth-child(even)::before {
+    bottom: -1.5rem;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-controls {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .timeline-controls button {
+    width: auto;
+    padding: 0.5rem 1rem;
+  }
 } 

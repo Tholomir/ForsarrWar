@@ -12,7 +12,8 @@
     <div class="logo">
       <h1>Forsarr War Campaign</h1>
     </div>
-    <nav>
+    <button class="nav-toggle" id="navToggle">☰ Menu</button>
+    <nav id="mainNav">
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="factions.html">Factions</a></li>
@@ -30,8 +31,8 @@
 
     <section>
       <div class="timeline-controls">
-        <button id="scroll-left">← Scroll Left</button>
-        <button id="scroll-right">Scroll Right →</button>
+        <button id="scroll-left">← Previous</button>
+        <button id="scroll-right">Next →</button>
       </div>
 
       <div class="timeline-container">
@@ -96,22 +97,65 @@
       const scrollLeftBtn = document.getElementById('scroll-left');
       const scrollRightBtn = document.getElementById('scroll-right');
       
+      // For mobile: Vertical scrolling isn't necessary, but we'll keep the buttons
+      // for paging through events on small screens
       if (scrollLeftBtn && scrollRightBtn && timelineContainer) {
-        // Scroll amount per click
-        const scrollAmount = 300;
+        const timelineEvents = document.querySelectorAll('.timeline-event');
+        let currentEventIndex = 0;
         
+        // Function to show only the current event on mobile
+        function updateMobileTimeline() {
+          if (window.innerWidth < 768) {
+            timelineEvents.forEach((event, index) => {
+              if (index === currentEventIndex) {
+                event.style.display = 'block';
+              } else {
+                event.style.display = 'none';
+              }
+            });
+          } else {
+            // On desktop show all events and allow horizontal scrolling
+            timelineEvents.forEach(event => {
+              event.style.display = 'block';
+            });
+          }
+        }
+        
+        // Initialize timeline view
+        updateMobileTimeline();
+        
+        // Handle window resize
+        window.addEventListener('resize', updateMobileTimeline);
+        
+        // Mobile navigation through events
         scrollLeftBtn.addEventListener('click', function() {
-          timelineContainer.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-          });
+          if (window.innerWidth < 768) {
+            if (currentEventIndex > 0) {
+              currentEventIndex--;
+              updateMobileTimeline();
+            }
+          } else {
+            // Desktop horizontal scrolling
+            timelineContainer.scrollBy({
+              left: -300,
+              behavior: 'smooth'
+            });
+          }
         });
         
         scrollRightBtn.addEventListener('click', function() {
-          timelineContainer.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-          });
+          if (window.innerWidth < 768) {
+            if (currentEventIndex < timelineEvents.length - 1) {
+              currentEventIndex++;
+              updateMobileTimeline();
+            }
+          } else {
+            // Desktop horizontal scrolling
+            timelineContainer.scrollBy({
+              left: 300,
+              behavior: 'smooth'
+            });
+          }
         });
       }
     });
