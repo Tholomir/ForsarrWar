@@ -10,7 +10,8 @@
     },
     "css": {
       "indentSize": 2,
-      "newlineBetweenSelectors": true
+      "newlineBetweenSelectors": true,
+      "mediaQueriesAtEnd": true
     },
     "javascript": {
       "indentSize": 2,
@@ -24,12 +25,17 @@
     "enabled": true,
     "html": {
       "doctype": true,
-      "accessibility": true
+      "accessibility": true,
+      "viewport": true
     },
     "css": {
       "vendorPrefix": true,
       "zeroUnits": "no",
-      "importStatement": true
+      "importStatement": true,
+      "mediaQueries": {
+        "mobileFirst": true,
+        "preferMinWidth": true
+      }
     },
     "javascript": {
       "eqeqeq": true,
@@ -64,6 +70,25 @@
       },
       "campaignTimeline": {
         "description": "Maintain a consistent timeline format for campaign events"
+      }
+    },
+    "responsiveDesign": {
+      "breakpoints": {
+        "mobile": "0-767px",
+        "tablet": "768-1023px",
+        "desktop": "1024px+"
+      },
+      "mobileFirst": {
+        "description": "Always start with mobile styles as the default, then enhance for larger screens using min-width media queries",
+        "enabled": true
+      },
+      "touchTargets": {
+        "description": "Touch targets should be at least 44x44px on mobile devices",
+        "minSize": "44px"
+      },
+      "flexibleImages": {
+        "description": "All images should be responsive with max-width: 100%",
+        "enabled": true
       }
     }
   }
