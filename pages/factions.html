@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Forsarr War: Cold Reign - Warhammer 40k</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="assets/favicon.ico">
+  <title>Factions - Forsarr War Campaign</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Shoelace Component Library -->
@@ -24,14 +24,34 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
     </symbol>
     
+    <!-- Factions Icon -->
+    <symbol id="icon-factions" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+    </symbol>
+    
     <!-- Campaign Rules Icon -->
     <symbol id="icon-rules" viewBox="0 0 24 24" fill="none" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
     </symbol>
     
+    <!-- Imperium Icon -->
+    <symbol id="icon-imperium" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+    </symbol>
+    
+    <!-- Chaos Icon -->
+    <symbol id="icon-chaos" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </symbol>
+    
+    <!-- Xenos Icon -->
+    <symbol id="icon-xenos" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </symbol>
+    
     <!-- Social Media Icons -->
     <symbol id="icon-twitter" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22 4.9C21.2 5.2 20.4 5.5 19.6 5.6 20.5 5 21.1 4.1 21.4 3 20.6 3.5 19.7 3.9 18.7 4.1 17.9 3.2 16.7 2.7 15.5 2.7 13.2 2.7 11.3 4.6 11.3 6.9 11.3 7.2 11.3 7.5 11.4 7.8 7.9 7.6 4.8 5.8 2.8 3.2 2.5 3.8 2.3 4.5 2.3 5.2 2.3 6.5 2.9 7.7 3.8 8.4 3.1 8.4 2.4 8.2 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 9.9 3.2 11.5 5.1 11.9 4.8 12 4.4 12 4.1 12 3.8 12 3.6 12 3.3 11.9 3.8 13.5 5.3 14.6 7.1 14.6 5.7 15.6 3.9 16.2 2 16.2 1.7 16.2 1.4 16.2 1 16.1 2.8 17.2 4.9 17.8 7.2 17.8 15.5 17.8 20 11 20 5.1 20 4.9 20 4.8 20 4.6 20.8 4.1 21.5 3.5 22 2.7Z" />
+      <path d="M22 4.9C21.2 5.2 20.4 5.5 19.6 5.6 20.5 5 21.1 4.1 21.4 3 20.6 3.5 19.7 3.9 18.7 4.1 17.9 3.2 16.7 2.7 15.5 2.7 13.2 2.7 11.3 4.6 11.3 6.9 11.3 7.2 11.3 7.5 11.4 7.8 7.9 7.6 4.8 5.8 2.8 3.2 2.5 3.8 2.3 4.5 2.3 5.2 2.3 6.5 2.9 7.7 3.8 8.4 3.1 8.4 2.4 8.2 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 9.9 3.2 11.5 5.1 11.9 4.8 12 4.4 12 4.1 12 3.8 12 3.6 12 3.3 11.9 3.8 13.5 5.3 14.6 7.1 14.6 5.7 15.6 3.9 16.2 2 16.2 1.7 16.2 1.4 16.2 1 16.1 2.8 17.2 4.9 17.8 7.2 17.8 15.5 17.8 20 11 20 5.1 20 4.9 20 4.8 20 4.6 20.8 4.1 21.5 3.5 22 2.7Z" />
     </symbol>
     
     <symbol id="icon-discord" viewBox="0 0 24 24" fill="currentColor">
@@ -142,6 +162,19 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               <!-- Space Marines -->
               <div class="card-content-wrapper">
+                <!-- Faction Image -->
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-amber-600 text-6xl opacity-30">SM</div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 z-20">
+                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
+                      <span class="w-2 h-2 bg-lime-400 rounded-full"></span>
+                      <span class="text-stone-200 text-xs">Space Marines</span>
+                    </div>
+                  </div>
+                </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
                   Space Marines
@@ -161,6 +194,19 @@
               
               <!-- Imperial Guard -->
               <div class="card-content-wrapper">
+                <!-- Faction Image -->
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-amber-600 text-6xl opacity-30">AM</div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 z-20">
+                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
+                      <span class="w-2 h-2 bg-lime-400 rounded-full"></span>
+                      <span class="text-stone-200 text-xs">Astra Militarum</span>
+                    </div>
+                  </div>
+                </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
                   Astra Militarum
@@ -185,6 +231,19 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               <!-- Black Legion -->
               <div class="card-content-wrapper">
+                <!-- Faction Image -->
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-red-500 text-6xl opacity-30">BL</div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 z-20">
+                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
+                      <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                      <span class="text-stone-200 text-xs">Black Legion</span>
+                    </div>
+                  </div>
+                </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red"></span>
                   Black Legion
@@ -204,6 +263,19 @@
               
               <!-- Death Guard -->
               <div class="card-content-wrapper">
+                <!-- Faction Image -->
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-red-500 text-6xl opacity-30">DG</div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 z-20">
+                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
+                      <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                      <span class="text-stone-200 text-xs">Death Guard</span>
+                    </div>
+                  </div>
+                </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red"></span>
                   Death Guard
@@ -228,6 +300,19 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               <!-- Necrons -->
               <div class="card-content-wrapper">
+                <!-- Faction Image -->
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-amber-400 text-6xl opacity-30">NC</div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 z-20">
+                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
+                      <span class="w-2 h-2 bg-amber-400 rounded-full"></span>
+                      <span class="text-stone-200 text-xs">Necrons</span>
+                    </div>
+                  </div>
+                </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-amber-400 rounded-full mr-3 shadow-glow-amber"></span>
                   Necrons
