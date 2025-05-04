@@ -3,44 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Forsarr War: Cold Reign 💀 - Warhammer 40k</title>
+  <title>Forsarr War Campaign - Warhammer 40k</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind.config.js"></script>
 </head>
-<body>
-  <header>
-    <div class="logo">
-      <h1>The Forsarr War: Cold Reign 💀</h1>
+<body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
+  <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
+    <div class="text-center mb-4">
+      <h1 class="text-2xl text-aquila-gold font-bold md:text-4xl">Forsarr War Campaign</h1>
     </div>
-    <button class="nav-toggle" id="navToggle">☰ Menu</button>
+    <button class="nav-toggle block w-full text-center text-aquila-gold text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
     <nav id="mainNav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="pages/factions.html">Factions</a></li>
-        <li><a href="pages/timeline.html">Campaign Timeline</a></li>
-        <li><a href="pages/gallery.html">Gallery</a></li>
+      <ul class="flex flex-col list-none mt-4 md:flex-row md:justify-center md:mt-0">
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="index.html" class="text-aquila-gold hover:underline">Home</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="pages/factions.html" class="text-aquila-gold hover:underline">Factions</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="pages/timeline.html" class="text-aquila-gold hover:underline">Campaign Timeline</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="pages/gallery.html" class="text-aquila-gold hover:underline">Gallery</a>
+        </li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
+  <main class="p-4 md:max-w-7xl md:mx-auto md:p-8">
+    <section class="hero text-center p-8 bg-chaos-black bg-cover bg-center rounded mb-8 md:p-20">
       <div class="hero-content">
-        <h2>The Forsarr System Burns</h2>
-        <p>A brutal campaign of conquest and survival in the grim darkness of the far future</p>
+        <h2 class="text-2xl text-aquila-gold font-bold mb-4 md:text-4xl">The Forsarr System Burns</h2>
+        <p class="text-base md:text-xl md:max-w-2xl md:mx-auto">A brutal campaign of conquest and survival in the grim darkness of the far future</p>
       </div>
     </section>
 
-    <section class="campaign-intro">
-      <h2>About the Campaign</h2>
-      <p>The Forsarr System, once a prosperous Imperial holding, now stands at the precipice of total war. 
+    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">About the Campaign</h2>
+      <p class="mb-4">The Forsarr System, once a prosperous Imperial holding, now stands at the precipice of total war. 
          Multiple factions vie for control of this strategic sector as ancient evils awaken and new threats emerge.</p>
       <p>Follow the progress of our Warhammer 40k campaign, track faction movements, and witness the fate of 
          the Forsarr System unfold through battle reports and narrative developments.</p>
     </section>
 
-    <section class="latest-updates">
-      <h2>Latest Campaign Updates</h2>
+    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">Latest Campaign Updates</h2>
       <div class="updates-container">
         <!-- Updates will be populated here -->
         <p>Campaign launching soon. Stay tuned for battle reports and faction movements!</p>
@@ -48,8 +58,8 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+  <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
+    <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
     <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
   </footer>
 

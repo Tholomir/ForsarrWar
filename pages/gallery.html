@@ -6,112 +6,122 @@
   <title>Gallery - Forsarr War Campaign</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" href="../assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind.config.js"></script>
 </head>
-<body>
-  <header>
-    <div class="logo">
-      <h1>Forsarr War Campaign</h1>
+<body class="font-sans text-text-color bg-chaos-black bg-cover bg-fixed bg-center text-base">
+  <header class="bg-header-bg p-4 border-b-3 border-imperial-red md:p-4 md:pb-0">
+    <div class="text-center mb-4">
+      <h1 class="text-2xl text-aquila-gold font-bold md:text-4xl">Forsarr War Campaign</h1>
     </div>
-    <button class="nav-toggle" id="navToggle">☰ Menu</button>
+    <button class="nav-toggle block w-full text-center text-aquila-gold text-2xl cursor-pointer py-2 border-none bg-transparent md:hidden" id="navToggle">☰ Menu</button>
     <nav id="mainNav">
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="factions.html">Factions</a></li>
-        <li><a href="timeline.html">Campaign Timeline</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+      <ul class="flex flex-col list-none mt-4 md:flex-row md:justify-center md:mt-0">
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="../index.html" class="text-aquila-gold hover:underline">Home</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="factions.html" class="text-aquila-gold hover:underline">Factions</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="timeline.html" class="text-aquila-gold hover:underline">Campaign Timeline</a>
+        </li>
+        <li class="my-2 text-center md:mx-4 md:my-0">
+          <a href="gallery.html" class="text-aquila-gold hover:underline">Gallery</a>
+        </li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="page-header">
-      <h2>Campaign Gallery</h2>
+  <main class="p-4 md:max-w-7xl md:mx-auto md:p-8">
+    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
+      <h2 class="text-xl text-aquila-gold font-bold mb-4 md:text-3xl">Campaign Gallery</h2>
       <p>Images from battles, events, and narrative moments across the Forsarr System</p>
     </section>
 
-    <section class="gallery-filters">
-      <h3>Filter Images</h3>
-      <div class="filters">
-        <button class="filter-button active" data-filter="all">All</button>
-        <button class="filter-button" data-filter="battles">Battles</button>
-        <button class="filter-button" data-filter="factions">Factions</button>
-        <button class="filter-button" data-filter="terrain">Terrain</button>
-        <button class="filter-button" data-filter="narrative">Narrative</button>
+    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
+      <h3 class="text-lg text-aquila-gold font-bold mb-3 md:text-2xl">Filter Images</h3>
+      <div class="flex flex-wrap gap-2 mt-2">
+        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm active md:p-2 md:px-4 md:text-base" data-filter="all">All</button>
+        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="battles">Battles</button>
+        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="factions">Factions</button>
+        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="terrain">Terrain</button>
+        <button class="filter-button bg-mechanicus-gray text-text-color border border-imperial-red p-2 rounded cursor-pointer text-sm md:p-2 md:px-4 md:text-base" data-filter="narrative">Narrative</button>
       </div>
     </section>
 
-    <section class="gallery-container">
+    <div class="flex flex-col gap-6 mb-8 md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3">
       <!-- Image grid will be populated as the campaign progresses -->
       <!-- Placeholder images for now -->
-      <div class="gallery-item" data-category="battles">
-        <figure>
-          <img src="../assets/images/placeholder-battle.jpg" alt="Battle for Hive Forsarr" class="gallery-image">
-          <figcaption>
-            <h4>Battle for Hive Forsarr</h4>
-            <p>Imperial forces engage heretic astartes at the gates of Hive Forsarr</p>
+      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="battles">
+        <figure class="m-0">
+          <img src="../assets/images/placeholder-battle.jpg" alt="Battle for Hive Forsarr" class="w-full h-auto block max-h-60 object-cover object-center">
+          <figcaption class="p-4">
+            <h4 class="text-lg text-aquila-gold font-bold mb-2">Battle for Hive Forsarr</h4>
+            <p class="text-sm leading-relaxed">Imperial forces engage heretic astartes at the gates of Hive Forsarr</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item" data-category="factions">
-        <figure>
-          <img src="../assets/images/placeholder-faction.jpg" alt="Ultramarines Deployment" class="gallery-image">
-          <figcaption>
-            <h4>Ultramarines Deployment</h4>
-            <p>Ultramarines prepare for combat operation on Forsarr IV</p>
+      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="factions">
+        <figure class="m-0">
+          <img src="../assets/images/placeholder-faction.jpg" alt="Ultramarines Deployment" class="w-full h-auto block max-h-60 object-cover object-center">
+          <figcaption class="p-4">
+            <h4 class="text-lg text-aquila-gold font-bold mb-2">Ultramarines Deployment</h4>
+            <p class="text-sm leading-relaxed">Ultramarines prepare for combat operation on Forsarr IV</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item" data-category="terrain">
-        <figure>
-          <img src="../assets/images/placeholder-terrain.jpg" alt="Ruins of Forsarr II" class="gallery-image">
-          <figcaption>
-            <h4>Ruins of Forsarr II</h4>
-            <p>Ancient ruins discovered beneath the surface of Forsarr II</p>
+      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="terrain">
+        <figure class="m-0">
+          <img src="../assets/images/placeholder-terrain.jpg" alt="Ruins of Forsarr II" class="w-full h-auto block max-h-60 object-cover object-center">
+          <figcaption class="p-4">
+            <h4 class="text-lg text-aquila-gold font-bold mb-2">Ruins of Forsarr II</h4>
+            <p class="text-sm leading-relaxed">Ancient ruins discovered beneath the surface of Forsarr II</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item" data-category="narrative">
-        <figure>
-          <img src="../assets/images/placeholder-narrative.jpg" alt="War Council" class="gallery-image">
-          <figcaption>
-            <h4>War Council</h4>
-            <p>Imperial commanders strategize during the Forsarr Conclave</p>
+      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="narrative">
+        <figure class="m-0">
+          <img src="../assets/images/placeholder-narrative.jpg" alt="War Council" class="w-full h-auto block max-h-60 object-cover object-center">
+          <figcaption class="p-4">
+            <h4 class="text-lg text-aquila-gold font-bold mb-2">War Council</h4>
+            <p class="text-sm leading-relaxed">Imperial commanders strategize during the Forsarr Conclave</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item" data-category="battles">
-        <figure>
-          <img src="../assets/images/placeholder-battle2.jpg" alt="Ambush at Dusk" class="gallery-image">
-          <figcaption>
-            <h4>Ambush at Dusk</h4>
-            <p>Xenos forces ambush an Imperial convoy in the Forsarr wastes</p>
+      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="battles">
+        <figure class="m-0">
+          <img src="../assets/images/placeholder-battle2.jpg" alt="Ambush at Dusk" class="w-full h-auto block max-h-60 object-cover object-center">
+          <figcaption class="p-4">
+            <h4 class="text-lg text-aquila-gold font-bold mb-2">Ambush at Dusk</h4>
+            <p class="text-sm leading-relaxed">Xenos forces ambush an Imperial convoy in the Forsarr wastes</p>
           </figcaption>
         </figure>
       </div>
 
-      <div class="gallery-item" data-category="factions">
-        <figure>
-          <img src="../assets/images/placeholder-faction2.jpg" alt="Death Guard Advance" class="gallery-image">
-          <figcaption>
-            <h4>Death Guard Advance</h4>
-            <p>Plague marines march through the toxic fumes of Forsarr III</p>
+      <div class="gallery-item bg-section-bg rounded overflow-hidden border border-imperial-red" data-category="factions">
+        <figure class="m-0">
+          <img src="../assets/images/placeholder-faction2.jpg" alt="Death Guard Advance" class="w-full h-auto block max-h-60 object-cover object-center">
+          <figcaption class="p-4">
+            <h4 class="text-lg text-aquila-gold font-bold mb-2">Death Guard Advance</h4>
+            <p class="text-sm leading-relaxed">Plague marines march through the toxic fumes of Forsarr III</p>
           </figcaption>
         </figure>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h3>Submit Your Images</h3>
+    <section class="bg-section-bg p-4 rounded border-l-4 border-imperial-red mb-8 md:p-8 md:mb-12">
+      <h3 class="text-lg text-aquila-gold font-bold mb-3 md:text-2xl">Submit Your Images</h3>
       <p>Have images from our campaign that you'd like to share? Contact the campaign master to have them added to the gallery.</p>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+  <footer class="text-center p-6 bg-header-bg mt-8 border-t-3 border-imperial-red text-sm md:mt-12">
+    <p class="mb-2">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
     <p><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
   </footer>
 

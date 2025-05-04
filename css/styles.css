@@ -1,4 +1,128 @@
 /* Forsarr War Campaign - Main Stylesheet */
+/* This file now contains only custom styles that aren't easily handled by Tailwind */
+
+/* Custom background images that need to be preserved */
+body {
+  background-image: url('../assets/background.jpg');
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/hero-bg.jpg');
+}
+
+/* Active filter for gallery */
+.filter-button.active {
+  background-color: #990000; /* Using hex instead of var since this is limited */
+}
+
+/* Timeline-specific styles that are complex layout components */
+.timeline-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  width: 100%;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 4px;
+  background-color: #990000;
+  z-index: 1;
+}
+
+.timeline-event {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(20, 20, 20, 0.8);
+  border: 1px solid #990000;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0 1rem 2.5rem;
+  width: calc(100% - 3rem);
+}
+
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #d4af37;
+  border: 3px solid #990000;
+  border-radius: 50%;
+  z-index: 3;
+  left: -34px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+
+/* Desktop Timeline Styles */
+@media (min-width: 768px) {
+  .timeline {
+    flex-direction: row;
+    min-width: 100%;
+    padding: 2rem 0;
+  }
+  
+  .timeline::before {
+    top: 50%;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 4px;
+    transform: translateY(-50%);
+  }
+  
+  .timeline-event {
+    min-width: 250px;
+    margin: 0 3rem;
+    width: auto;
+  }
+  
+  .timeline-event:nth-child(odd) {
+    margin-bottom: 5rem;
+  }
+  
+  .timeline-event:nth-child(even) {
+    margin-top: 5rem;
+  }
+  
+  .timeline-event::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-event:nth-child(odd)::before {
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-event:nth-child(even)::before {
+    bottom: -1.5rem;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 /* Base Styles and Reset */
 * {
