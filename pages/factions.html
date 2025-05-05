@@ -142,19 +142,25 @@
             <button class="tab-button active" data-panel="imperium-panel">
               <div class="flex items-center space-x-2">
                 <svg class="h-5 w-5"><use href="#icon-imperium"></use></svg>
-                <span>Imperium</span>
+                <span>The Iron Bastion</span>
               </div>
             </button>
             <button class="tab-button" data-panel="chaos-panel">
               <div class="flex items-center space-x-2">
                 <svg class="h-5 w-5"><use href="#icon-chaos"></use></svg>
-                <span>Chaos</span>
+                <span>The Dark Forge</span>
               </div>
             </button>
             <button class="tab-button" data-panel="xenos-panel">
               <div class="flex items-center space-x-2">
-                <svg class="h-5 w-5"><use href="#icon-xenos"></use></svg>
-                <span>Xenos</span>
+                <svg class="h-5 w-5 text-fuchsia-400"><use href="#icon-factions"></use></svg>
+                <span>The Savage Swarm</span>
+              </div>
+            </button>
+            <button class="tab-button" data-panel="ancient-panel">
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5 text-amber-400"><use href="#icon-rules"></use></svg>
+                <span>Ancient Unknown</span>
               </div>
             </button>
           </div>
@@ -162,67 +168,89 @@
           <!-- Imperium Factions -->
           <div id="imperium-panel" class="tab-panel active">
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <!-- Space Marines -->
+              <!-- 368th & 426th Cadian Mechanized Super Heavy Assault Reconnaissance Reserve -->
               <div class="card-content-wrapper">
-                <!-- Faction Image -->
                 <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
                   <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
-                    <div class="text-amber-600 text-6xl opacity-30">SM</div>
-                  </div>
-                  <div class="absolute bottom-2 right-2 z-20">
-                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
-                      <span class="w-2 h-2 bg-lime-400 rounded-full"></span>
-                      <span class="text-stone-200 text-xs">Space Marines</span>
-                    </div>
+                    <div class="text-lime-400 text-5xl opacity-30">SH</div>
                   </div>
                 </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
-                  Space Marines
+                  368th & 426th Cadian Mechanized Super Heavy Assault Reconnaissance Reserve
                 </div>
-                <p class="text-stone-200 mb-4">The Emperor's finest warriors, genetically enhanced super-soldiers who serve as the Imperium's elite fighting force.</p>
-                <sl-details summary="Active Chapters" class="mb-4">
-                  <ul class="list-disc pl-6 mt-2">
-                    <li>Ultramarines (2nd Company)</li>
-                    <li>Imperial Fists (Dorn's Vengeance Strike Force)</li>
-                  </ul>
-                </sl-details>
+                <p class="text-stone-200 mb-2">Embodying the grit and unyielding resolve of the Astra Militarum, these elite Cadian units are known for deploying Baneblades and other super-heavy armor in aggressive, overwhelming spearhead assaults. At Druscar's Ruin, they fought with brutal efficiency but were eventually overwhelmed, leaving behind wrecked tanks and defiant last stands.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Sacrifice, perseverance under fire, and the grim futility of loyalty in a collapsing warzone.</div>
                 <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                  <sl-badge variant="primary" pill>Imperium</sl-badge>
-                  <sl-rating readonly value="5"></sl-rating>
+                  <sl-badge variant="primary" pill>Astra Militarum</sl-badge>
                 </div>
               </div>
-              
-              <!-- Imperial Guard -->
+              <!-- Garnet Swans (Space Marines) -->
               <div class="card-content-wrapper">
-                <!-- Faction Image -->
                 <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
                   <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
-                    <div class="text-amber-600 text-6xl opacity-30">AM</div>
+                    <div class="text-amber-600 text-5xl opacity-30">GS</div>
                   </div>
-                  <div class="absolute bottom-2 right-2 z-20">
-                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
-                      <span class="w-2 h-2 bg-lime-400 rounded-full"></span>
-                      <span class="text-stone-200 text-xs">Astra Militarum</span>
-                    </div>
+                </div>
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-amber-600 rounded-full mr-3 shadow-glow-amber"></span>
+                  Garnet Swans (Space Marines)
+                </div>
+                <p class="text-stone-200 mb-2">An elite Astartes Chapter renowned for aerial assault and precision jump-pack strikes. Led by the heroic Captain Kaghutai Khan, they excelled in hit-and-run warfare but suffered catastrophic losses in their final stand against a Gorkanaut.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Heroic defiance and tragic nobility; the angels of death fighting against impossible odds with grace and fury.</div>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="primary" pill>Space Marines</sl-badge>
+                </div>
+              </div>
+              <!-- Red Skulls (Space Marines) -->
+              <div class="card-content-wrapper">
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-red-500 text-5xl opacity-30">RS</div>
+                  </div>
+                </div>
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red"></span>
+                  Red Skulls (Space Marines)
+                </div>
+                <p class="text-stone-200 mb-2">Mysterious and relentless, the Red Skulls emerged later in the campaign during the Battle for Druscar's Throne. Fierce warriors who fought to reclaim what they believed to be a lost Imperial command relic, they were ultimately consumed by greater forces beyond mortal comprehension.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Zealous reclaimers seeking redemption and power in the face of unknown terror.</div>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="primary" pill>Space Marines</sl-badge>
+                </div>
+              </div>
+              <!-- 201st Cadian Ordnance Battalion -->
+              <div class="card-content-wrapper">
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-lime-400 text-5xl opacity-30">201</div>
                   </div>
                 </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
-                  Astra Militarum
+                  201st Cadian Ordnance Battalion
                 </div>
-                <p class="text-stone-200 mb-4">The backbone of Imperial military might, countless billions of soldiers equipped with lasguns and tanks.</p>
-                <sl-details summary="Active Regiments" class="mb-4">
-                  <ul class="list-disc pl-6 mt-2">
-                    <li>Cadian 47th Infantry</li>
-                    <li>Forsarr PDF</li>
-                  </ul>
-                </sl-details>
+                <p class="text-stone-200 mb-2">A disciplined and determined force focused on reclaiming the Forsarr Sub-Sector through superior firepower and structured defense. They served as the Imperium's strategic backbone in the battle for Druscar's Throne but were decimated by Chaos and the awakening C'tan.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Rational command meets arcane horror; precision undone by cosmic chaos.</div>
                 <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                  <sl-badge variant="primary" pill>Imperium</sl-badge>
-                  <sl-rating readonly value="4"></sl-rating>
+                  <sl-badge variant="primary" pill>Astra Militarum</sl-badge>
+                </div>
+              </div>
+              <!-- Adeptus Mechanicus – Cohort Omnis-9 -->
+              <div class="card-content-wrapper">
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-pink-400 text-5xl opacity-30">M9</div>
+                  </div>
+                </div>
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-pink-400 rounded-full mr-3 shadow-glow-pink"></span>
+                  Adeptus Mechanicus – Cohort Omnis-9
+                </div>
+                <p class="text-stone-200 mb-2">Once the dominant Tech-priesthood in the sector, this Mechanicus force fractured during the Kelthorn Heresy. Their collapse into civil war was triggered by the Sensory Nexus, leading to horrific internal conflict and eventual corruption.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: The peril of knowledge and the fragility of faith; logic undone by the lure of sensation and heresy.</div>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="primary" pill>Mechanicus</sl-badge>
                 </div>
               </div>
             </div>
@@ -231,67 +259,55 @@
           <!-- Chaos Factions -->
           <div id="chaos-panel" class="tab-panel hidden">
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <!-- Black Legion -->
+              <!-- Death Guard – Destroyer Hive Plague Company -->
               <div class="card-content-wrapper">
-                <!-- Faction Image -->
                 <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
                   <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
-                    <div class="text-red-500 text-6xl opacity-30">BL</div>
-                  </div>
-                  <div class="absolute bottom-2 right-2 z-20">
-                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
-                      <span class="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span class="text-stone-200 text-xs">Black Legion</span>
-                    </div>
+                    <div class="text-green-600 text-5xl opacity-30">DG</div>
                   </div>
                 </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                  <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red"></span>
-                  Black Legion
+                  <span class="inline-block w-4 h-4 bg-green-600 rounded-full mr-3 shadow-glow-lime"></span>
+                  Death Guard – Destroyer Hive Plague Company
                 </div>
-                <p class="text-stone-200 mb-4">Formerly the Luna Wolves, now the greatest legion of Chaos Space Marines led by Abaddon the Despoiler.</p>
-                <sl-details summary="Active Warbands" class="mb-4">
-                  <ul class="list-disc pl-6 mt-2">
-                    <li>The Forsarr Reavers</li>
-                    <li>Bringers of Despair</li>
-                  </ul>
-                </sl-details>
+                <p class="text-stone-200 mb-2">Vile and relentless, this company spreads decay like a creeping doom. In both Druscar's Throne and across Zanthis III, they seek not only to destroy but to transform the very fabric of reality into diseased ruin.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: The inexorability of rot; entropy with a purpose, corrupting all that lives.</div>
                 <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                  <sl-badge variant="danger" pill>Chaos</sl-badge>
-                  <sl-rating readonly value="5"></sl-rating>
+                  <sl-badge variant="danger" pill>Death Guard</sl-badge>
                 </div>
               </div>
-              
-              <!-- Death Guard -->
+              <!-- Daemons of Slaanesh and Nurgle – Hosts of Excess and Decay -->
               <div class="card-content-wrapper">
-                <!-- Faction Image -->
                 <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
                   <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
-                    <div class="text-red-500 text-6xl opacity-30">DG</div>
-                  </div>
-                  <div class="absolute bottom-2 right-2 z-20">
-                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
-                      <span class="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span class="text-stone-200 text-xs">Death Guard</span>
-                    </div>
+                    <div class="text-pink-400 text-5xl opacity-30">SN</div>
                   </div>
                 </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                  <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red"></span>
-                  Death Guard
+                  <span class="inline-block w-4 h-4 bg-pink-400 rounded-full mr-3 shadow-glow-pink"></span>
+                  Daemons of Slaanesh & Nurgle – Hosts of Excess and Decay
                 </div>
-                <p class="text-stone-200 mb-4">Plague Marines dedicated to Nurgle, spreading disease and decay wherever they go.</p>
-                <sl-details summary="Active Forces" class="mb-4">
-                  <ul class="list-disc pl-6 mt-2">
-                    <li>7th Plague Company</li>
-                    <li>The Tainted</li>
-                  </ul>
-                </sl-details>
+                <p class="text-stone-200 mb-2">Syll'Esske and their daemonic hosts represent the dual horrors of sensory overload and rot. Drawn to Druscar against their will by an ancient signal, they were ultimately consumed or erased by a force they could not comprehend.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Cosmic arrogance punished; even the warp is not immune to forgotten truths.</div>
                 <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                  <sl-badge variant="danger" pill>Chaos</sl-badge>
-                  <sl-rating readonly value="4"></sl-rating>
+                  <sl-badge variant="danger" pill>Daemons</sl-badge>
+                </div>
+              </div>
+              <!-- Dark Mechanicum – Archmagos Diabolus Arcturus -->
+              <div class="card-content-wrapper">
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-red-700 text-5xl opacity-30">DM</div>
+                  </div>
+                </div>
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-red-700 rounded-full mr-3 shadow-glow-red"></span>
+                  Dark Mechanicum – Archmagos Diabolus Arcturus
+                </div>
+                <p class="text-stone-200 mb-2">Once a loyal Tech-Magos, Arcturus was seduced by the Nexus' whispers. Now a blasphemous fusion of machine and daemon, he commands warp-infused forges on Kelthorn II, spreading his techno-daemonic empire through daemon engines and twisted Skitarii.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Blasphemous innovation; the dark promise of merging flesh, machine, and madness.</div>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="danger" pill>Dark Mechanicum</sl-badge>
                 </div>
               </div>
             </div>
@@ -300,35 +316,60 @@
           <!-- Xenos Factions -->
           <div id="xenos-panel" class="tab-panel hidden">
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <!-- Necrons -->
+              <!-- Orks – Bogggoff's Goff Goggaz (and Reborn Waaagh!) -->
               <div class="card-content-wrapper">
-                <!-- Faction Image -->
                 <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 via-transparent to-transparent z-10"></div>
                   <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
-                    <div class="text-amber-400 text-6xl opacity-30">NC</div>
+                    <div class="text-lime-400 text-5xl opacity-30">ORK</div>
                   </div>
-                  <div class="absolute bottom-2 right-2 z-20">
-                    <div class="inline-flex items-center space-x-2 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded">
-                      <span class="w-2 h-2 bg-amber-400 rounded-full"></span>
-                      <span class="text-stone-200 text-xs">Necrons</span>
-                    </div>
+                </div>
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime"></span>
+                  Orks – Bogggoff's Goff Goggaz (and Reborn Waaagh!)
+                </div>
+                <p class="text-stone-200 mb-2">Brutal, direct, and hilarious in their chaos, Bogggoff's warband was pivotal in Druscar's fall. Even after his death, the Orks surged on in anarchic waves. In the later battle for Druscar's Throne, they returned, hungry for loot, war, and possibly a new crown.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Unstoppable brutality fueled by sheer enthusiasm for war and challenge.</div>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="warning" pill>Orks</sl-badge>
+                </div>
+              </div>
+              <!-- Tyranids – Hive Fleet Leviathan (Incursion roh-epsilon-245) -->
+              <div class="card-content-wrapper">
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-fuchsia-400 text-5xl opacity-30">TYR</div>
+                  </div>
+                </div>
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-fuchsia-400 rounded-full mr-3 shadow-glow-pink"></span>
+                  Tyranids – Hive Fleet Leviathan (Incursion roh-epsilon-245)
+                </div>
+                <p class="text-stone-200 mb-2">Alien and unrelenting, the Tyranids devastated Druscar before inexplicably vanishing. Something older than the Hive Mind called them away, leaving behind husks and a void of instinct.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: The predator becomes prey; even perfect evolution bows to deeper terror.</div>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="warning" pill>Tyranids</sl-badge>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Ancient Unknown Faction -->
+          <div id="ancient-panel" class="tab-panel hidden">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <!-- The Forgotten Tyrant – Starborn Horror (C'tan Shard) -->
+              <div class="card-content-wrapper">
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
+                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+                    <div class="text-amber-400 text-5xl opacity-30">CT</div>
                   </div>
                 </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-amber-400 rounded-full mr-3 shadow-glow-amber"></span>
-                  Necrons
+                  The Forgotten Tyrant – Starborn Horror (C'tan Shard)
                 </div>
-                <p class="text-stone-200 mb-4">Ancient machine beings awakening from tombs beneath the surface of Forsarr II after millennia of slumber.</p>
-                <sl-details summary="Active Dynasties" class="mb-4">
-                  <ul class="list-disc pl-6 mt-2">
-                    <li>Forsarr Tomb Complex</li>
-                    <li>Sautekh Dynasty</li>
-                  </ul>
-                </sl-details>
+                <p class="text-stone-200 mb-2">A primordial god-entity sealed beneath Druscar, the so-called "Throne" was not power—it was prison. Once freed, this fragment of a C'tan, older than time, disrupted reality, erased daemons, and turned the battlefield into a maelstrom of impossible power.</p>
+                <div class="text-stone-300 text-sm italic mb-4">Theme: Cosmic reckoning; the unearthing of truths no race should awaken.</div>
                 <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                  <sl-badge variant="warning" pill>Xenos</sl-badge>
-                  <sl-rating readonly value="5"></sl-rating>
+                  <sl-badge variant="warning" pill>Ancient Power</sl-badge>
                 </div>
               </div>
             </div>
