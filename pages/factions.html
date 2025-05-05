@@ -51,7 +51,7 @@
     
     <!-- Social Media Icons -->
     <symbol id="icon-twitter" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22 4.9C21.2 5.2 20.4 5.5 19.6 5.6 20.5 5 21.1 4.1 21.4 3 20.6 3.5 19.7 3.9 18.7 4.1 17.9 3.2 16.7 2.7 15.5 2.7 13.2 2.7 11.3 4.6 11.3 6.9 11.3 7.2 11.3 7.5 11.4 7.8 7.9 7.6 4.8 5.8 2.8 3.2 2.5 3.8 2.3 4.5 2.3 5.2 2.3 6.5 2.9 7.7 3.8 8.4 3.1 8.4 2.4 8.2 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 9.9 3.2 11.5 5.1 11.9 4.8 12 4.4 12 4.1 12 3.8 12 3.6 12 3.3 11.9 3.8 13.5 5.3 14.6 7.1 14.6 5.7 15.6 3.9 16.2 2 16.2 1.7 16.2 1.4 16.2 1 16.1 2.8 17.2 4.9 17.8 7.2 17.8 15.5 17.8 20 11 20 5.1 20 4.9 20 4.8 20 4.6 20.8 4.1 21.5 3.5 22 2.7Z" />
+      <path d="M22 4.9C21.2 5.2 20.4 5.5 19.6 5.6 20.5 5 21.1 4.1 21.4 3 20.6 3.5 19.7 3.9 18.7 4.1 17.9 3.2 16.7 2.7 15.5 2.7 13.2 2.7 11.3 4.6 11.3 6.9 11.3 7.2 11.3 7.5 11.4 7.8 7.9 7.6 4.8 5.8 2.8 3.2 2.5 3.8 2.3 4.5 2.3 5.2 2.3 6.5 2.9 7.7 3.8 8.4 3.1 8.4 2.4 8.2 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 7.9 1.8 9.9 3.2 11.5 5.1 11.9 4.8 12 4.4 12 4.1 12 3.8 12 3.6 12 3.3 11.9 3.8 13.5 5.3 14.6 7.1 14.6 5.7 15.6 3.9 16.2 2 16.2 1.7 16.2 1.4 16.2 1 16.1 2.8 17.2 4.9 17.8 7.2 17.8 15.5 17.8 20 11 20 5.1 20 4.9 20 4.8 20 4.6 20.8 4.1 21.5 3.5 22 2.7Z" />
     </symbol>
     
     <symbol id="icon-discord" viewBox="0 0 24 24" fill="currentColor">
@@ -138,30 +138,34 @@
         
         <div class="p-6">
           <!-- Faction Selection Tabs -->
-          <div class="flex justify-center space-x-4 mb-8">
-            <button class="tab-button active" data-panel="imperium-panel">
-              <div class="flex items-center space-x-2">
-                <svg class="h-5 w-5"><use href="#icon-imperium"></use></svg>
-                <span>The Iron Bastion</span>
-              </div>
+          <div class="relative mb-8">
+            <button id="factionTabLeft" class="hidden md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-zinc-900/80 border border-amber-600 text-amber-600 rounded-full p-2 shadow-lg focus:outline-none" aria-label="Scroll left">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button class="tab-button" data-panel="chaos-panel">
-              <div class="flex items-center space-x-2">
-                <svg class="h-5 w-5"><use href="#icon-chaos"></use></svg>
-                <span>The Dark Forge</span>
-              </div>
-            </button>
-            <button class="tab-button" data-panel="xenos-panel">
-              <div class="flex items-center space-x-2">
-                <svg class="h-5 w-5 text-fuchsia-400"><use href="#icon-factions"></use></svg>
-                <span>The Savage Swarm</span>
-              </div>
-            </button>
-            <button class="tab-button" data-panel="ancient-panel">
-              <div class="flex items-center space-x-2">
-                <svg class="h-5 w-5 text-amber-400"><use href="#icon-rules"></use></svg>
-                <span>Ancient Unknown</span>
-              </div>
+            <div id="factionTabScroll" class="flex flex-nowrap overflow-x-auto no-scrollbar space-x-4 px-8 md:justify-center md:overflow-visible">
+              <button class="tab-button active min-w-[8rem] md:min-w-[10rem]" data-panel="imperium-panel">
+                <div class="flex items-center space-x-2">
+                  <span class="block leading-tight max-h-[2.5em] overflow-hidden text-ellipsis whitespace-normal">The Iron Bastion</span>
+                </div>
+              </button>
+              <button class="tab-button min-w-[8rem] md:min-w-[10rem]" data-panel="chaos-panel">
+                <div class="flex items-center space-x-2">
+                  <span class="block leading-tight max-h-[2.5em] overflow-hidden text-ellipsis whitespace-normal">The Dark Forge</span>
+                </div>
+              </button>
+              <button class="tab-button min-w-[8rem] md:min-w-[10rem]" data-panel="xenos-panel">
+                <div class="flex items-center space-x-2">
+                  <span class="block leading-tight max-h-[2.5em] overflow-hidden text-ellipsis whitespace-normal">The Savage Swarm</span>
+                </div>
+              </button>
+              <button class="tab-button min-w-[8rem] md:min-w-[10rem]" data-panel="ancient-panel">
+                <div class="flex items-center space-x-2">
+                  <span class="block leading-tight max-h-[2.5em] overflow-hidden text-ellipsis whitespace-normal">Ancient Unknown</span>
+                </div>
+              </button>
+            </div>
+            <button id="factionTabRight" class="hidden md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-zinc-900/80 border border-amber-600 text-amber-600 rounded-full p-2 shadow-lg focus:outline-none" aria-label="Scroll right">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
           
@@ -278,10 +282,8 @@
               </div>
               <!-- Daemons of Slaanesh and Nurgle – Hosts of Excess and Decay -->
               <div class="card-content-wrapper">
-                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square relative">
-                  <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
-                    <div class="text-pink-400 text-5xl opacity-30">SN</div>
-                  </div>
+                <div class="mb-4 rounded-lg overflow-hidden border border-zinc-700 aspect-square w-full bg-zinc-800">
+                  <img src="../assets/images/faction/chaos/slaanesh-demons-02.png" alt="Daemons of Slaanesh & Nurgle" class="w-full h-full object-cover" />
                 </div>
                 <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
                   <span class="inline-block w-4 h-4 bg-pink-400 rounded-full mr-3 shadow-glow-pink"></span>
@@ -430,5 +432,33 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollDiv = document.getElementById('factionTabScroll');
+    const leftBtn = document.getElementById('factionTabLeft');
+    const rightBtn = document.getElementById('factionTabRight');
+    function updateArrows() {
+      if (!scrollDiv) return;
+      const maxScroll = scrollDiv.scrollWidth - scrollDiv.clientWidth;
+      leftBtn.style.display = scrollDiv.scrollLeft > 8 ? 'block' : 'none';
+      rightBtn.style.display = scrollDiv.scrollLeft < maxScroll - 8 ? 'block' : 'none';
+    }
+    if (scrollDiv && leftBtn && rightBtn) {
+      scrollDiv.addEventListener('scroll', updateArrows);
+      window.addEventListener('resize', updateArrows);
+      updateArrows();
+      leftBtn.addEventListener('click', () => {
+        scrollDiv.scrollBy({ left: -120, behavior: 'smooth' });
+      });
+      rightBtn.addEventListener('click', () => {
+        scrollDiv.scrollBy({ left: 120, behavior: 'smooth' });
+      });
+    }
+  });
+  </script>
 </body>
 </html> 
