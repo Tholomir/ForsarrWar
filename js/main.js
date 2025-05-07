@@ -42,4 +42,26 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Battle Reports horizontal scroll arrows
+  const battleReportsScroll = document.getElementById('battleReportsScroll');
+  const battleReportsLeft = document.getElementById('battleReportsLeft');
+  const battleReportsRight = document.getElementById('battleReportsRight');
+  function updateBattleReportsArrows() {
+    if (!battleReportsScroll) return;
+    const maxScroll = battleReportsScroll.scrollWidth - battleReportsScroll.clientWidth;
+    if (battleReportsLeft) battleReportsLeft.style.display = battleReportsScroll.scrollLeft > 8 ? 'block' : 'none';
+    if (battleReportsRight) battleReportsRight.style.display = battleReportsScroll.scrollLeft < maxScroll - 8 ? 'block' : 'none';
+  }
+  if (battleReportsScroll && battleReportsLeft && battleReportsRight) {
+    battleReportsScroll.addEventListener('scroll', updateBattleReportsArrows);
+    window.addEventListener('resize', updateBattleReportsArrows);
+    updateBattleReportsArrows();
+    battleReportsLeft.addEventListener('click', () => {
+      battleReportsScroll.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+    battleReportsRight.addEventListener('click', () => {
+      battleReportsScroll.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+  }
 }); 

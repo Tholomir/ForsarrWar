@@ -48,6 +48,10 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
     </symbol>
   </svg>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
 <body class="font-sans text-stone-200 bg-zinc-900 bg-fixed text-base overflow-x-hidden">
   <!-- Sticky Header -->
@@ -131,51 +135,58 @@
             
             <div>
               <div id="battle-reports-panel" class="tab-panel active">
-                <div class="grid md:grid-cols-2 gap-6">
-                  <sl-card>
-                    <div class="card-content-wrapper">
-                      <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                        <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime pulse-dot-lime"></span>
-                        Battle for Hive Forsarr
+                <div class="relative">
+                  <button id="battleReportsLeft" class="hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-zinc-900/80 border border-amber-600 text-amber-600 rounded-full p-2 shadow-lg focus:outline-none" aria-label="Scroll left">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+                  </button>
+                  <div id="battleReportsScroll" class="flex flex-nowrap overflow-x-auto no-scrollbar space-x-6 px-8 py-2 md:justify-center md:overflow-visible">
+                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
+                      <div class="card-content-wrapper">
+                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                          <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime pulse-dot-lime"></span>
+                          Battle for Hive Forsarr
+                        </div>
+                        <p class="text-stone-200 mb-4">Imperial forces engaged heretic astartes at the gates of Hive Forsarr. The battle resulted in heavy casualties for both sides, but the Imperial forces managed to hold the hive.</p>
+                        <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                          <sl-badge variant="success" pill>Imperial Victory</sl-badge>
+                          <sl-rating readonly value="4"></sl-rating>
+                        </div>
                       </div>
-                      <p class="text-stone-200 mb-4">Imperial forces engaged heretic astartes at the gates of Hive Forsarr. The battle resulted in heavy casualties for both sides, but the Imperial forces managed to hold the hive.</p>
-                      <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                        <sl-badge variant="success" pill>Imperial Victory</sl-badge>
-                        <sl-rating readonly value="4"></sl-rating>
+                    </sl-card>
+                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
+                      <div class="card-content-wrapper">
+                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                          <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red pulse-dot-red"></span>
+                          Ambush at Frozen Ridge
+                        </div>
+                        <p class="text-stone-200 mb-4">Xenos forces sprung a surprise attack on Imperial Guard supply lines, crippling reinforcement efforts in the northern hemisphere.</p>
+                        <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                          <sl-badge variant="danger" pill>Imperial Defeat</sl-badge>
+                          <sl-rating readonly value="5"></sl-rating>
+                        </div>
                       </div>
-                    </div>
-                  </sl-card>
-                  
-                  <sl-card>
-                    <div class="card-content-wrapper">
-                      <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                        <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red pulse-dot-red"></span>
-                        Ambush at Frozen Ridge
+                    </sl-card>
+                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
+                      <div class="card-content-wrapper">
+                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                          <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red pulse-dot-red"></span>
+                          Ambush at Frozen Ridge
+                        </div>
+                        <p class="text-stone-200 mb-4">Xenos forces sprung a surprise attack on Imperial Guard supply lines, crippling reinforcement efforts in the northern hemisphere.</p>
+                        <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                          <sl-badge variant="danger" pill>Imperial Defeat</sl-badge>
+                          <sl-rating readonly value="5"></sl-rating>
+                        </div>
                       </div>
-                      <p class="text-stone-200 mb-4">Xenos forces sprung a surprise attack on Imperial Guard supply lines, crippling reinforcement efforts in the northern hemisphere.</p>
-                      <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                        <sl-badge variant="danger" pill>Imperial Defeat</sl-badge>
-                        <sl-rating readonly value="5"></sl-rating>
-                      </div>
-                    </div>
-                  </sl-card>
+                    </sl-card>
+                  </div>
+                  <button id="battleReportsRight" class="hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-zinc-900/80 border border-amber-600 text-amber-600 rounded-full p-2 shadow-lg focus:outline-none" aria-label="Scroll right">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+                  </button>
                 </div>
               </div>
               
               <div id="faction-updates-panel" class="tab-panel hidden">
-                <sl-card>
-                  <div class="card-content-wrapper">
-                    <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                      <span class="inline-block w-4 h-4 bg-blue-500 rounded-full mr-3 shadow-glow-blue"></span>
-                      Space Marines Reinforcements
-                    </div>
-                    <p class="text-stone-200 mb-4">The Ultramarines 2nd Company has arrived in the Forsarr System to reinforce Imperial positions across the sector.</p>
-                    <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
-                      <sl-badge variant="primary" pill>Imperial Faction</sl-badge>
-                      <span class="text-xs text-stone-400">Updated: 3 days ago</span>
-                    </div>
-                  </div>
-                </sl-card>
               </div>
               
               <div id="narrative-developments-panel" class="tab-panel hidden">
