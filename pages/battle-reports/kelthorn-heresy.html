@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Kelthorn Heresy - Forsarr War Campaign</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="icon" href="../../assets/images/ForsarrWar_logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
+  <!-- SVG Icon Definitions (copy from index.html for consistency) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-battle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </symbol>
+    <symbol id="icon-updates" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+    </symbol>
+    <symbol id="icon-factions" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+    </symbol>
+    <symbol id="icon-rules" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+    </symbol>
+    <symbol id="icon-about" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+    </symbol>
+  </svg>
+</head>
+<body class="font-sans text-stone-200 bg-zinc-900 bg-fixed text-base overflow-x-hidden">
+  <!-- Sticky Header (reuse site nav structure) -->
+  <header class="fixed top-0 left-0 w-full bg-slate-800/90 backdrop-blur-sm z-50 border-b border-amber-600/50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center space-x-3">
+          <a href="../../index.html" aria-label="Forsarr War Home">
+            <img src="../../assets/images/ForsarrWar_logo.png" alt="Forsarr War Logo" class="h-20 w-20 filter drop-shadow-glow p-2">
+          </a>
+          <h1 class="text-amber-600 font-bold text-xl hidden md:block">The Forsarr War: Cold Reign</h1>
+        </div>
+        <button class="md:hidden text-amber-600 focus:outline-none" id="navToggle">
+          <svg class="h-6 w-6">
+            <use href="#icon-menu"></use>
+          </svg>
+        </button>
+        <nav class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li><a href="../../index.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Home</a></li>
+            <li><a href="../factions.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Factions</a></li>
+            <li><a href="../sector-map.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Sector Map</a></li>
+            <li><a href="../timeline.html" class="text-stone-300 hover:text-lime-400 transition-colors duration-300 border-b-2 border-transparent hover:border-lime-400 pb-1">Timeline</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-zinc-800 border-b border-amber-600/50" id="mobileMenu">
+      <div class="px-4 py-3 space-y-2">
+        <a href="../../index.html" class="block text-stone-300 hover:text-lime-400 py-2">Home</a>
+        <a href="../factions.html" class="block text-stone-300 hover:text-lime-400 py-2">Factions</a>
+        <a href="../sector-map.html" class="block text-stone-300 hover:text-lime-400 py-2">Sector Map</a>
+        <a href="../timeline.html" class="block text-stone-300 hover:text-lime-400 py-2">Campaign Timeline</a>
+      </div>
+    </div>
+  </header>
+  <!-- Hero Banner -->
+  <div class="relative pt-24 md:pt-32 bg-zinc-900 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-zinc-900/70 to-zinc-900/90 z-10"></div>
+    <div class="absolute inset-0 bg-fixed bg-cover bg-center opacity-30"></div>
+    <div class="relative z-20 max-w-7xl mx-auto px-4 py-10 md:py-16">
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-600 mb-2 flex items-center justify-center gap-3">
+          <svg class="h-8 w-8 text-amber-600 inline-block"><use href="#icon-battle"></use></svg>
+          The Kelthorn Heresy (028.012.M42)
+        </h2>
+        <p class="text-lg md:text-xl text-stone-200 mb-6 max-w-2xl mx-auto">The fall of Kelthorn II: a technological heresy, daemonic invasion, and the birth of the Dark Mechanicum.</p>
+      </div>
+    </div>
+  </div>
+  <main class="relative px-4 z-10">
+    <!-- Battle Overview Section -->
+    <section class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden">
+        <div class="bg-zinc-900 border-b border-amber-600/50 p-5">
+          <div class="flex items-center justify-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center shadow-lg">
+              <svg class="h-7 w-7 text-zinc-900">
+                <use href="#icon-battle"></use>
+              </svg>
+            </div>
+            <h2 class="text-2xl md:text-3xl text-amber-600 font-bold">Battle Overview</h2>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div>
+              <div class="bg-zinc-900 p-6 rounded-lg border-l-4 border-amber-600">
+                <p class="mb-4 text-stone-200">Date: <span class="text-stone-300">028–032.012.M42</span></p>
+                <p class="mb-4 text-stone-200">Location: <span class="text-stone-300">Kelthorn II, Forsarr Sub-Sector</span></p>
+                <p class="mb-4 text-stone-200">Mission: <span class="text-stone-300">Containment, Purge, and Defense of the Sensory Nexus</span></p>
+                <p class="mb-4 text-stone-200">Points: <span class="text-stone-300">Apocalypse-scale, multi-faction engagement</span></p>
+              </div>
+            </div>
+            <div>
+              <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+                <img src="../assets/images/planets/planet_1.png" alt="Kelthorn II" class="object-cover w-40 h-40 rounded-lg border border-amber-600/40">
+                <img src="../assets/images/faction/imperials/adeptus_mechanicus.png" alt="Adeptus Mechanicus" class="object-cover w-24 h-24 rounded-full border-2 border-lime-400">
+                <span class="text-amber-600 font-bold text-xl">vs</span>
+                <img src="../assets/images/faction/chaos/slaanesh.png" alt="Slaanesh Daemons & Dark Mechanicum" class="object-cover w-24 h-24 rounded-full border-2 border-pink-400">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Battle Summary Section -->
+    <section class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden">
+        <div class="bg-zinc-900 border-b border-amber-600/50 p-5">
+          <div class="flex items-center justify-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center shadow-lg">
+              <svg class="h-7 w-7 text-zinc-900">
+                <use href="#icon-updates"></use>
+              </svg>
+            </div>
+            <h2 class="text-2xl md:text-3xl text-amber-600 font-bold">Battle Summary</h2>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="text-stone-200 mb-4">
+            What began as a routine Adeptus Mechanicus expedition to Kelthorn II, a heavily fortified Imperial stronghold, swiftly descended into one of the greatest technological heresies of M42. The planet, already struggling to contain the creeping bio-infestations of Hive Fleet Leviathan, became the stage for a far more insidious war—one not fought against xenos, but within the very ranks of the Machine God's faithful.<br><br>
+            The Adeptus Mechanicus' Cohort Omnis-9 had long maintained a formidable presence on Kelthorn II, overseeing vast forge-complexes dedicated to producing weapons and war engines to supply the wider sub-sector. When a Mechanicus exploratory team uncovered a Sensory Nexus buried deep beneath the planet's surface—an ancient, warp-infused technological anomaly capable of amplifying sensations and distorting reality—it sparked a crisis of doctrine. Some among the Mechanicum saw the Nexus as a weapon to be studied, while others deemed it an abomination to be purged.<br><br>
+            Despite efforts to maintain secrecy, the presence of the Nexus soon drew the attention of the Hosts of Slaanesh, whose daemonic legions descended upon Kelthorn II, seeking to corrupt the Nexus and turn the forge-world into a shrine of excess. A brutal war erupted, pitting the Skitarri legions and Imperial Knights of the Mechanicum against ever-growing daemonic incursions, culminating in a desperate last stand to seal the Warp rift that had begun to tear open beneath the world's surface.<br><br>
+            For a fleeting moment, victory seemed possible. The Mechanicum, through their relentless logic and superior firepower, succeeded in containing the Nexus' influence. However, their triumph was undermined from within. Tech-Magos Dominus Arcturus, a once-revered leader of the forge-world, had spent too long studying the Nexus. The residual energies of the anomaly had corrupted his mind, whispering secrets of forbidden technology and promising the perfection of flesh and machine alike. When the moment came to destroy the Nexus, Arcturus betrayed his kin, unleashing a techno-daemonic insurrection that would doom Kelthorn II.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Result Section -->
+    <section class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden">
+        <div class="bg-zinc-900 border-b border-amber-600/50 p-5">
+          <div class="flex items-center justify-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center shadow-lg">
+              <svg class="h-7 w-7 text-zinc-900">
+                <use href="#icon-rules"></use>
+              </svg>
+            </div>
+            <h2 class="text-2xl md:text-3xl text-amber-600 font-bold">Result</h2>
+          </div>
+        </div>
+        <div class="p-6 text-center">
+          <sl-badge variant="danger" pill>Dark Mechanicum Victory</sl-badge>
+          <span class="mx-4 text-stone-300">-</span>
+          <sl-badge variant="warning" pill>Forge World Lost</sl-badge>
+        </div>
+      </div>
+    </section>
+    <!-- Aftermath Section -->
+    <section class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden">
+        <div class="bg-zinc-900 border-b border-amber-600/50 p-5">
+          <div class="flex items-center justify-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center shadow-lg">
+              <svg class="h-7 w-7 text-zinc-900">
+                <use href="#icon-updates"></use>
+              </svg>
+            </div>
+            <h2 class="text-2xl md:text-3xl text-amber-600 font-bold">Aftermath</h2>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg text-amber-600 font-semibold mb-2">The Rise of the Dark Mechanicum (032.012.M42)</h3>
+          <p class="text-stone-200 mb-4">
+            Arcturus, now a willing thrall of Slaanesh, turned the very weapons of the forge-world against his former comrades. Legions of corrupted Skitarii—their bodies fused with warp-tainted augmetics—slaughtered the loyalist Mechanicum forces. Daemon-forged constructs emerged from hidden depths, fusions of arcane Mechanicus technology and daemonic entities, spreading madness and excess across the once-proud foundries of Kelthorn II.<br><br>
+            Within months, Kelthorn II fell entirely to Arcturus' forces, transforming into a twisted nightmare of flesh-metal abominations and chaotic industry. Once the heart of Imperial production in the sector, the planet now churns out unholy war machines—bio-mechanical constructs that wail with torment, Knight engines bound to daemonic intellects, and weapons that defy logic and physics.<br><br>
+            With Kelthorn II lost, the Imperium faces a catastrophic new threat. Archmagos Diabolus Arcturus, no longer bound by Mechanicus doctrine, has begun exporting his corrupted war engines across the Forsarr Sub-Sector, his Dark Mechanicum forces striking against Imperial and Chaos alike. His ambitions extend far beyond Kelthorn II—his forges now burn with the ambition of a new Dark Empire, one that seeks to merge the Machine God's brilliance with the unfathomable excess of the Warp.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-slate-800 border-t-2 border-amber-600 pt-12 pb-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="border-t border-zinc-700 pt-4 text-center">
+        <p class="text-stone-300 text-sm">&copy; <span id="current-year"></span> Forsarr War Campaign</p>
+        <p class="text-stone-400 text-xs mt-2"><small>This website is unofficial and is not endorsed by Games Workshop. Warhammer 40,000, 40k, and all associated marks, logos, names, and products are property of Games Workshop Limited.</small></p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html> 
