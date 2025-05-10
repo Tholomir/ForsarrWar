@@ -61,27 +61,20 @@ function renderBattleReportCards(container, events, limit = null) {
   }
   
   console.log('Rendering battle report cards:', events.length, 'total events');
-  
-  // Clear existing content
+    // Clear existing content
   container.innerHTML = '';
-  
-  // Filter active battle reports
-  const battleReports = events.filter(event => 
-    event.type === 'battle' && 
-    (limit ? event.status === 'active' : true)
-  );
-  
-  console.log('Filtered to', battleReports.length, 'battle reports', limit ? '(active only)' : '');
+    
+  // Sort events by date (newest first)
+  const sortedEvents = sortEventsByDate(events);
   
   // Limit the number of reports if specified
-  const reportsToRender = limit ? battleReports.slice(0, limit) : battleReports;
+  const reportsToRender = limit ? sortedEvents.slice(0, limit) : sortedEvents;
   
   console.log('Will render', reportsToRender.length, 'battle report cards');
   
   // Render each battle report
   reportsToRender.forEach(report => {
-    console.log('Creating card for battle report:', report.title);
-    const card = document.createElement('sl-card');
+    console.log('Creating card for battle report:', report.title);    const card = document.createElement('sl-card');
     card.className = 'min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm';
     
     const hasFullReport = report.reportUrl && report.reportUrl !== '#';
@@ -104,15 +97,47 @@ function renderBattleReportCards(container, events, limit = null) {
         ${!hasFullReport ? `<span class="text-xs text-stone-400 block mt-2">Full report coming soon</span>` : ''}
       ${hasFullReport ? '</a>' : '</div>'}
     `;
-    
-    card.innerHTML = cardContent;
+      card.innerHTML = cardContent;
     container.appendChild(card);
   });
   
   console.log('Finished rendering battle report cards');
   
-  // If we're on the index page, update the scroll arrows
+  // Use a more robust approach to ensure images and web components are loaded
+  // before calculating scroll dimensions
+  ensureLayoutCalculated();
+}
+
+// Function to ensure layout is properly calculated after rendering
+function ensureLayoutCalculated() {
+  console.log('Starting layout calculation sequence');
+  
+  // First immediate check
   updateBattleReportsArrows();
+  
+  // Then check after a short delay (for quick loads)
+  setTimeout(() => {
+    updateBattleReportsArrows();
+    console.log('First delayed arrow update');
+  }, 50);
+  
+  // Check again after components have had more time to render
+  setTimeout(() => {
+    updateBattleReportsArrows();
+    console.log('Second delayed arrow update');
+    
+    // Force a resize which can help with layout calculations
+    window.dispatchEvent(new Event('resize'));
+  }, 200);
+  
+  // One final check after images likely loaded
+  setTimeout(() => {
+    updateBattleReportsArrows();
+    console.log('Final delayed arrow update');
+  }, 500);
+  
+  // Also update on window resize
+  window.addEventListener('resize', updateBattleReportsArrows);
 }
 
 function renderTimelineEntries(container, events) {
@@ -192,6 +217,28 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (battleReportsContainer) {
       console.log('Found battle reports container, rendering cards');
       renderBattleReportCards(battleReportsContainer, eventData.battleReports, 5);
+      
+      // Add scroll event listener to update arrows during scrolling
+      const battleReportsScroll = document.getElementById('battleReportsScroll');
+      const battleReportsLeft = document.getElementById('battleReportsLeft');
+      const battleReportsRight = document.getElementById('battleReportsRight');
+      
+      if (battleReportsScroll) {
+        battleReportsScroll.addEventListener('scroll', updateBattleReportsArrows);
+        
+        // Set up click handlers for scroll buttons if they exist
+        if (battleReportsLeft) {
+          battleReportsLeft.addEventListener('click', () => {
+            battleReportsScroll.scrollBy({ left: -320, behavior: 'smooth' });
+          });
+        }
+        
+        if (battleReportsRight) {
+          battleReportsRight.addEventListener('click', () => {
+            battleReportsScroll.scrollBy({ left: 320, behavior: 'smooth' });
+          });
+        }
+      }
     } else {
       console.error('Could not find battle reports container with ID: battleReportsScroll');
     }
@@ -212,15 +259,51 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
 });
 
-// Function referenced from main.js, need to redefine it here
+// Function to update the scroll arrows for battle reports
 function updateBattleReportsArrows() {
   const battleReportsScroll = document.getElementById('battleReportsScroll');
   const battleReportsLeft = document.getElementById('battleReportsLeft');
   const battleReportsRight = document.getElementById('battleReportsRight');
   
-  if (!battleReportsScroll || !battleReportsLeft || !battleReportsRight) return;
+  if (!battleReportsScroll || !battleReportsLeft || !battleReportsRight) {
+    console.warn('Missing scroll container or arrow elements');
+    return;
+  }
   
+  // Calculate if we have more content than the container can show
   const maxScroll = battleReportsScroll.scrollWidth - battleReportsScroll.clientWidth;
+  console.log('Scroll container dimensions:', {
+    scrollWidth: battleReportsScroll.scrollWidth,
+    clientWidth: battleReportsScroll.clientWidth,
+    maxScroll: maxScroll,
+    currentScroll: battleReportsScroll.scrollLeft,
+    childCount: battleReportsScroll.children.length
+  });
+  
+  // For left arrow, show only if we've scrolled to the right
   battleReportsLeft.style.display = battleReportsScroll.scrollLeft > 8 ? 'block' : 'none';
-  battleReportsRight.style.display = battleReportsScroll.scrollLeft < maxScroll - 8 ? 'block' : 'none';
+  
+  // For right arrow - show if there's more content to scroll to
+  // Note the threshold of 8px to account for small rounding differences
+  const showRightArrow = maxScroll > 8 && battleReportsScroll.scrollLeft < maxScroll - 8;
+  
+  console.log('Right arrow visibility calculation:', {
+    maxScroll: maxScroll,
+    threshold: 8,
+    scrollPosition: battleReportsScroll.scrollLeft,
+    shouldShow: showRightArrow
+  });
+  
+  // Make sure the right arrow is visible when we have multiple cards that extend beyond the container
+  battleReportsRight.style.display = showRightArrow ? 'block' : 'none';
+  
+  // Special case: if we have multiple cards but maxScroll is not yet calculated correctly,
+  // force the right arrow to be visible initially
+  if (battleReportsScroll.children.length > 1 && maxScroll <= 8 && battleReportsScroll.scrollLeft === 0) {
+    console.log('Multiple cards detected but maxScroll not yet calculated correctly. Forcing right arrow display.');
+    battleReportsRight.style.display = 'block';
+    
+    // Try to check again soon in case layout calculation completes
+    setTimeout(() => updateBattleReportsArrows(), 100);
+  }
 }
