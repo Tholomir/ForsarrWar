@@ -1,0 +1,93 @@
+{
+  "battleReports": [
+    {
+      "id": "battle-of-corroded-noosphere-archive",
+      "title": "Battle of the Corroded Noosphere Archive",
+      "date": "043.012.M42",
+      "location": "Kelthorn IV",
+      "summary": "Adeptus Mechanicus and Nurgle's forces clashed for control of the ancient data-vault on Kelthorn IV. The vault was lost to corruption, but a partial STC was extracted at great cost.",
+      "description": "The Adeptus Mechanicus fought valiantly to secure the ancient data-vault, but Nurgle's forces overwhelmed them, corrupting the site. Despite the loss, a partial STC was salvaged, offering a glimmer of hope amidst the devastation.",
+      "status": "active",
+      "type": "battle",
+      "factions": [
+        {"name": "Mechanicus", "variant": "primary"},
+        {"name": "Nurgle", "variant": "danger"}
+      ],
+      "imageUrl": "../assets/images/placeholder-mechanicus-vs-nurgle.jpg",
+      "reportUrl": "pages/battle-reports/battle-of-corroded-noosphere-archive.html",
+      "fullDescription": "The Adeptus Mechanicus fought valiantly to secure the ancient data-vault, but Nurgle's forces overwhelmed them, corrupting the site. Despite the loss, a partial STC was salvaged, offering a glimmer of hope amidst the devastation. The loss of two Magi and the vault itself dealt a grievous blow to the Mechanicum, while Nurgle's forces gained a new stronghold for their plague rituals."
+    },
+    {
+      "id": "battle-for-druscars-throne",
+      "title": "The Battle for Druscar's Throne",
+      "date": "043.012.M42",
+      "location": "Druscar's Ruin",
+      "summary": "A mysterious transmission draws all factions to Druscar's Ruin, where a battle for a supposed throne unleashes an ancient horror.",
+      "description": "Imperial, Chaos, and Ork forces clash for the lost throne. The Red Skulls, 201st Cadian, Death Guard, and Slaanesh/Nurgle daemons battle as ancient seals shatter, unleashing a C'tan.",
+      "status": "active",
+      "type": "battle",
+      "factions": [
+        {"name": "Imperial", "variant": "primary"},
+        {"name": "Chaos", "variant": "danger"},
+        {"name": "Ork", "variant": "warning"},
+        {"name": "Xenos", "variant": "warning"}
+      ],
+      "imageUrl": "../assets/images/placeholder-multi-faction.jpg",
+      "reportUrl": "#",
+      "fullDescription": "Imperial, Chaos, and Ork forces clash for the lost throne. The Red Skulls, 201st Cadian, Death Guard, and Slaanesh/Nurgle daemons battle as ancient seals shatter, unleashing a C'tan. Blackstone monoliths erase daemons, and reality unravels as a new horror awakens in Druscar's ruins."
+    },
+    {
+      "id": "fall-of-kelthorn-ii",
+      "title": "The Fall of Kelthorn II",
+      "date": "032.012.M42",
+      "location": "Kelthorn II",
+      "summary": "Kelthorn II falls to the Dark Mechanicum, becoming a heretical forge-world fueling Chaos war across the Forsarr Sub-Sector.",
+      "description": "With Arcturus' ascension to Archmagos Diabolus, loyalist Mechanicum are annihilated. Kelthorn II now produces daemon-infused war machines and corrupted Skitarii.",
+      "status": "completed",
+      "type": "event",
+      "factions": [
+        {"name": "Dark Mechanicum", "variant": "danger"},
+        {"name": "Chaos", "variant": "danger"}
+      ],
+      "imageUrl": "../assets/images/placeholder-dark-mechanicum.jpg",
+      "reportUrl": "#",
+      "fullDescription": "With Arcturus' ascension to Archmagos Diabolus, loyalist Mechanicum are annihilated. Kelthorn II now produces daemon-infused war machines and corrupted Skitarii, spreading blasphemous technology throughout the void."
+    },
+    {
+      "id": "kelthorn-heresy",
+      "title": "The Kelthorn Heresy",
+      "date": "028.012.M42",
+      "location": "Kelthorn II",
+      "summary": "A Sensory Nexus beneath Kelthorn II sparks a crisis in the Adeptus Mechanicus, leading to a daemonic invasion and insurrection.",
+      "description": "Cohort Omnis-9 faces a doctrinal crisis as Slaanesh's daemonic legions descend. Tech-Magos Dominus Arcturus, corrupted by the Nexus, betrays his kin.",
+      "status": "completed",
+      "type": "event",
+      "factions": [
+        {"name": "Mechanicus", "variant": "primary"},
+        {"name": "Chaos", "variant": "danger"},
+        {"name": "Slaanesh", "variant": "warning"}
+      ],
+      "imageUrl": "../assets/images/placeholder-mechanicus-slaanesh.jpg",
+      "reportUrl": "#",
+      "fullDescription": "Cohort Omnis-9 faces a doctrinal crisis as Slaanesh's daemonic legions descend. Tech-Magos Dominus Arcturus, corrupted by the Nexus, betrays his kin, triggering a techno-daemonic insurrection and opening a Warp rift."
+    },
+    {
+      "id": "battle-of-druscars-ruin",
+      "title": "The Battle of Druscar's Ruin",
+      "date": "027.012.M42",
+      "location": "Druscar's Ruin",
+      "summary": "Catastrophic fall of an Imperial stronghold as the 368th Cadian Brigade and Garnet Swans are overwhelmed by Orks and Tyranids.",
+      "description": "The 368th Cadian Brigade and Garnet Swans made a valiant last stand against Bogggoff's Goff Goggaz and Tyranid Incursion Roh-Epsilon-245.",
+      "status": "completed",
+      "type": "battle",
+      "factions": [
+        {"name": "Imperial", "variant": "primary"},
+        {"name": "Ork", "variant": "warning"},
+        {"name": "Tyranid", "variant": "warning"}
+      ],
+      "imageUrl": "../assets/images/placeholder-imperial-xenos.jpg",
+      "reportUrl": "pages/battle-reports/battle-of-druscar-ruin.html",
+      "fullDescription": "The 368th Cadian Brigade and Garnet Swans made a valiant last stand against Bogggoff's Goff Goggaz and Tyranid Incursion Roh-Epsilon-245. The stronghold fell, and Druscar's Ruin became a xenos-infested wasteland."
+    }
+  ]
+}

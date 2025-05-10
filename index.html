@@ -12,8 +12,7 @@
   <!-- Shoelace Component Library -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace-autoloader.js"></script>
-  
-  <!-- SVG Icon Definitions -->
+    <!-- SVG Icon Definitions -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <!-- Menu Icon -->
     <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -24,6 +23,9 @@
     <symbol id="icon-updates" viewBox="0 0 24 24" fill="none" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
     </symbol>
+  
+  <!-- Base path detection script -->
+  <script src="js/base-path.js"></script>
     
     <!-- Campaign Rules Icon -->
     <symbol id="icon-rules" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -133,85 +135,14 @@
               <button class="tab-button" data-panel="narrative-developments-panel" onclick="window.location.href='pages/timeline.html#timeline-section'">Narrative Developments</button>
             </div>
             
-            <div>
-              <div id="battle-reports-panel" class="tab-panel active">
+            <div>              <div id="battle-reports-panel" class="tab-panel active">
                 <div class="relative">
                   <button id="battleReportsLeft" class="hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-zinc-900/80 border border-amber-600 text-amber-600 rounded-full p-2 shadow-lg focus:outline-none" aria-label="Scroll left">
                     <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
                   </button>
+                  <!-- Battle report cards will be dynamically rendered here -->
                   <div id="battleReportsScroll" class="flex flex-nowrap overflow-x-auto no-scrollbar space-x-6 px-8 py-2">
-                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
-                      <a href="pages/battle-reports/battle-of-corroded-noosphere-archive.html" class="card-content-wrapper block no-underline">
-                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                          <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime pulse-dot-lime"></span>
-                          Battle of the Corroded Noosphere Archive
-                        </div>
-                        <p class="text-stone-200 mb-4">Adeptus Mechanicus and Nurgle's forces clashed for control of the ancient data-vault. The vault was lost to corruption, but a partial STC was extracted at great cost.</p>
-                        <div class="flex flex-wrap gap-2 justify-between items-center pt-3 border-t border-zinc-700">
-                          <sl-badge variant="danger" pill>Forces of Nurgle Victory</sl-badge>
-                          <sl-badge variant="warning" pill>Partial Mechanicus Extraction</sl-badge>
-                        </div>
-                      </a>
-                    </sl-card>
-                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
-                      <a href="pages/battle-reports/battle-of-druscar-ruin.html" class="card-content-wrapper block no-underline">
-                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                          <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime pulse-dot-lime"></span>
-                          The Battle for Druscar's Throne
-                        </div>
-                        <p class="text-stone-200 mb-4">Imperial, Chaos, and Ork forces clashed for the lost throne. The Red Skulls, 201st Cadian, Death Guard, and Slaanesh/Nurgle daemons battled as ancient seals shattered, unleashing a C'tan.</p>
-                        <div class="flex flex-wrap gap-2 justify-between items-center pt-3 border-t border-zinc-700">
-                          <sl-badge variant="primary" pill>Imperial</sl-badge>
-                          <sl-badge variant="danger" pill>Chaos</sl-badge>
-                          <sl-badge variant="warning" pill>Ork</sl-badge>
-                          <sl-badge variant="warning" pill>Xenos</sl-badge>
-                        </div>
-                      </a>
-                    </sl-card>
-                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
-                      <div class="card-content-wrapper block opacity-60 cursor-not-allowed">
-                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                          <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-3 shadow-glow-red pulse-dot-red"></span>
-                          The Fall of Kelthorn II
-                        </div>
-                        <p class="text-stone-200 mb-4">Kelthorn II falls to the Dark Mechanicum, becoming a heretical forge-world fueling Chaos war across the Forsarr Sub-Sector.</p>
-                        <div class="flex flex-wrap gap-2 justify-between items-center pt-3 border-t border-zinc-700">
-                          <sl-badge variant="danger" pill>Dark Mechanicum</sl-badge>
-                          <sl-badge variant="danger" pill>Chaos</sl-badge>
-                        </div>
-                        <span class="text-xs text-stone-400 block mt-2">Full report coming soon</span>
-                      </div>
-                    </sl-card>
-                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
-                      <div class="card-content-wrapper block opacity-60 cursor-not-allowed">
-                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                          <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime pulse-dot-lime"></span>
-                          The Kelthorn Heresy
-                        </div>
-                        <p class="text-stone-200 mb-4">A Sensory Nexus beneath Kelthorn II sparks a crisis in the Adeptus Mechanicus, leading to a daemonic invasion and insurrection.</p>
-                        <div class="flex flex-wrap gap-2 justify-between items-center pt-3 border-t border-zinc-700">
-                          <sl-badge variant="primary" pill>Mechanicus</sl-badge>
-                          <sl-badge variant="danger" pill>Chaos</sl-badge>
-                          <sl-badge variant="warning" pill>Slaanesh</sl-badge>
-                        </div>
-                        <span class="text-xs text-stone-400 block mt-2">Full report coming soon</span>
-                      </div>
-                    </sl-card>
-                    <sl-card class="min-w-[20rem] max-w-xs md:min-w-[24rem] md:max-w-sm">
-                      <div class="card-content-wrapper block opacity-60 cursor-not-allowed">
-                        <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
-                          <span class="inline-block w-4 h-4 bg-lime-400 rounded-full mr-3 shadow-glow-lime pulse-dot-lime"></span>
-                          The Battle of Druscar's Ruin
-                        </div>
-                        <p class="text-stone-200 mb-4">Catastrophic fall of an Imperial stronghold as the 368th Cadian Brigade and Garnet Swans are overwhelmed by Orks and Tyranids, leaving the ruins to xenos dominion.</p>
-                        <div class="flex flex-wrap gap-2 justify-between items-center pt-3 border-t border-zinc-700">
-                          <sl-badge variant="primary" pill>Imperial</sl-badge>
-                          <sl-badge variant="warning" pill>Ork</sl-badge>
-                          <sl-badge variant="warning" pill>Tyranid</sl-badge>
-                        </div>
-                        <span class="text-xs text-stone-400 block mt-2">Full report coming soon</span>
-                      </div>
-                    </sl-card>
+                    <!-- Content will be populated from events.json -->
                   </div>
                   <button id="battleReportsRight" class="hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-zinc-900/80 border border-amber-600 text-amber-600 rounded-full p-2 shadow-lg focus:outline-none" aria-label="Scroll right">
                     <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
@@ -376,8 +307,8 @@
       </div>
     </div>
   </footer>
-
   <!-- JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/render-updates.js"></script>
 </body>
 </html>

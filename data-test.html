@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Test</title>
+</head>
+<body>
+  <h1>JSON Data Test</h1>
+  <div id="result"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const resultDiv = document.getElementById('result');
+      
+      try {
+        // Try different paths to locate the file
+        const paths = [
+          './js/data/events.json',
+          '../js/data/events.json',
+          '/js/data/events.json',
+          '/ForsarrWar/js/data/events.json'
+        ];
+        
+        resultDiv.innerHTML += '<p>Testing paths:</p>';
+        
+        for (const path of paths) {
+          try {
+            resultDiv.innerHTML += `<p>Trying path: ${path}...</p>`;
+            const response = await fetch(path);
+            
+            if (response.ok) {
+              const data = await response.json();
+              resultDiv.innerHTML += `<p style="color: green">SUCCESS loading from: ${path}</p>`;
+              resultDiv.innerHTML += `<p>Found ${data.battleReports.length} battle reports</p>`;
+              
+              // Display first event as proof of load
+              if (data.battleReports && data.battleReports.length > 0) {
+                resultDiv.innerHTML += `<pre>${JSON.stringify(data.battleReports[0], null, 2)}</pre>`;
+              }
+              
+              break;
+            } else {
+              resultDiv.innerHTML += `<p style="color: red">Failed to load from: ${path} - Status: ${response.status}</p>`;
+            }
+          } catch (pathError) {
+            resultDiv.innerHTML += `<p style="color: red">Error with path ${path}: ${pathError.message}</p>`;
+          }
+        }
+      } catch (error) {
+        resultDiv.innerHTML += `<p style="color: red">General error: ${error.message}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
