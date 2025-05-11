@@ -201,19 +201,24 @@
 }
 
 /* Shoelace Dialog Customization for Sector Map */
-sl-dialog::part(panel), .sl-dialog::part(panel) {
+sl-dialog::part(panel) {
   background: rgba(24, 24, 27, 0.95); /* bg-zinc-900/95 */
   border-radius: 0.75rem;
   border: 1.5px solid #d97706; /* amber-600 */
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.45);
   color: #e7e5e4; /* stone-200 */
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 1rem;
+  max-width: 95vw;
+  width: 95vw;
+  box-sizing: border-box;
   margin-top: 6vh;
 }
 
 @media (min-width: 640px) {
-  sl-dialog::part(panel), .sl-dialog::part(panel) {
-    margin-top: 10vh;
+  sl-dialog::part(panel) {
+    max-width: 32rem;
+    width: auto;
+    padding: 1.5rem 2rem;
   }
 }
 
