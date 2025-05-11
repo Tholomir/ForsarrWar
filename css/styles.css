@@ -231,6 +231,14 @@ sl-dialog::part(panel) {
   }
 }
 
+sl-dialog::part(label) {
+  color: #d97706; /* Tailwind amber-600 */
+  font-weight: bold;
+  font-size: 1.5rem; /* text-2xl */
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
 /* Pulse Animations for Status Dots */
 @keyframes pulse-dot {
   0%, 100% {
