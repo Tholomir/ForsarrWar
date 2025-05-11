@@ -164,7 +164,9 @@
       const content = document.getElementById('system-info-content');
       if (systems[key]) {
         let html = `
-          <div class=\"flex items-center justify-between mb-4\">\n            <h2 class=\"text-amber-600 font-bold text-xl\">${systems[key].name}</h2>\n          </div>\n        `;
+          <div class=\"flex items-center justify-between mb-4\">\n
+          <h3 class=\"text-amber-600 font-bold text-xl\">${systems[key].name}</h3>\n
+          </div>\n`;
         systems[key].planets.forEach((planet, idx) => {
           const detailsId = `${key}-planet-accordion-${idx}`;
           html += `
