@@ -87,18 +87,27 @@
       <div class="relative bg-zinc-800/90 backdrop-blur-sm rounded-lg border border-amber-600/30 shadow-xl overflow-hidden p-4 md:p-8">
         <div class="relative w-full h-[60vw] max-h-[700px] min-h-[350px] flex items-center justify-center">
           <img src="../assets/images/Forsarr_Subsector_Map.png" alt="Forsarr Sector Map" class="w-full h-full object-contain rounded-lg border border-amber-600/30" />
-          <!-- Points of Interest -->
-          <button class="absolute z-20 bg-lime-400 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-lime focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 30%; left: 25%;" aria-label="Hive Forsarr" onclick="showPoiInfo('hive-forsarr')"></button>
-          <button class="absolute z-20 bg-blue-500 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 60%; left: 60%;" aria-label="Forsarr II" onclick="showPoiInfo('forsarr-ii')"></button>
-          <button class="absolute z-20 bg-red-500 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-red focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 40%; left: 70%;" aria-label="Chaos Warfleet" onclick="showPoiInfo('chaos-warfleet')"></button>
-          <button class="absolute z-20 bg-amber-400 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-amber focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 75%; left: 35%;" aria-label="Necron Tomb" onclick="showPoiInfo('necron-tomb')"></button>
+          <!-- Points of Interest: One per System -->
+          <button class="absolute z-20 bg-lime-400 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-lime focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 32%; left: 22%;" aria-label="Druscar System" onclick="showSystemInfo('druscar')"></button>
+          <button class="absolute z-20 bg-blue-500 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 60%; left: 60%;" aria-label="Kelthorn System" onclick="showSystemInfo('kelthorn')"></button>
+          <button class="absolute z-20 bg-red-500 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-red focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 40%; left: 70%;" aria-label="Vordrast System" onclick="showSystemInfo('vordrast')"></button>
+          <button class="absolute z-20 bg-amber-400 border-2 border-amber-600 rounded-full w-7 h-7 flex items-center justify-center shadow-glow-amber focus:outline-none focus:ring-2 focus:ring-amber-600" style="top: 75%; left: 35%;" aria-label="Zanthis System" onclick="showSystemInfo('zanthis')"></button>
         </div>
       </div>
     </section>
     <!-- Info Modal -->
-    <sl-dialog id="poi-dialog" label="Location Info" class="dialog-overview">
-      <div id="poi-info-content"></div>
+    <sl-dialog id="system-dialog" label="System Info" class="dialog-overview">
+      <div id="system-info-content"></div>
     </sl-dialog>
+    <!-- Principal Worlds Grid -->
+    <section class="max-w-7xl mx-auto py-12 md:py-16">
+      <div class="bg-zinc-800/90 rounded-lg border border-amber-600/30 shadow-xl p-6">
+        <h2 class="text-2xl md:text-3xl text-amber-600 font-bold mb-6">Principal Worlds of the Forsarr Sub-Sector</h2>
+        <div class="grid md:grid-cols-2 gap-8" id="principal-worlds-grid">
+          <!-- JS will populate this -->
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="bg-slate-800 border-t-2 border-amber-600 pt-12 pb-6">
@@ -148,50 +157,118 @@
   </footer>
   <script src="../js/main.js"></script>
   <script>
-    // POI info content
-    const poiData = {
-      'hive-forsarr': {
-        title: 'Hive Forsarr',
-        color: 'lime-400',
-        planetImg: '../assets/images/planets/planet_1.png',
-        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Hive Forsarr</h2>
-          <p class="text-stone-200 mb-2">The largest hive city in the sector, center of Imperial governance and site of major battles.</p>
-          <sl-badge variant="primary" pill>Imperium</sl-badge>`
+    // Systems and Planets Data
+    const systems = {
+      druscar: {
+        name: "Druscar System",
+        color: "lime-400",
+        planets: [
+          {
+            name: "Druscar Prime",
+            img: "../assets/images/planets/planet_1.png",
+            description: "Former sub-sector capital, now a ravaged husk.",
+            badge: { variant: "danger", text: "Imperial Ruin" }
+          }
+        ]
       },
-      'forsarr-ii': {
-        title: 'Forsarr II',
-        color: 'blue-500',
-        planetImg: '../assets/images/planets/planet_2.png',
-        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Forsarr II</h2>
-          <p class="text-stone-200 mb-2">A cold, resource-rich planet, recently the site of Necron activity deep beneath its surface.</p>
-          <sl-badge variant="warning" pill>Necron Activity</sl-badge>`
+      kelthorn: {
+        name: "Kelthorn System",
+        color: "blue-500",
+        planets: [
+          {
+            name: "Kelthorn II",
+            img: "../assets/images/planets/planet_3.png",
+            description: "Fallen forge-world, heart of the Dark Mechanicum.",
+            badge: { variant: "primary", text: "Dark Mechanicum" }
+          },
+          {
+            name: "Kelthorn IV",
+            img: "../assets/images/planets/planet_4.png",
+            description: "Stripped, lifeless planet, scoured by Tyranids.",
+            badge: { variant: "danger", text: "Tyranid Reclamation" }
+          }
+        ]
       },
-      'chaos-warfleet': {
-        title: 'Chaos Warfleet',
-        color: 'red-500',
-        planetImg: '../assets/images/planets/planet_3.png',
-        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Chaos Warfleet</h2>
-          <p class="text-stone-200 mb-2">A fleet of the Black Legion, currently blockading Imperial supply lines at the system's edge.</p>
-          <sl-badge variant="danger" pill>Chaos</sl-badge>`
+      vordrast: {
+        name: "Vordrast System",
+        color: "red-500",
+        planets: [
+          {
+            name: "Vordrast Prime",
+            img: "../assets/images/planets/planet_5.png",
+            description: "Ork-held scrap-moon, once a loyal forge-world.",
+            badge: { variant: "success", text: "Ork-held" }
+          }
+        ]
       },
-      'necron-tomb': {
-        title: 'Necron Tomb Complex',
-        color: 'amber-400',
-        planetImg: '../assets/images/planets/planet_4.png',
-        content: `<h2 class="text-amber-600 font-bold text-xl mb-2">Necron Tomb Complex</h2>
-          <p class="text-stone-200 mb-2">Ancient xenos structures discovered beneath the ice, now stirring with unknown power.</p>
-          <sl-badge variant="warning" pill>Xenos</sl-badge>`
+      zanthis: {
+        name: "Zanthis System",
+        color: "amber-400",
+        planets: [
+          {
+            name: "Zanthis III",
+            img: "../assets/images/planets/planet_6.png",
+            description: "Last Imperial bastion, besieged by the Death Guard.",
+            badge: { variant: "warning", text: "Imperial Bastion" }
+          }
+        ]
       }
     };
-    function showPoiInfo(key) {
-      const dialog = document.getElementById('poi-dialog');
-      const content = document.getElementById('poi-info-content');
-      if (poiData[key]) {
-        dialog.label = '';
-        content.innerHTML = `<img src="${poiData[key].planetImg}" alt="${poiData[key].title} planet image" class="w-full max-w-xs mx-auto mb-4 rounded-lg border border-amber-600/40 object-cover h-40" />` + poiData[key].content;
+
+    function showSystemInfo(key) {
+      const dialog = document.getElementById('system-dialog');
+      const content = document.getElementById('system-info-content');
+      if (systems[key]) {
+        let html = `<h2 class="text-amber-600 font-bold text-xl mb-2">${systems[key].name}</h2>`;
+        systems[key].planets.forEach(planet => {
+          html += `
+            <div class="mb-6">
+              <img src="${planet.img}" alt="${planet.name} image" class="w-full max-w-xs mx-auto mb-2 rounded-lg border border-amber-600/40 object-cover h-32" />
+              <h3 class="text-lg text-amber-600 font-semibold mb-1">${planet.name}</h3>
+              <p class="text-stone-200 mb-2">${planet.description}</p>
+              <sl-badge variant="${planet.badge.variant}" pill>${planet.badge.text}</sl-badge>
+            </div>
+          `;
+        });
+        content.innerHTML = html;
+        dialog.label = systems[key].name;
         dialog.show();
       }
     }
+
+    // Populate Principal Worlds Grid
+    function populatePrincipalWorldsGrid() {
+      const grid = document.getElementById('principal-worlds-grid');
+      let html = '';
+      Object.values(systems).forEach(system => {
+        html += `
+          <div class="mb-8">
+            <h3 class="text-lg text-amber-600 font-semibold mb-4 flex items-center">
+              <span class="inline-block w-4 h-4 bg-${system.color} rounded-full mr-3 shadow-glow-lime"></span>
+              ${system.name}
+            </h3>
+            <div class="grid gap-6 md:grid-cols-2">
+        `;
+        system.planets.forEach(planet => {
+          html += `
+              <div class="card-content-wrapper">
+                <div class="font-bold text-amber-600 text-lg flex items-center mb-3">
+                  <span class="inline-block w-4 h-4 bg-${system.color} rounded-full mr-3 shadow-glow-lime"></span>
+                  ${planet.name}
+                </div>
+                <p class="text-stone-200 mb-4">${planet.description}</p>
+                <div class="flex justify-between items-center pt-3 border-t border-zinc-700">
+                  <sl-badge variant="${planet.badge.variant}" pill>${planet.badge.text}</sl-badge>
+                  <span class="text-xs text-stone-400">${planet.name}</span>
+                </div>
+              </div>
+          `;
+        });
+        html += `</div></div>`;
+      });
+      grid.innerHTML = html;
+    }
+    document.addEventListener('DOMContentLoaded', populatePrincipalWorldsGrid);
   </script>
 </body>
 </html>
