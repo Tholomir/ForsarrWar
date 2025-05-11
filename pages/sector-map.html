@@ -224,21 +224,35 @@
       const dialog = document.getElementById('system-dialog');
       const content = document.getElementById('system-info-content');
       if (systems[key]) {
-        let html = `<h2 class=\"text-amber-600 font-bold text-xl mb-2\">${systems[key].name}</h2>`;
+        let html = `
+          <div class=\"flex items-center justify-between mb-4\">
+            <h2 class=\"text-amber-600 font-bold text-xl\">${systems[key].name}</h2>
+            <button type=\"button\" onclick=\"document.getElementById('system-dialog').hide()\" aria-label=\"Close\" class=\"text-stone-300 hover:text-amber-600 text-2xl font-bold focus:outline-none ml-4\">&times;</button>
+          </div>
+        `;
         systems[key].planets.forEach((planet, idx) => {
+          const detailsId = `${key}-planet-accordion-${idx}`;
           html += `
-            <div class=\"mb-6\">
+            <sl-details class=\"planet-accordion mb-4\" summary=\"${planet.name}\" id=\"${detailsId}\">
               <img src=\"${planet.img}\" alt=\"${planet.name} image\" class=\"w-full max-w-xs mx-auto mb-2 rounded-lg border border-amber-600/40 object-contain aspect-square\" />
-              <h3 class=\"text-lg text-amber-600 font-semibold mb-1\">${planet.name}</h3>
               <p class=\"text-stone-200 mb-2\">${planet.description}</p>
               <sl-badge variant=\"${planet.badge.variant}\" pill>${planet.badge.text}</sl-badge>
-              <sl-details class=\"mt-3\" summary=\"More details\">
-                <div class=\"text-stone-300 text-sm bg-zinc-900/80 rounded p-3 border border-amber-600/20\">${planet.details}</div>
-              </sl-details>
-            </div>
+              <div class=\"mt-3 text-stone-300 text-sm bg-zinc-900/80 rounded p-3 border border-amber-600/20\">${planet.details}</div>
+            </sl-details>
           `;
         });
         content.innerHTML = html;
+        // Accordion logic: only one open at a time
+        setTimeout(() => {
+          const accordions = content.querySelectorAll('.planet-accordion');
+          accordions.forEach((acc, i) => {
+            acc.addEventListener('sl-show', () => {
+              accordions.forEach((other, j) => {
+                if (i !== j) other.hide();
+              });
+            });
+          });
+        }, 0);
         dialog.label = systems[key].name;
         dialog.show();
       }
