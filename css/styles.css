@@ -232,11 +232,11 @@ sl-dialog::part(panel) {
 }
 
 sl-dialog::part(label) {
-  color: #d97706; /* Tailwind amber-600 */
-  font-weight: bold;
-  font-size: 1.5rem; /* text-2xl */
-  font-family: inherit;
-  letter-spacing: 0.01em;
+  color: #d97706 !important; /* Tailwind amber-600 */
+  font-weight: bold !important;
+  font-size: 1.5rem !important; /* text-2xl */
+  font-family: inherit !important;
+  letter-spacing: 0.01em !important;
 }
 
 /* Pulse Animations for Status Dots */
